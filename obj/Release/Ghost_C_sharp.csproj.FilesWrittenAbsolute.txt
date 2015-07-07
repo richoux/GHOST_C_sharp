@@ -1,0 +1,5 @@
+/share/Code/Unfuddle/Ghost_C#/obj/Release/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/share/Code/Unfuddle/Ghost_C#/bin/Release/GHOST.dll.mdb
+/share/Code/Unfuddle/Ghost_C#/bin/Release/GHOST.dll
+/share/Code/Unfuddle/Ghost_C#/obj/Release/GHOST.dll
+/share/Code/Unfuddle/Ghost_C#/obj/Release/GHOST.dll.mdb

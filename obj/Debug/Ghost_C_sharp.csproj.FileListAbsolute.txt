@@ -1,0 +1,12 @@
+D:\Code\Unfuddle\Ghost_C#\Ghost_C_sharp\bin\Debug\Ghost_C_sharp.dll
+D:\Code\Unfuddle\Ghost_C#\Ghost_C_sharp\bin\Debug\Ghost_C_sharp.pdb
+D:\Code\Unfuddle\Ghost_C#\Ghost_C_sharp\obj\Debug\Ghost_C_sharp.csprojResolveAssemblyReference.cache
+D:\Code\Unfuddle\Ghost_C#\Ghost_C_sharp\obj\Debug\Ghost_C_sharp.dll
+D:\Code\Unfuddle\Ghost_C#\Ghost_C_sharp\obj\Debug\Ghost_C_sharp.pdb
+D:\Code\Unfuddle\Ghost_C#\ghost\bin\Debug\GHOST.pdb
+D:\Code\Unfuddle\Ghost_C#\ghost\obj\Debug\GHOST.pdb
+D:\Code\Unfuddle\Ghost_C#\ghost\bin\Debug\GHOST.exe
+D:\Code\Unfuddle\Ghost_C#\ghost\obj\Debug\GHOST.exe
+D:\Code\Unfuddle\Ghost_C#\ghost\obj\Debug\Ghost_C_sharp.csprojResolveAssemblyReference.cache
+D:\Code\Unfuddle\Ghost_C#\obj\Debug\GHOST.exe
+D:\Code\Unfuddle\Ghost_C#\obj\Debug\GHOST.pdb
