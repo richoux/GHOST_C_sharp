@@ -312,28 +312,31 @@ namespace ghost
 
         for( int i = 0 ; i < Variables.GetNumberVariables() ; ++i )
         {
-          if( Variables.IsSelected( i ) && !Variables.IsOnStartingOrTargetTile( i ) )
+          if( Variables.IsSelected( i ) )
           {
-            width += Variables.Length( i );
-            height += Variables.Height( i );
-
-            // if we don't have a wall, penalise all buildings on the domain
-            // except those on starting and target tile
-            ++conflicts;
-            ++variableCost[ i ];
-
-            nberNeighbors = Variables.CountAround( i );
-
-            if( nberNeighbors == 0 || nberNeighbors > 2 ) // to change with Protoss and pylons
+            if( !Variables.IsOnStartingOrTargetTile( i ) )
             {
+              width += Variables.Length( i );
+              height += Variables.Height( i );
+
+              // if we don't have a wall, penalise all buildings on the domain
+              // except those on starting and target tile
               ++conflicts;
               ++variableCost[ i ];
 
-            }
-            else
-            {
-              if( nberNeighbors == 1 )
-                oneNeighborBuildings.Add( i );
+              nberNeighbors = Variables.CountAround( i );
+
+              if( nberNeighbors == 0 || nberNeighbors > 2 ) // to change with Protoss and pylons
+              {
+                ++conflicts;
+                ++variableCost[ i ];
+
+              }
+              else
+              {
+                if( nberNeighbors == 1 )
+                  oneNeighborBuildings.Add( i );
+              }
             }
           }
           else
