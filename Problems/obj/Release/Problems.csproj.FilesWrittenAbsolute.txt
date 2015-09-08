@@ -1,7 +1,0 @@
-/share/Code/Unfuddle/Ghost_C#/Problems/obj/Release/.NETFramework,Version=v4.5.AssemblyAttribute.cs
-/share/Code/Unfuddle/Ghost_C#/Problems/bin/Release/Problems.exe.mdb
-/share/Code/Unfuddle/Ghost_C#/Problems/bin/Release/Problems.exe
-/share/Code/Unfuddle/Ghost_C#/Problems/obj/Release/Problems.exe
-/share/Code/Unfuddle/Ghost_C#/Problems/obj/Release/Problems.exe.mdb
-/share/Code/Unfuddle/Ghost_C#/Problems/bin/Release/GHOST.dll
-/share/Code/Unfuddle/Ghost_C#/Problems/bin/Release/GHOST.dll.mdb

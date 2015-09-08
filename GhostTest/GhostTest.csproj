@@ -39,17 +39,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="VariableTest.cs" />
-    <Compile Include="BuildingTest.cs" />
     <Compile Include="DomainTest.cs" />
-    <Compile Include="SetBuildingsTest.cs" />
     <Compile Include="SetVariablesTest.cs" />
-    <Compile Include="ConstraintWallinTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\Ghost_C_sharp.csproj">
-      <Project>{41362AFB-FD60-4108-94B8-D08BBF1EDFAB}</Project>
-      <Name>Ghost_C_sharp</Name>
+    <ProjectReference Include="..\Ghost\Ghost.csproj">
+      <Project>{11B7D2E1-48AC-4722-81F9-2A59AC674344}</Project>
+      <Name>Ghost</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

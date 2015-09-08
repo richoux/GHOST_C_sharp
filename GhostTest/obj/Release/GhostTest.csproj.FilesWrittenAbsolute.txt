@@ -6,3 +6,11 @@
 /share/Code/Unfuddle/Ghost_C#/GhostTest/bin/Release/nunit.framework.dll
 /share/Code/Unfuddle/Ghost_C#/GhostTest/bin/Release/GHOST.dll
 /share/Code/Unfuddle/Ghost_C#/GhostTest/bin/Release/GHOST.dll.mdb
+/share/GitHub/GHOST_C_sharp/GhostTest/obj/Release/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/share/GitHub/GHOST_C_sharp/GhostTest/bin/Release/GhostTest.dll.mdb
+/share/GitHub/GHOST_C_sharp/GhostTest/bin/Release/GhostTest.dll
+/share/GitHub/GHOST_C_sharp/GhostTest/obj/Release/GhostTest.dll
+/share/GitHub/GHOST_C_sharp/GhostTest/obj/Release/GhostTest.dll.mdb
+/share/GitHub/GHOST_C_sharp/GhostTest/bin/Release/nunit.framework.dll
+/share/GitHub/GHOST_C_sharp/GhostTest/bin/Release/GHOST.dll
+/share/GitHub/GHOST_C_sharp/GhostTest/bin/Release/GHOST.dll.mdb

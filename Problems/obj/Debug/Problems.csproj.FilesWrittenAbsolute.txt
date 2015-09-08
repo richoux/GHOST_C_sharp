@@ -1,7 +1,0 @@
-/share/GitHub/GHOST_C_sharp/Problems/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
-/share/GitHub/GHOST_C_sharp/Problems/bin/Debug/Problems.exe.mdb
-/share/GitHub/GHOST_C_sharp/Problems/bin/Debug/Problems.exe
-/share/GitHub/GHOST_C_sharp/Problems/obj/Debug/Problems.exe
-/share/GitHub/GHOST_C_sharp/Problems/obj/Debug/Problems.exe.mdb
-/share/GitHub/GHOST_C_sharp/Problems/bin/Debug/GHOST.dll
-/share/GitHub/GHOST_C_sharp/Problems/bin/Debug/GHOST.dll.mdb
