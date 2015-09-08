@@ -1,4 +1,0 @@
-D:\Code\Unfuddle\Ghost_C#\ghost\bin\Debug\Ghost_C_sharp.dll
-D:\Code\Unfuddle\Ghost_C#\ghost\bin\Debug\Ghost_C_sharp.pdb
-D:\Code\Unfuddle\Ghost_C#\ghost\obj\Debug\Ghost_C_sharp.dll
-D:\Code\Unfuddle\Ghost_C#\ghost\obj\Debug\Ghost_C_sharp.pdb

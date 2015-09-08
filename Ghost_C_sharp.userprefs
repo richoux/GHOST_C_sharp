@@ -1,4 +1,4 @@
-﻿<Properties StartupItem="Ghost_C_sharp.csproj">
+﻿<Properties StartupItem="GhostTest/GhostTest.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

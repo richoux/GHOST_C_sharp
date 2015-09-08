@@ -3,5 +3,5 @@
 /share/GitHub/GHOST_C_sharp/Wallin/bin/Debug/Wallin.exe
 /share/GitHub/GHOST_C_sharp/Wallin/obj/x86/Debug/Wallin.exe
 /share/GitHub/GHOST_C_sharp/Wallin/obj/x86/Debug/Wallin.exe.mdb
-/share/GitHub/GHOST_C_sharp/Wallin/bin/Debug/GHOST.dll
-/share/GitHub/GHOST_C_sharp/Wallin/bin/Debug/GHOST.dll.mdb
+/share/GitHub/GHOST_C_sharp/Wallin/bin/Debug/Ghost.dll
+/share/GitHub/GHOST_C_sharp/Wallin/bin/Debug/Ghost.dll.mdb

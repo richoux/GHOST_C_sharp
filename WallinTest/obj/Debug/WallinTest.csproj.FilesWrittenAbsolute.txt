@@ -6,5 +6,5 @@
 /share/GitHub/GHOST_C_sharp/WallinTest/bin/Debug/nunit.framework.dll
 /share/GitHub/GHOST_C_sharp/WallinTest/bin/Debug/Wallin.exe
 /share/GitHub/GHOST_C_sharp/WallinTest/bin/Debug/Wallin.exe.mdb
-/share/GitHub/GHOST_C_sharp/WallinTest/bin/Debug/GHOST.dll
-/share/GitHub/GHOST_C_sharp/WallinTest/bin/Debug/GHOST.dll.mdb
+/share/GitHub/GHOST_C_sharp/WallinTest/bin/Debug/Ghost.dll
+/share/GitHub/GHOST_C_sharp/WallinTest/bin/Debug/Ghost.dll.mdb

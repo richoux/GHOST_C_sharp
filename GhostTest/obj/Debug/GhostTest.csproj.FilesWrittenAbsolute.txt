@@ -4,5 +4,5 @@
 /share/GitHub/GHOST_C_sharp/GhostTest/obj/Debug/GhostTest.dll
 /share/GitHub/GHOST_C_sharp/GhostTest/obj/Debug/GhostTest.dll.mdb
 /share/GitHub/GHOST_C_sharp/GhostTest/bin/Debug/nunit.framework.dll
-/share/GitHub/GHOST_C_sharp/GhostTest/bin/Debug/GHOST.dll
-/share/GitHub/GHOST_C_sharp/GhostTest/bin/Debug/GHOST.dll.mdb
+/share/GitHub/GHOST_C_sharp/GhostTest/bin/Debug/Ghost.dll
+/share/GitHub/GHOST_C_sharp/GhostTest/bin/Debug/Ghost.dll.mdb
