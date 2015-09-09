@@ -31,18 +31,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Diagnostics;
-using ghost;
 
 namespace Wallin
 {
-  public abstract class ObjectiveWallin : Objective< SetBuildings, Building >
+  public abstract class Objective : ghost.Objective< SetVariables, Variable >
   {
-    protected ObjectiveWallin( string name ) : base( name ) 
+    protected Objective( string name ) : base( name ) 
     { 
       SizeWall = Int32.MaxValue;
     }
 
-    public override double PostprocessSatisfaction( SetBuildings variables,
+    public override double PostprocessSatisfaction( SetVariables variables,
                                                    ref double bestCost,
                                                    List<int> solution,
                                                    double satTimeout )
@@ -121,7 +120,7 @@ namespace Wallin
       return startPostprocess.ElapsedMilliseconds;
     }
 
-    public override double PostprocessOptimization( SetBuildings variables,
+    public override double PostprocessOptimization( SetVariables variables,
                                                     ref double bestCost,
                                                     double optTimeout )
     {
@@ -204,11 +203,11 @@ namespace Wallin
   /**********/
   /* GapObj */
   /**********/
-  public class GapObjective : ObjectiveWallin
+  public class GapObjective : Objective
   {
     public GapObjective() : base( "wallinGap" ) { }
 
-    public override double Cost( SetBuildings variables )
+    public override double Cost( SetVariables variables )
     {
       double gaps = 0.0;
 
@@ -218,7 +217,7 @@ namespace Wallin
       return gaps;
     }
 
-    public override int HeuristicVariable( List<int> indexes, SetBuildings variables )
+    public override int HeuristicVariable( List<int> indexes, SetVariables variables )
     {
       var gapList = new List<int>();
 
@@ -235,7 +234,7 @@ namespace Wallin
       return largestGapIndex.Count == 1 ? largestGapIndex[ 0 ] : largestGapIndex[ Random.Next( 0, largestGapIndex.Count ) ];
     }
 
-    public override int HeuristicValue( List<int> valuesIndex, int variableIndex, SetBuildings variables )
+    public override int HeuristicValue( List<int> valuesIndex, int variableIndex, SetVariables variables )
     {
       if( variables.PossibleValues( variableIndex )[ valuesIndex[ 0 ] ] == -1 )
         return valuesIndex[ 0 ];
@@ -259,7 +258,7 @@ namespace Wallin
     }
 
 
-    private static int GapSize( int index, SetBuildings variables )
+    private static int GapSize( int index, SetVariables variables )
     {
       if( !variables.IsSelected( index ) )
         return 0;

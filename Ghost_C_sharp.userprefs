@@ -1,6 +1,10 @@
 ﻿<Properties StartupItem="GhostTest/GhostTest.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ResourceAllocation/src/ResourceAllocation.cs">
+    <Files>
+      <File FileName="ResourceAllocation/src/ResourceAllocation.cs" Line="13" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -44,9 +44,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BuildingTest.cs" />
-    <Compile Include="ConstraintWallinTest.cs" />
-    <Compile Include="SetBuildingsTest.cs" />
+    <Compile Include="src\ConstraintTest.cs" />
+    <Compile Include="src\SetVariablesTest.cs" />
+    <Compile Include="src\VariableTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Wallin\Wallin.csproj">
@@ -57,5 +57,8 @@
       <Project>{11B7D2E1-48AC-4722-81F9-2A59AC674344}</Project>
       <Name>Ghost</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\" />
   </ItemGroup>
 </Project>

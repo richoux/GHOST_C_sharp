@@ -28,19 +28,18 @@
  */
 
 using System;
-using ghost;
 
 namespace Wallin
 {
   public enum Race { Terran, Protoss, Zerg, Unknown };
 
-  public class Building : Variable, ICloneable
+  public class Variable : ghost.Variable, ICloneable
   {
-    public Building( string name, string fullName, Domain domain, int value = -1 ) 
+    public Variable( string name, string fullName, ghost.Domain domain, int value = -1 ) 
       : this( name, fullName, domain, 0, 0, 0, 0, 0, 0, Race.Unknown, 0, value )
     { }
 
-    public Building(string name, 
+    public Variable(string name, 
                     string fullName, 
                     int length,
                     int height,
@@ -53,7 +52,7 @@ namespace Wallin
                     int value = -1)
       : this( name,
               fullName,
-              new Domain( -1 ),
+              new ghost.Domain( -1 ),
               length,
               height,
               gapTop,
@@ -65,9 +64,9 @@ namespace Wallin
               value ) { }
 
 
-    public Building(string name, 
+    public Variable(string name, 
                     string fullName, 
-                    Domain domain,
+                    ghost.Domain domain,
                     int length,
                     int height,
                     int gapTop,
@@ -92,7 +91,7 @@ namespace Wallin
     #region ICloneable implementation
     public object Clone()
     {
-      return new Building( Name, FullName, (Domain)Domain.Clone(), Length, Height, GapTop, GapRight, GapBottom, GapLeft, Race, Treedepth, GetValue() );
+      return new Variable( Name, FullName, (ghost.Domain)Domain.Clone(), Length, Height, GapTop, GapRight, GapBottom, GapLeft, Race, Treedepth, GetValue() );
     }
     #endregion
 

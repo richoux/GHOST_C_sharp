@@ -31,15 +31,14 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using Wallin;
 using System;
-using System.Linq;
 
-namespace GhostTest
+namespace WallinTest
 {
   [TestFixture]
-  public class ConstraintWallinTest
+  public class ConstraintTest
   {
-    public static List<Building> list = new List<Building> { 
-      new Building( "a",
+    public static List<Variable> list = new List<Variable> { 
+      new Variable( "a",
                     "aa",
                     2,
                     2,
@@ -51,7 +50,7 @@ namespace GhostTest
                     0,
                     0 ), 
 
-      new Building( "b",
+      new Variable( "b",
                     "bb",
                     2,
                     2,
@@ -63,7 +62,7 @@ namespace GhostTest
                     0,
                     0 ),
 
-      new Building( "c",
+      new Variable( "c",
                     "cc",
                     2,
                     2,
@@ -76,11 +75,11 @@ namespace GhostTest
                     0 )
     }; 
 
-    public static SetBuildings setBuildings = new SetBuildings( list, 
+    public static SetVariables setBuildings = new SetVariables( list, 
                                                                 5, 
                                                                 5, 
-                                                                new SetBuildings.Point( 2, 3 ), 
-                                                                new SetBuildings.Point( 0, 0 ) );
+                                                                new SetVariables.Point( 2, 3 ), 
+                                                                new SetVariables.Point( 0, 0 ) );
 
     [Test]
     public void SimulateCostBaseTest()

@@ -30,19 +30,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ghost;
 
 namespace Wallin
 {
-  public class SetBuildings : SetVariables<Building>
+  public class SetVariables : ghost.SetVariables<Variable>
   {
     private List<string>[,] _matrixType;
     private List<int>[,] _matrixIndex;
 
-    public SetBuildings( List<Building> buildings, int row, int column, Point startingTile, Point targetTile )
+    public SetVariables( List<Variable> buildings, int row, int column, Point startingTile, Point targetTile )
       : this( buildings, row, column, startingTile, targetTile, new Dictionary<string, string>() )  { }
 
-    public SetBuildings( List<Building> buildings, 
+    public SetVariables( List<Variable> buildings, 
                         int row,
                         int column,
                         Point startingTile,
@@ -70,7 +69,7 @@ namespace Wallin
       {
         var positionWithoutOutsideScope = PossiblePositions( i );
         positionWithoutOutsideScope.Remove( -1 );
-        Variables[ i ].Domain = new Domain( positionWithoutOutsideScope, -1 );
+        Variables[ i ].Domain = new ghost.Domain( positionWithoutOutsideScope, -1 );
       }
     }
 
@@ -201,7 +200,7 @@ namespace Wallin
       {
         var positionWithoutOutsideScope = PossiblePositions( i );
         positionWithoutOutsideScope.Remove( -1 );
-        Variables[ i ].Domain = new Domain( positionWithoutOutsideScope, -1 );
+        Variables[ i ].Domain = new ghost.Domain( positionWithoutOutsideScope, -1 );
       }
     }
 

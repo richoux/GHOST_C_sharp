@@ -34,11 +34,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Building.cs" />
-    <Compile Include="ConstraintWallin.cs" />
-    <Compile Include="ObjectiveWallin.cs" />
-    <Compile Include="SetBuildings.cs" />
-    <Compile Include="Wallin.cs" />
+    <Compile Include="src\Wallin.cs" />
+    <Compile Include="src\Variable.cs" />
+    <Compile Include="src\Constraint.cs" />
+    <Compile Include="src\Objective.cs" />
+    <Compile Include="src\SetVariables.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -46,5 +46,8 @@
       <Project>{11B7D2E1-48AC-4722-81F9-2A59AC674344}</Project>
       <Name>Ghost</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\" />
   </ItemGroup>
 </Project>

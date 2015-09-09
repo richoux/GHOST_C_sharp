@@ -32,19 +32,19 @@ using NUnit.Framework;
 using Wallin;
 using System;
 
-namespace GhostTest
+namespace WallinTest
 {
   [TestFixture]
-  public class SetBuildingsTest
+  public class SetVariablesTest
   {
-    public static Building academy = new Building( "A", "Terran_Academy", 3, 2, 0, 3, 7, 8, Race.Terran, 2 );
-    public static Building barracks = new Building( "B", "Terran_Barracks", 4, 3, 8, 7, 15, 16, Race.Terran, 1 );
+    public static Variable academy = new Variable( "A", "Terran_Academy", 3, 2, 0, 3, 7, 8, Race.Terran, 2 );
+    public static Variable barracks = new Variable( "B", "Terran_Barracks", 4, 3, 8, 7, 15, 16, Race.Terran, 1 );
 
-    public static List<Building> list = new List<Building> { new Building( "X", "xxx", 1, 1, 0, 0, 0, 0, Race.Unknown, 0, 0 ), 
-                                                             (Building)academy.Clone(), 
-                                                             (Building)barracks.Clone(), 
-                                                             (Building)academy.Clone() };
-    public static SetBuildings setBuildings = new SetBuildings( list, 3, 4, new SetBuildings.Point( 2, 3 ), new SetBuildings.Point( 0, 0 ) );
+    public static List<Variable> list = new List<Variable> { new Variable( "X", "xxx", 1, 1, 0, 0, 0, 0, Race.Unknown, 0, 0 ), 
+                                                             (Variable)academy.Clone(), 
+                                                             (Variable)barracks.Clone(), 
+                                                             (Variable)academy.Clone() };
+    public static SetVariables setBuildings = new SetVariables( list, 3, 4, new SetVariables.Point( 2, 3 ), new SetVariables.Point( 0, 0 ) );
 
     [Test]
     public void IsSelectedTest()
@@ -73,7 +73,7 @@ namespace GhostTest
     [TestCase( 11, 2, 3 )]
     public void LineToMatrixTest( int p, int r, int c )
     {
-      SetBuildings.Point point = setBuildings.LineToMatrix( p );
+      SetVariables.Point point = setBuildings.LineToMatrix( p );
       Assert.AreEqual( c, point.HorizontalPosition );
       Assert.AreEqual( r, point.VerticalPosition );
     }
@@ -87,7 +87,7 @@ namespace GhostTest
     [TestCase( 11, 2, 3 )]
     public void MatrixToLineTest( int p, int r, int c )
     {
-      int val = setBuildings.MatrixToLine( new SetBuildings.Point( r, c ) );
+      int val = setBuildings.MatrixToLine( new SetVariables.Point( r, c ) );
       Assert.AreEqual( p, val );
     }
 
@@ -111,7 +111,7 @@ namespace GhostTest
     [Test]
     public void UnbuildableTest()
     {
-      var set = new SetBuildings( list, 10, 10, new SetBuildings.Point( 5, 5 ), new SetBuildings.Point( 0, 0 ) );
+      var set = new SetVariables( list, 10, 10, new SetVariables.Point( 5, 5 ), new SetVariables.Point( 0, 0 ) );
       set.Unbuildable( 4, 4 );
 
       for( int i = 0 ; i < 10 ; ++i )
@@ -121,7 +121,7 @@ namespace GhostTest
           else
             Assert.AreNotEqual( -1, set.Domain( 0 ).IndexOf( i * 10 + j ) );
 
-      var listPoint = new List<SetBuildings.Point> { new SetBuildings.Point( 3, 9 ), new SetBuildings.Point( 8, 7 ), new SetBuildings.Point( 1, 1 )};
+      var listPoint = new List<SetVariables.Point> { new SetVariables.Point( 3, 9 ), new SetVariables.Point( 8, 7 ), new SetVariables.Point( 1, 1 )};
       set.Unbuildable( listPoint );
       for( int i = 0 ; i < 10 ; ++i )
         for( int j = 0 ; j < 10 ; ++j )
@@ -146,7 +146,7 @@ namespace GhostTest
     [TestCase(25)]
     public void FitAtTest( int pos )
     {
-      var set = new SetBuildings( list, 5, 10, new SetBuildings.Point( 4, 5 ), new SetBuildings.Point( 0, 0 ) );
+      var set = new SetVariables( list, 5, 10, new SetVariables.Point( 4, 5 ), new SetVariables.Point( 0, 0 ) );
       Assert.IsTrue( set.FitAt( 1, pos ) );
     }
 
@@ -154,7 +154,7 @@ namespace GhostTest
     [TestCase(42)]
     public void DontFitAtTest( int pos )
     {
-      var set = new SetBuildings( list, 5, 10, new SetBuildings.Point( 4, 5 ), new SetBuildings.Point( 0, 0 ) );
+      var set = new SetVariables( list, 5, 10, new SetVariables.Point( 4, 5 ), new SetVariables.Point( 0, 0 ) );
       Assert.IsFalse( set.FitAt( 1, pos ) );
     }
       
@@ -172,7 +172,7 @@ namespace GhostTest
     [Test]
     public void MatrixIndexTests()
     {
-      var set = new SetBuildings( list, 5, 10, new SetBuildings.Point( 4, 5 ), new SetBuildings.Point( 0, 0 ) );
+      var set = new SetVariables( list, 5, 10, new SetVariables.Point( 4, 5 ), new SetVariables.Point( 0, 0 ) );
       set.SetValue( 1, 14 );
 
       for( int i = 0 ; i < 5 ; ++i )
@@ -352,13 +352,13 @@ namespace GhostTest
       Assert.AreEqual( 2, overlaps );
       Assert.AreEqual( 0, unbuild );
 
-      var listSmallBuildings = new List<Building> { new Building( "X", "xxx", 1, 1, 0, 0, 0, 0, Race.Unknown, 0, 0 ), 
-        new Building( "X", "xxx", 1, 1, 0, 0, 0, 0, Race.Unknown, 0, 0 ),
-        new Building( "X", "xxx", 1, 1, 0, 0, 0, 0, Race.Unknown, 0, 0 ),
-        new Building( "X", "xxx", 1, 1, 0, 0, 0, 0, Race.Unknown, 0, 0 ),
-        new Building( "X", "xxx", 1, 1, 0, 0, 0, 0, Race.Unknown, 0, 0 ) };
+      var listSmallBuildings = new List<Variable> { new Variable( "X", "xxx", 1, 1, 0, 0, 0, 0, Race.Unknown, 0, 0 ), 
+        new Variable( "X", "xxx", 1, 1, 0, 0, 0, 0, Race.Unknown, 0, 0 ),
+        new Variable( "X", "xxx", 1, 1, 0, 0, 0, 0, Race.Unknown, 0, 0 ),
+        new Variable( "X", "xxx", 1, 1, 0, 0, 0, 0, Race.Unknown, 0, 0 ),
+        new Variable( "X", "xxx", 1, 1, 0, 0, 0, 0, Race.Unknown, 0, 0 ) };
 
-      set = new SetBuildings( listSmallBuildings, 5, 10, new SetBuildings.Point( 4, 5 ), new SetBuildings.Point( 0, 0 ) );
+      set = new SetVariables( listSmallBuildings, 5, 10, new SetVariables.Point( 4, 5 ), new SetVariables.Point( 0, 0 ) );
       set.SetValue( 0, 25 );
       set.SetValue( 1, 26 );
       set.SetValue( 2, 35 );

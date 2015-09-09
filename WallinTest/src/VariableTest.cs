@@ -28,17 +28,16 @@
  */
 
 using NUnit.Framework;
-using ghost;
 using Wallin;
 
-namespace GhostTest
+namespace WallinTest
 {
   [TestFixture]
-  public class BuildingTest
+  public class VariableTest
   {
-    public static Building building = new Building("A",
+    public static Variable building = new Variable("A",
                                                    "Terran_Academy",
-                                                   new Domain( 16 * 12, 0 ),
+                                                   new ghost.Domain( 16 * 12, 0 ),
                                                    3,
                                                    2,
                                                    0,

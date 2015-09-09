@@ -29,13 +29,12 @@
 
 using System;
 using System.Collections.Generic;
-using ghost;
 
 namespace Wallin
 {
-  public abstract class ConstraintWallin : Constraint<SetBuildings, Building>
+  public abstract class Constraint : ghost.Constraint<SetVariables, Variable>
   {
-    protected ConstraintWallin( SetBuildings variables ) : base( variables ) { }
+    protected Constraint( SetVariables variables ) : base( variables ) { }
 
     public override Dictionary<int, double> SimulateCost( int currentVariableIndex,
                                                           Dictionary<int,  double[] > variableSimCost )
@@ -152,9 +151,9 @@ namespace Wallin
   /***********/
   /* Overlap */
   /***********/  
-  public class OverLap : ConstraintWallin
+  public class OverLap : Constraint
   {
-    public OverLap( SetBuildings variables ) : base( variables ) { }
+    public OverLap( SetVariables variables ) : base( variables ) { }
 
     public override double Cost( double[] variableCost )
     {
@@ -167,7 +166,7 @@ namespace Wallin
         {
           conflicts += nbConflict;
           var words = failures.Key.Split(',');
-          var point = new SetBuildings.Point( Int32.Parse(words[0]), Int32.Parse(words[1]) );
+          var point = new SetVariables.Point( Int32.Parse(words[0]), Int32.Parse(words[1]) );
           var setBuildings = Variables.BuildingsAt( point );
           foreach( var index in setBuildings )
             variableCost[ index ] += nbConflict;
@@ -220,9 +219,9 @@ namespace Wallin
   /*************/
   /* Buildable */
   /*************/  
-  public class Buildable : ConstraintWallin
+  public class Buildable : Constraint
   {
-    public Buildable( SetBuildings variables ) : base( variables ) { }
+    public Buildable( SetVariables variables ) : base( variables ) { }
 
     public override double Cost( double[] variableCost )
     {
@@ -237,7 +236,7 @@ namespace Wallin
           nbConflict = failures.Value.Length - 3;
           conflicts += nbConflict;
           var words = failures.Key.Split(',');
-          var point = new SetBuildings.Point( Int32.Parse(words[0]), Int32.Parse(words[1]) );
+          var point = new SetVariables.Point( Int32.Parse(words[0]), Int32.Parse(words[1]) );
           var setBuildings = Variables.BuildingsAt( point );
           foreach( var index in setBuildings )
             variableCost[ index ] += nbConflict;
@@ -290,9 +289,9 @@ namespace Wallin
   /*************/
   /* WallShape */
   /*************/  
-  public class WallShape : ConstraintWallin
+  public class WallShape : Constraint
   {
-    public WallShape( SetBuildings variables ) : base( variables ) { }
+    public WallShape( SetVariables variables ) : base( variables ) { }
 
     public override double Cost( double[] variableCost )
     {
@@ -384,9 +383,9 @@ namespace Wallin
   /***********************/
   /* StartingTargetTiles */
   /***********************/  
-  public class StartingTargetTiles : ConstraintWallin
+  public class StartingTargetTiles : Constraint
   {
-    public StartingTargetTiles( SetBuildings variables ) : base( variables ) { }
+    public StartingTargetTiles( SetVariables variables ) : base( variables ) { }
 
     public override double Cost( double[] variableCost )
     {
