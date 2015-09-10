@@ -99,13 +99,7 @@ namespace Wallin
     public bool IsSelected() { return IndexDomain >= 0; }
     public string RaceString()	
     { 
-      switch( Race ) 
-      {
-      case Race.Terran: return "Terran";
-      case Race.Protoss: return "Protoss";
-      case Race.Zerg: return "Zerg";
-      default: return "Unknown";
-      }
+      return Race.ToString();
     }
     
     public int Length { get; private set; }
