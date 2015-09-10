@@ -1,0 +1,7 @@
+/share/GitHub/GHOST_C_sharp/ResourceAllocation/obj/Release/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/share/GitHub/GHOST_C_sharp/ResourceAllocation/bin/Release/ResourceAllocation.exe.mdb
+/share/GitHub/GHOST_C_sharp/ResourceAllocation/bin/Release/ResourceAllocation.exe
+/share/GitHub/GHOST_C_sharp/ResourceAllocation/obj/Release/ResourceAllocation.exe
+/share/GitHub/GHOST_C_sharp/ResourceAllocation/obj/Release/ResourceAllocation.exe.mdb
+/share/GitHub/GHOST_C_sharp/ResourceAllocation/bin/Release/Ghost.dll
+/share/GitHub/GHOST_C_sharp/ResourceAllocation/bin/Release/Ghost.dll.mdb

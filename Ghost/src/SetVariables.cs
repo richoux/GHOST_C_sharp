@@ -39,6 +39,14 @@ namespace ghost
       Variables = variables;
     }
 
+    public void RandomInitialization()
+    {
+      foreach( Variable v in Variables )
+      {
+        v.SetValue( v.Domain.RandomValue() );
+      }
+    }
+
     public int GetNumberVariables()
     {
       return Variables.Count;
