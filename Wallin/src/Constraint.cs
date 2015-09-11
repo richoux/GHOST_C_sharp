@@ -451,7 +451,7 @@ namespace Wallin
         }
       }
 
-      return conflicts +10*Variables.GetNumberVariables();    
+      return conflicts;
     }
   }
 }

@@ -111,7 +111,7 @@ namespace Wallin
       var solver = new ghost.Solver< Variable, SetVariables, Constraint >( setBuildings, constraints, objective );
 
       Console.WriteLine( "Start solving trivial test" );
-      solver.solve( 20, 150 );
+      solver.solve( 20, 150, false );
 
 
         // 3.4 GHz, mono 20,150 7 tours 44 iterations

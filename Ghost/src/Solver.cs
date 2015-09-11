@@ -82,7 +82,7 @@ namespace ghost
     private List<int>            _bestSolution;	
     private bool                 _isNullObjective;
 
-    public double solve( double satTimeout, double optTimeout = 0 )
+    public double solve( double satTimeout, double optTimeout = 0, bool doRandomInitialization = true )
     {
       if( optTimeout.Equals(0) )
 	      optTimeout = satTimeout * 10;
@@ -134,6 +134,10 @@ namespace ghost
           if( globalCost.Equals( double.MaxValue ) )
       	  {
             _variables.ResetAllDomains();
+
+            if( doRandomInitialization )
+              _variables.RandomInitialization();
+            
             double cost = 0.0;
 
             foreach( var c in _constraints )

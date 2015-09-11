@@ -45,7 +45,6 @@ namespace RA
 
       var listUnits = MakeTerranUnits( domain );
       var setUnits = new SetVariables( listUnits );
-      setUnits.RandomInitialization();
 
       var constraints = new List< Constraint > {
         new MineralConstraint( setUnits, mineral ),
