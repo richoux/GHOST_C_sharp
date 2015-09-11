@@ -27,9 +27,14 @@ namespace RA
       var costs = new double[ variables.GetNumberVariables() ];
 
       for( int i = 0 ; i < variables.GetNumberVariables() ; ++i )
-        costs[ i ] += variables.GetValue( i ) * ( Data.Dataset[ variables.Name( i ) ].GroundAttack / Data.Dataset[ variables.Name( i ) ].GroundCooldown );
+        if( Data.Dataset[ variables.Name( i ) ].GroundAttack > 0 )
+          costs[ i ] = variables.GetValue( i ) * ( (double)Data.Dataset[ variables.Name( i ) ].GroundAttack / Data.Dataset[ variables.Name( i ) ].GroundCooldown );
 
-      return 1 / costs.Sum();
+      var total = costs.Sum();
+      if( total > 0 )
+        return 1 / total;
+      else
+        return double.MaxValue;
     }
   }
 }

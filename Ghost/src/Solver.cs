@@ -174,10 +174,6 @@ namespace ghost
 
           for( int i = 0; i < _variablesCost.Count(); ++i )
 	        {
-//            #if DEBUG
-//            Console.WriteLine("{2},{3} _variablesCost[{0}]:{1}", i, _variablesCost[i], tour, iterations);
-//            #endif
-
 	          if( !freeVariables || _tabuList[i] == 0 )
 	          {
 	            if( worstVariableCost < _variablesCost[i] )
@@ -215,21 +211,13 @@ namespace ghost
             for( int i = 0 ; i < _constraints.Count ; ++i )
               globalCostForEachValue[ j ] += constraintsCost[ i ][ j ];
 
-//            #if DEBUG
-//            Console.WriteLine("{2},{3} globalCostForEachValue[{0}]:{1}", j, globalCostForEachValue[ j ], tour, iterations);
-//            #endif
-
-            // replace all negative numbers by the max value for double
+           // replace all negative numbers by the max value for double
             if( globalCostForEachValue[ j ] < 0 )
               globalCostForEachValue[ j ] = double.MaxValue;
             else 
             {
               if( globalCostForEachValue[ j ] < bestSimulatedGlobalCost )
               {
-//                #if DEBUG
-//                Console.WriteLine("New best for {0}: {1} with cost {2}", worstVariableIndex, j, globalCostForEachValue[ j ]);
-//                #endif
-
                 bestSimulatedGlobalCost = globalCostForEachValue[ j ];
                 bestSimulatedGlobalCostsForValueSelection.Clear();
                 bestSimulatedGlobalCostsForValueSelection.Add( _variables.PossibleValues( worstVariableIndex ).IndexOf( j ) );
@@ -241,13 +229,6 @@ namespace ghost
 
 	        // look for the first smallest cost, according to objective heuristic
           bestSimulatedGlobalCostIndex = _objective.HeuristicValue( bestSimulatedGlobalCostsForValueSelection, worstVariableIndex, _variables );
-//          #if DEBUG
-//          Console.Write("Value index: ");
-//          foreach(var p in bestSimulatedGlobalCostsForValueSelection)
-//            Console.Write("{0} ", p);
-//          Console.WriteLine("\nbestSimulatedGlobalCostIndex: {0}", bestSimulatedGlobalCostIndex);
-//          #endif
-//
           bestVariablesCostList = allVariablesCostForEachValue[ _variables.PossibleValues( worstVariableIndex )[ bestSimulatedGlobalCostIndex ] ];
 
           if( bestSimulatedGlobalCost < globalCost )
@@ -286,9 +267,21 @@ namespace ghost
 	          _tabuList[ worstVariableIndex ] = tabuLength;
         } while( !globalCost.Equals( 0 ) && startTour.ElapsedMilliseconds < satTimeout && start.ElapsedMilliseconds < optTimeout );
 
-	      // remove useless buildings
-        if( globalCost.Equals( 0 ) )
+	      if( globalCost.Equals( 0 ) )
+        {
+          // compute the objective value
+          var objectiveCost = _objective.Cost( _variables );
+          if( _bestCost > objectiveCost )
+          {
+            _bestCost = objectiveCost;
+            _bestSolution.Clear();
+            for( int i = 0 ; i < _numberVariables ; ++i )
+              _bestSolution.Add( _variables.GetValue( i ) );
+          }
+
+          // eventually try to improve it via an ad-hoc post-process
 	        _objective.PostprocessSatisfaction( _variables, ref _bestCost, _bestSolution, satTimeout );
+        }
 
       } while( ( ( !_isNullObjective || _loops == 0 )  && ( start.ElapsedMilliseconds < optTimeout ) )
               || ( _isNullObjective && start.ElapsedMilliseconds < satTimeout * _loops ) );

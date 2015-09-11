@@ -1,15 +1,16 @@
 ﻿<Properties StartupItem="GhostTest/GhostTest.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Wallin/src/Constraint.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ResourceAllocation/src/ResourceAllocation.cs">
     <Files>
       <File FileName="ResourceAllocation/src/Data.cs" Line="1" Column="1" />
-      <File FileName="ResourceAllocation/src/ResourceAllocation.cs" Line="63" Column="1" />
+      <File FileName="ResourceAllocation/src/ResourceAllocation.cs" Line="76" Column="17" />
       <File FileName="ResourceAllocation/src/Constraint.cs" Line="1" Column="1" />
       <File FileName="ResourceAllocation/src/Objective.cs" Line="1" Column="1" />
       <File FileName="ResourceAllocation/src/SetVariables.cs" Line="1" Column="1" />
       <File FileName="ResourceAllocation/src/Variable.cs" Line="1" Column="1" />
-      <File FileName="Ghost/src/Solver.cs" Line="138" Column="13" />
-      <File FileName="Wallin/src/Constraint.cs" Line="454" Column="24" />
+      <File FileName="Ghost/src/Solver.cs" Line="1" Column="1" />
+      <File FileName="Wallin/src/Objective.cs" Line="1" Column="1" />
+      <File FileName="Ghost/src/Objective.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

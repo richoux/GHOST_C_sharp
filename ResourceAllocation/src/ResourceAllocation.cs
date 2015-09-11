@@ -24,6 +24,7 @@ namespace RA
     public static void Main( string[] args )
     {
       int mineral, gas, supply;
+      Data data = new Data();
 
       if( args.Length != 3 )
       {
@@ -57,6 +58,24 @@ namespace RA
 
       Console.WriteLine( "Start solving trivial test" );
       solver.solve( 20, 150 );
+
+      int mineralUsed = 0;
+      int gasUsed = 0;
+      double supplyUsed = 0.0;
+      double DPS = 0.0;
+
+      for( int i = 0 ; i < setUnits.GetNumberVariables() ; ++i )
+      {
+        mineralUsed += setUnits.GetValue( i ) * data.Dataset[ setUnits.Name( i ) ].CostMineral;
+        gasUsed += setUnits.GetValue( i ) * data.Dataset[ setUnits.Name( i ) ].CostGas;
+        supplyUsed += setUnits.GetValue( i ) * data.Dataset[ setUnits.Name( i ) ].CostSupply;
+        if( data.Dataset[ setUnits.Name( i ) ].GroundAttack > 0 )
+          DPS += setUnits.GetValue( i ) * ( (double)data.Dataset[ setUnits.Name( i ) ].GroundAttack / data.Dataset[ setUnits.Name( i ) ].GroundCooldown );
+      }
+
+      DPS *= 24;
+      Console.WriteLine( "DPS = " + DPS );
+      Console.WriteLine( "Mineral left: " + (mineral - mineralUsed) + ", gas left: " + (gas - gasUsed) + ", supply left: " + (supply - supplyUsed) );
     }
   }
 }
