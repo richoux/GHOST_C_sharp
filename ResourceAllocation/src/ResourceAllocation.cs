@@ -32,7 +32,7 @@ namespace RA
         //return;
         mineral = 1000;
         gas = 700;
-        supply = 50;
+        supply = 19;
       }
       else
       {
@@ -53,7 +53,7 @@ namespace RA
         new SupplyConstraint( setUnits, supply )
       };
 
-      var objective = new MaxDPS( "max DPS" );
+      var objective = new MaxDPS( "max DPS", mineral, gas, supply );
       var solver = new ghost.Solver< Variable, SetVariables, Constraint >( setUnits, constraints, objective );
 
       Console.WriteLine( "Start solving trivial test" );
