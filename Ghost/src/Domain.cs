@@ -33,14 +33,30 @@ using System.Linq;
 
 namespace ghost
 {
+  /**
+   * Domain is the class implementing variables' domains, ie, the set of possible values a variable can take.
+   * In GHOST, such values must be integers.
+   * 
+   * A domain contains, the list of current possible values of the variable it belongs to, 
+   * the initial list of such values (if one wants to reset the domain), an integer representing 
+   * values outside the domain scope and a pseudo-random number generator.
+   */
   public class Domain : ICloneable
   {
+    /**
+     * Basic constructor taking the outside-the-scope value (-1 by default).
+     */
     public Domain( int outsideScope = -1 )
     {
       OutsideScope = outsideScope;
       Random = new Random( Guid.NewGuid().GetHashCode() );
     }
 
+    /**
+     * Constructor taking the outside-the-scope value and a list of integer values, to 
+     * make both the initial and current possible variable values. The outside-the-scope value
+     * must not belong to this list, or an ArgumentException is raised.
+     */
     public Domain( List< int > domain, int outsideScope ): this( outsideScope )
     {
       if( domain.Contains( outsideScope ) )
@@ -50,6 +66,10 @@ namespace ghost
       InitialDomain = domain.ConvertAll( v => v );
     }
 
+    /**
+     * Constructor taking the domain size N and a starting value x, and creating a domain
+     * with all values in [x, x + N]. The outside-the-scope value is set to x-1.
+     */
     public Domain( int size, int startValue ) : this( startValue -1 )
     { 
       List<int> list = Enumerable.Range( startValue, size ).ToList();
@@ -71,60 +91,98 @@ namespace ghost
     }
     #endregion
 
-    // IsInitialized is useful to know if the Domain object
-    // is just an empty shell or a properly initialized domain.
-    // In some cases, it can be convenient to instanciate a domain
-    // object first and to fill it up with values latter.
+    /** 
+     * Used to know if the Domain object is just an empty shell or a properly 
+     * initialized domain. In some cases, it can be convenient to instanciate 
+     * a domain object first and to fill it up with values latter.
+     */
     public bool IsInitialized()
     {
       return CurrentDomain != null;
     }
 
+    /**
+     * Resets the set of current values to the set of initial values. 
+     * Allow the recover all values in the domain if we filtered some of them.
+     */
     public void ResetToInitial()
     {
       CurrentDomain = InitialDomain.ConvertAll( v => v );
     }
  
+    /**
+     * Deletes a given value from the set of current domain values.
+     * @param value the value to remove from the domain
+     * @return True if and only if the value has been removed.
+     */
     public bool RemoveValue( int value )
     {
       return CurrentDomain.Remove( value );
     }
 
+    /**
+     * Returns a random value from the domain.
+     * @return an integer with a (random) value from the domain.
+     */
     public int RandomValue()
     {
       return CurrentDomain[ Random.Next( 0, CurrentDomain.Count ) ];
     }
 
+    /**
+     * Get the number of values currently contained by the domain.
+     */
     public int GetSize()
     {
       return CurrentDomain.Count;
     }
 
+    /**
+     * Get the number of values initially contained by the domain.
+     */
     public int GetInitialSize()
     {
       return InitialDomain.Count;
     }
 
+    /**
+     * Get the highest value in the domain. 
+     */
     public int MaxValue()
     {
       return CurrentDomain.Max();
     }
 
+    /**
+     * Get the lowest value in the domain. 
+     */
     public int MinValue()
     {
       return CurrentDomain.Min();
     }
 
+    /**
+     * Get the highest value in the initial domain. 
+     */
     public int MaxInitialValue()
     {
       return InitialDomain.Max();
     }
 
+    /**
+     * Get the lowest value in the initial domain. 
+     */
     public int MinInitialValue()
     {
       return InitialDomain.Min();
     }
 
+    /**
+     * Get the value at the given index
+     * @param index the index of the desired value
+     * @return The value at the given index if this one is in the range of the domain, 
+     * otherwise the outside-the-scope value.
+     */
     public int GetValue( int index )
     {
       if( index >= 0 && index < CurrentDomain.Count )
@@ -133,6 +191,10 @@ namespace ghost
         return OutsideScope;
     }
 
+    /**
+     * Get the index of a given value.
+     * @return If the given value is in the domain, it returns its index, and -1 otherwise.
+     */ 
     public int IndexOf( int value )
     {
       return CurrentDomain.IndexOf( value );
@@ -142,9 +204,9 @@ namespace ghost
     public virtual void Print() { }
 #endif
 
-    protected List< int > CurrentDomain { get; set; }
-    protected List< int > InitialDomain { get; set; }
-    public int OutsideScope { get; protected set; }
-    protected Random Random { get; set; }
+    protected List< int > CurrentDomain { get; set; } /**< List of integers containing the current values of the domain */
+    protected List< int > InitialDomain { get; set; } /**< List of integers containing the initial values of the domain */
+    public int OutsideScope { get; protected set; } /**< Value representing all values the domain */
+    protected Random Random { get; set; } /**< A random generator only used in RandomValue() */
   }
 }

@@ -32,9 +32,23 @@ using System.Collections.Generic;
 
 namespace ghost
 {
+  /**
+   * Variable is the abstract class giving a generic interface of variables. 
+   * A variable is characterised by a name, a long name (called full name), a Domain and its current value (actually, an iterator on its Domain).
+   */
   public abstract class Variable
   {
+    /**
+     * Constructor where the domain will be instanciated by default.
+     */
     protected Variable( string name, string fullName ) : this( name, fullName, null, -1 ) { }
+
+    /**
+     * Regular constructor. The domain is cloned or instanciated if null. 
+     * The domain iterator is assigned to the index of value in Domain, 
+     * or to -42 if the Domain has not been initialized.
+     * @see Domain.IsInitialized()
+     */
     protected Variable( string name, string fullName, Domain domain, int value )
     {
       Name = name;
@@ -44,33 +58,56 @@ namespace ghost
       IndexDomain = Domain.IsInitialized() ? Domain.IndexOf( value ) : -42;
     }
             
+    /**
+     * Reset the variable's domain to its initial values.
+     * @see Domain.ResetToInitial()
+     */
     public void ResetDomain()
     {
       Domain.ResetToInitial();
     }
       
+    /**
+     * Set the current value to the next value in the domain, 
+     * or to the first one if we reach the domain upper bound.
+     */
     public void ShiftValue() 
     {
       if( IndexDomain >= 0 )
         IndexDomain = IndexDomain < Domain.GetSize() - 1 ? IndexDomain + 1 : 0;
     }
       
+    /**
+     * Set the current value to the previous value in the domain, 
+     * or to the last one if we reach the domain lower bound.
+     */
     public void UnshiftValue()
     {
       if( IndexDomain >= 0 )
         IndexDomain = IndexDomain > 0 ? IndexDomain - 1 : Domain.GetSize() - 1;
     }
 
+    /**
+     * To knwo the current variable value.
+     * @return An integer corresponding to the variable's current value.
+     */
     public int GetValue()
     {
       return Domain.GetValue( IndexDomain );
     }
 
+    /**
+     * Set the current value.
+     */
     public void SetValue( int value )
     {
       IndexDomain = Domain.IndexOf( value );
     }
 
+    /**
+     * To know what values are in the current domain.
+     * @return a List<int> of values belonging to the variable domain.
+     */
     public List<int> PossibleValues()
     {
       var possibleValues = new List<int>();
@@ -81,11 +118,11 @@ namespace ghost
       return possibleValues;
     }
 
-    public string Name { get; protected set; }
-    public string FullName { get; protected set; }
+    public string Name { get; protected set; } /**< Name is the short name of the variable. For instance, 'b'. */
+    public string FullName { get; protected set; } /**< FullName is the long name of the variable. For instance, 'building'. */
 
     private Domain _domain;
-    public Domain Domain
+    public Domain Domain /** The Domain, ie, the list of possible variable values */
     { 
       get { return _domain; }  
       set
@@ -102,6 +139,8 @@ namespace ghost
     public virtual void Print() { }
 #endif
 
-    protected int IndexDomain { get; set; }
+    protected int IndexDomain { get; set; } /**< A variable does not contain its current value directly, 
+                                                 but the domain index of its current value. 
+                                                 This acts like on iterator on the domain */
   }
 }
