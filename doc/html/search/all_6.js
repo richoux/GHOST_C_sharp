@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['name',['Name',['../classghost_1_1Variable.html#a1dba3848c7675d086eecad078178e4d9',1,'ghost::Variable']]],
-  ['nullobjective_3c_20typesetvariables_2c_20typevariable_20_3e',['NullObjective&lt; TypeSetVariables, TypeVariable &gt;',['../classghost_1_1NullObjective_3_01TypeSetVariables_00_01TypeVariable_01_4.html',1,'ghost']]]
+  ['maxinitialvalue',['MaxInitialValue',['../classghost_1_1Domain.html#a5cdcd82474cf092c917cff1bf4b9d526',1,'ghost::Domain']]],
+  ['maxvalue',['MaxValue',['../classghost_1_1Domain.html#a55aa4daa7f62b582d7f845946bc4dcd5',1,'ghost::Domain']]],
+  ['mininitialvalue',['MinInitialValue',['../classghost_1_1Domain.html#a8151d78526668ea28df7b7a4f368cce3',1,'ghost::Domain']]],
+  ['minvalue',['MinValue',['../classghost_1_1Domain.html#adaa1c7960de249e4e0e4441e2de5b89b',1,'ghost::Domain']]]
 ];

@@ -112,7 +112,7 @@ namespace ghost
  
     /**
      * Deletes a given value from the set of current domain values.
-     * @param value the value to remove from the domain
+     * @param value is the value to remove from the domain
      * @return True if and only if the value has been removed.
      */
     public bool RemoveValue( int value )
@@ -179,7 +179,7 @@ namespace ghost
 
     /**
      * Get the value at the given index
-     * @param index the index of the desired value
+     * @param index is the index of the desired value
      * @return The value at the given index if this one is in the range of the domain, 
      * otherwise the outside-the-scope value.
      */

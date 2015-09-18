@@ -31,14 +31,39 @@ using System.Collections.Generic;
 
 namespace ghost
 {
+  /**
+   * Constraint is the abstract class giving a generic interface of constraints.
+   * This class is generic, it needs to know both the Variable and the SetVariables types it will work with.
+   */  
   public abstract class Constraint<TypeSetVariables, TypeVariable> where TypeSetVariables : SetVariables<TypeVariable> where TypeVariable : Variable
   {
+    /**
+     * The unique constructor, taking a SetVariables in input.
+     */ 
     protected Constraint( TypeSetVariables variables )
     {
       Variables = variables;
     }
-    
+
+    /**
+     * An abstract function computing the cost of the constraint, regarding the current assignment of each variable.
+     * @param variableCost is an array of doubles. Values contained in this array when this function is called are not used. 
+     * The purpose of this array is to save the cost of each variable, while computing the constraint cost. 
+     * @return A double, the cost of the constraint.
+     */ 
     public abstract double Cost( double[] variableCost );
+
+    /**
+     * This function is called by the solver when it looks for a new value for a selected variable 
+     * (a variable the solver heuristics choose to modify in priority). Given this variable, SimulateCost 
+     * must try all values in the variable domain, computes the new constraint cost and saves 
+     * the couple (value, cost) into a Dictionary.
+     * @param currentVariableIndex is the index of variable to change the value.
+     * @param variableSimCost is a Dictionary<int, double[]>. Its purpose is to save the cost of each variable 
+     * in the set, and this for each value in the domain of the variable at the index currentVariableIndex.
+     * @return A Dictionary<int, double> containing the cost for each value in the domain of the variable at 
+     * the index currentVariableIndex.
+     */ 
     public abstract Dictionary<int, double> SimulateCost( int currentVariableIndex,
                                                           Dictionary< int, double[] > variableSimCost );
 
@@ -46,6 +71,6 @@ namespace ghost
     public virtual void Print() { }
 #endif
 
-    public TypeSetVariables Variables { get; protected set; }
+    public TypeSetVariables Variables { get; protected set; } /**< The set of all variables of the problem instance. */
   }
 }

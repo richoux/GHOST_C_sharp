@@ -32,13 +32,26 @@ using System;
 
 namespace ghost
 {
+  /**
+   * SetVariables is the class grouping all variables we need to instance a given problem.
+   * This class is generic, it needs to know the Variable type it will work with.
+   * 
+   * Sometimes, it can be convenient to share information among variables. This is the purpose of SetVariables. 
+   */
   public class SetVariables<TypeVariable> where TypeVariable : Variable
   {
+
+    /**
+     * The unique constructor taking a list of variables in input. 
+     */
     public SetVariables( List<TypeVariable> variables )
     {
       Variables = variables;
     }
 
+    /**
+     * Set each variable of the set to a random value, calling Domain.RandomValue(). 
+     */
     public void RandomInitialization()
     {
       foreach( Variable v in Variables )
@@ -47,11 +60,18 @@ namespace ghost
       }
     }
 
+    /**
+     * Returns the number of variables in the set. 
+     */
     public int GetNumberVariables()
     {
       return Variables.Count;
     }
 
+    /**
+     * Returns the sum of all variables domain size. Notice this does NOT return the 
+     * sum of variables initial domain size.
+     */
     public int GetSizeAllDomains()
     {
       int sum = 0;
@@ -62,16 +82,28 @@ namespace ghost
       return sum;
     }
 
+    /**
+     * Given a variable object, returns its index in the set.
+     * @return The index of the searched variable, or -1 if the given variable is not in the set.
+     */ 
     public int GetIndex( TypeVariable variable )
     {
       return Variables.IndexOf( variable );
     }
 
+    /**
+     * Tests if the given variable is in the set. 
+     */
     public bool IsInSet( TypeVariable variable )
     {
       return Variables.Contains( variable );
     }
 
+    /**
+     * Swap values of two variables.
+     * @param index1 is the index of the first variable.
+     * @param index2 is the index of the second variable.
+     */ 
     public void Swap( int index1, int index2 )
     {
       var tmp = Variables[ index1 ].GetValue();
@@ -79,29 +111,52 @@ namespace ghost
       Variables[ index2 ].SetValue( tmp );
     }
 
+    /**
+     * Reset the domain of a variable to its initial domain.
+     * @param index is the index of the considered variable. If the index is 
+     * out of range, the function does nothing.
+     */ 
     public virtual void ResetDomain( int index )
     {
       if( index >= 0 && index < Variables.Count )
         Variables[ index ].ResetDomain();
     }
 
+    /**
+     * Reset the domain of each variable to their initial domain.
+     */ 
     public virtual void ResetAllDomains()
     {
       Variables.ForEach( v => v.ResetDomain() );
     }
 
+    /**
+     * Calls Variable.ShiftValue() on a given variable.
+     * @param index is the index of the considered variable. If the index is 
+     * out of range, the function does nothing.
+     */ 
     public virtual void ShiftValue( int index ) 
     {
       if( index >= 0 && index < Variables.Count )
         Variables[ index ].ShiftValue();
     }
 
+    /**
+     * Calls Variable.UnshiftValue() on a given variable.
+     * @param index is the index of the considered variable. If the index is 
+     * out of range, the function does nothing.
+     */ 
     public virtual void UnshiftValue( int index )
     {
       if( index >= 0 && index < Variables.Count )
         Variables[ index ].UnshiftValue();
     }
       
+    /**
+     * Returns the value of a given variable.
+     * @param index is the index of the considered variable. If the index is 
+     * out of range, an IndexOutOfRangeException is raised.
+     */ 
     public virtual int GetValue( int index )
     {
       if( index >= 0 && index < Variables.Count )
@@ -110,12 +165,25 @@ namespace ghost
         throw new IndexOutOfRangeException("Bad index for GetValue method");
     }
 
+    /**
+     * Set the value of a given variable.
+     * @param index is the index of the considered variable. If the index is 
+     * out of range, the function does nothing.
+     * @param value is the new value to assign.
+     * @see Variable.SetValue()
+     */ 
     public virtual void SetValue( int index, int value )
     {
       if( index >= 0 && index < Variables.Count )
         Variables[ index ].SetValue( value );
     }
 
+    /**
+     * Returns the list of possible values of a given variable.
+     * @param index is the index of the considered variable. If the index is 
+     * out of range, an IndexOutOfRangeException is raised.
+     * @see Variable.PossibleValues()
+     */ 
     public virtual List<int> PossibleValues( int index )
     {
       if( index >= 0 && index < Variables.Count )
@@ -123,7 +191,13 @@ namespace ghost
       else
         throw new IndexOutOfRangeException("Bad index for PossibleValues method");
     }
-          
+
+    /**
+     * Returns the name of a given variable.
+     * @param index is the index of the considered variable. If the index is 
+     * out of range, an IndexOutOfRangeException is raised.
+     * @see Variable.Name()
+     */ 
     public string Name( int index )
     {
       if( index >= 0 && index < Variables.Count )
@@ -132,6 +206,12 @@ namespace ghost
         throw new IndexOutOfRangeException("Bad index for Name property");
     }
 
+    /**
+     * Returns the long name of a given variable.
+     * @param index is the index of the considered variable. If the index is 
+     * out of range, an IndexOutOfRangeException is raised.
+     * @see Variable.FullName()
+     */ 
     public string FullName( int index )
     {
       if( index >= 0 && index < Variables.Count )
@@ -140,6 +220,13 @@ namespace ghost
         throw new IndexOutOfRangeException("Bad index for FullName property");
     }
 
+    /**
+     * Returns the domain of a given variable. Notice the difference with SetVariables.PossibleValues: 
+     * here a Domain object is returned. 
+     * @param index is the index of the considered variable. If the index is 
+     * out of range, an IndexOutOfRangeException is raised.
+     * @see Variable.Domain()
+     */ 
     public Domain Domain( int index )
     {
       if( index >= 0 && index < Variables.Count )
@@ -152,7 +239,7 @@ namespace ghost
     public virtual void Print() { }
 //#endif
 
-    protected List<TypeVariable> Variables { get; set; }
+    protected List<TypeVariable> Variables { get; set; } /**< The set of variables, implemented as a List */
   }
 }
 

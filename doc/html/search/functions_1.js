@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['getinitialsize',['GetInitialSize',['../classghost_1_1Domain.html#abe541bbc525185aea9eae7b847e65502',1,'ghost::Domain']]],
-  ['getsize',['GetSize',['../classghost_1_1Domain.html#a797a22cd3459acea9b0b02262270c148',1,'ghost::Domain']]],
-  ['getvalue',['GetValue',['../classghost_1_1Domain.html#a3fd65cba4849f8de7f40285b73611629',1,'ghost.Domain.GetValue()'],['../classghost_1_1Variable.html#a13ab07f2257acacecaa3afe9910cd5d8',1,'ghost.Variable.GetValue()']]]
+  ['domain',['Domain',['../classghost_1_1Domain.html#a62af4592a700051d017678189d1f9d2a',1,'ghost.Domain.Domain(int outsideScope=-1)'],['../classghost_1_1Domain.html#ad73e5c9b5f2044affc5c45fe09f39577',1,'ghost.Domain.Domain(List&lt; int &gt; domain, int outsideScope)'],['../classghost_1_1Domain.html#ab3bd027fd023c60ba95ace0108a1c2f7',1,'ghost.Domain.Domain(int size, int startValue)'],['../classghost_1_1SetVariables_3_01TypeVariable_01_4.html#ab9627fb96652fc476da1a0d04ebdc815',1,'ghost.SetVariables&lt; TypeVariable &gt;.Domain()']]]
 ];

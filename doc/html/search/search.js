@@ -7,11 +7,11 @@
 
 var indexSectionsWithContent =
 {
-  0: "cdfgimnoprsuv",
+  0: "cdfghimnoprsuv",
   1: "cdnosv",
   2: "g",
-  3: "dgimprsuv",
-  4: "cdfinor"
+  3: "cdfghimnoprsuv",
+  4: "cdfinorv"
 };
 
 var indexSectionNames =

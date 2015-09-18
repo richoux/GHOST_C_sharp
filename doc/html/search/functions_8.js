@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['variable',['Variable',['../classghost_1_1Variable.html#a6f8316e07669cd8bf41257756bca929f',1,'ghost.Variable.Variable(string name, string fullName)'],['../classghost_1_1Variable.html#ac314e16271744bd04e8fdfa105b2afde',1,'ghost.Variable.Variable(string name, string fullName, Domain domain, int value)']]]
+  ['objective',['Objective',['../classghost_1_1Objective_3_01TypeSetVariables_00_01TypeVariable_01_4.html#a036b0e1d3b3678f38f5080a1a32e27f4',1,'ghost::Objective&lt; TypeSetVariables, TypeVariable &gt;']]]
 ];
