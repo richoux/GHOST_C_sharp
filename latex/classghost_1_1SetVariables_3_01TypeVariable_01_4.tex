@@ -1,0 +1,267 @@
+\hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4}{\section{ghost.\-Set\-Variables$<$ Type\-Variable $>$ Class Template Reference}
+\label{classghost_1_1SetVariables_3_01TypeVariable_01_4}\index{ghost.\-Set\-Variables$<$ Type\-Variable $>$@{ghost.\-Set\-Variables$<$ Type\-Variable $>$}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classghost_1_1SetVariables_3_01TypeVariable_01_4_aa4d6976b36cca380b1581584047f7ca1}{Set\-Variables} (List$<$ Type\-Variable $>$ variables)
+\item 
+void \hyperlink{classghost_1_1SetVariables_3_01TypeVariable_01_4_a1d8990709787aadaf0e5180aa0cf7414}{Random\-Initialization} ()
+\item 
+int \hyperlink{classghost_1_1SetVariables_3_01TypeVariable_01_4_ab56b789dea78a2a6b831b567efc3b3d0}{Get\-Number\-Variables} ()
+\item 
+int \hyperlink{classghost_1_1SetVariables_3_01TypeVariable_01_4_a2473f5c049d319412e81b440493d67e8}{Get\-Size\-All\-Domains} ()
+\item 
+int \hyperlink{classghost_1_1SetVariables_3_01TypeVariable_01_4_a2f8e4117bea08d33024b3da31baf5a09}{Get\-Index} (Type\-Variable variable)
+\item 
+bool \hyperlink{classghost_1_1SetVariables_3_01TypeVariable_01_4_a3554ef33a14c339391af02d0a04723b0}{Is\-In\-Set} (Type\-Variable variable)
+\item 
+void \hyperlink{classghost_1_1SetVariables_3_01TypeVariable_01_4_a3b1af09bf19f7d39d57b127da543133a}{Swap} (int index1, int index2)
+\item 
+virtual void \hyperlink{classghost_1_1SetVariables_3_01TypeVariable_01_4_ad4382f298c7b54fb6cb03a673051700f}{Reset\-Domain} (int index)
+\item 
+virtual void \hyperlink{classghost_1_1SetVariables_3_01TypeVariable_01_4_a2a1663cb1d1728506ed0c28a8701b18e}{Reset\-All\-Domains} ()
+\item 
+virtual void \hyperlink{classghost_1_1SetVariables_3_01TypeVariable_01_4_a4e762f134c7e90bf3aeb8f26d976dbe6}{Shift\-Value} (int index)
+\item 
+virtual void \hyperlink{classghost_1_1SetVariables_3_01TypeVariable_01_4_a67a402616d76235dd929099ebbe321a9}{Unshift\-Value} (int index)
+\item 
+virtual int \hyperlink{classghost_1_1SetVariables_3_01TypeVariable_01_4_a4a5330430dfd94a46a718e28a0355d91}{Get\-Value} (int index)
+\item 
+virtual void \hyperlink{classghost_1_1SetVariables_3_01TypeVariable_01_4_a6f4f72d36727cf96522ed6e5635b5c27}{Set\-Value} (int index, int value)
+\item 
+virtual List$<$ int $>$ \hyperlink{classghost_1_1SetVariables_3_01TypeVariable_01_4_ad382b5c9045b7f5d5bc1baf2b8121bb4}{Possible\-Values} (int index)
+\item 
+string \hyperlink{classghost_1_1SetVariables_3_01TypeVariable_01_4_adea50d515383d6c0252d36a164213d83}{Name} (int index)
+\item 
+string \hyperlink{classghost_1_1SetVariables_3_01TypeVariable_01_4_a7f32c243dd4c5b434c2b3d51c8b37e5e}{Full\-Name} (int index)
+\item 
+\hyperlink{classghost_1_1Domain}{Domain} \hyperlink{classghost_1_1SetVariables_3_01TypeVariable_01_4_ab9627fb96652fc476da1a0d04ebdc815}{Domain} (int index)
+\item 
+\hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4_ac254fd0d11c3effcaff7689d9954062b}{virtual void {\bfseries Print} ()}\label{classghost_1_1SetVariables_3_01TypeVariable_01_4_ac254fd0d11c3effcaff7689d9954062b}
+
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ Type\-Variable $>$ \hyperlink{classghost_1_1SetVariables_3_01TypeVariable_01_4_a1aa6a24ebcf2782dbd09e186e5c000d8}{Variables}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Set\-Variables is the class grouping all variables we need to instance a given problem. This class is generic, it needs to know the \hyperlink{classghost_1_1Variable}{Variable} type it will work with.
+
+Sometimes, it can be convenient to share information among variables. This is the purpose of Set\-Variables. \begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em Type\-Variable} : {\em \hyperlink{classghost_1_1Variable}{Variable}}]\end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4_aa4d6976b36cca380b1581584047f7ca1}{\index{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}!Set\-Variables@{Set\-Variables}}
+\index{Set\-Variables@{Set\-Variables}!ghost::SetVariables< TypeVariable >@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}}
+\subsubsection[{Set\-Variables}]{\setlength{\rightskip}{0pt plus 5cm}ghost.\-Set\-Variables$<$ Type\-Variable $>$.Set\-Variables (
+\begin{DoxyParamCaption}
+\item[{List$<$ Type\-Variable $>$}]{variables}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classghost_1_1SetVariables_3_01TypeVariable_01_4_aa4d6976b36cca380b1581584047f7ca1}
+The unique constructor taking a list of variables in input. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4_ab9627fb96652fc476da1a0d04ebdc815}{\index{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}!Domain@{Domain}}
+\index{Domain@{Domain}!ghost::SetVariables< TypeVariable >@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}}
+\subsubsection[{Domain}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Domain} ghost.\-Set\-Variables$<$ Type\-Variable $>$.{\bf Domain} (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classghost_1_1SetVariables_3_01TypeVariable_01_4_ab9627fb96652fc476da1a0d04ebdc815}
+Returns the domain of a given variable. Notice the difference with Set\-Variables.\-Possible\-Values\-: here a \hyperlink{classghost_1_1Domain}{Domain} object is returned. 
+\begin{DoxyParams}{Parameters}
+{\em index} & is the index of the considered variable. If the index is out of range, an Index\-Out\-Of\-Range\-Exception is raised. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{classghost_1_1Variable_aae96e8a30ff2f44dc115a0b51e136e92}{Variable.\-Domain()} 
+\end{DoxySeeAlso}
+\hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4_a7f32c243dd4c5b434c2b3d51c8b37e5e}{\index{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}!Full\-Name@{Full\-Name}}
+\index{Full\-Name@{Full\-Name}!ghost::SetVariables< TypeVariable >@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}}
+\subsubsection[{Full\-Name}]{\setlength{\rightskip}{0pt plus 5cm}string ghost.\-Set\-Variables$<$ Type\-Variable $>$.Full\-Name (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classghost_1_1SetVariables_3_01TypeVariable_01_4_a7f32c243dd4c5b434c2b3d51c8b37e5e}
+Returns the long name of a given variable. 
+\begin{DoxyParams}{Parameters}
+{\em index} & is the index of the considered variable. If the index is out of range, an Index\-Out\-Of\-Range\-Exception is raised. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{classghost_1_1Variable_af20c2f01306cba69f36d32babb703c1d}{Variable.\-Full\-Name()} 
+\end{DoxySeeAlso}
+\hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4_a2f8e4117bea08d33024b3da31baf5a09}{\index{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}!Get\-Index@{Get\-Index}}
+\index{Get\-Index@{Get\-Index}!ghost::SetVariables< TypeVariable >@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}}
+\subsubsection[{Get\-Index}]{\setlength{\rightskip}{0pt plus 5cm}int ghost.\-Set\-Variables$<$ Type\-Variable $>$.Get\-Index (
+\begin{DoxyParamCaption}
+\item[{Type\-Variable}]{variable}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classghost_1_1SetVariables_3_01TypeVariable_01_4_a2f8e4117bea08d33024b3da31baf5a09}
+Given a variable object, returns its index in the set. \begin{DoxyReturn}{Returns}
+The index of the searched variable, or -\/1 if the given variable is not in the set. 
+\end{DoxyReturn}
+\hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4_ab56b789dea78a2a6b831b567efc3b3d0}{\index{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}!Get\-Number\-Variables@{Get\-Number\-Variables}}
+\index{Get\-Number\-Variables@{Get\-Number\-Variables}!ghost::SetVariables< TypeVariable >@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}}
+\subsubsection[{Get\-Number\-Variables}]{\setlength{\rightskip}{0pt plus 5cm}int ghost.\-Set\-Variables$<$ Type\-Variable $>$.Get\-Number\-Variables (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classghost_1_1SetVariables_3_01TypeVariable_01_4_ab56b789dea78a2a6b831b567efc3b3d0}
+Returns the number of variables in the set. \hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4_a2473f5c049d319412e81b440493d67e8}{\index{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}!Get\-Size\-All\-Domains@{Get\-Size\-All\-Domains}}
+\index{Get\-Size\-All\-Domains@{Get\-Size\-All\-Domains}!ghost::SetVariables< TypeVariable >@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}}
+\subsubsection[{Get\-Size\-All\-Domains}]{\setlength{\rightskip}{0pt plus 5cm}int ghost.\-Set\-Variables$<$ Type\-Variable $>$.Get\-Size\-All\-Domains (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classghost_1_1SetVariables_3_01TypeVariable_01_4_a2473f5c049d319412e81b440493d67e8}
+Returns the sum of all variables domain size. Notice this does N\-O\-T return the sum of variables initial domain size. \hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4_a4a5330430dfd94a46a718e28a0355d91}{\index{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}!Get\-Value@{Get\-Value}}
+\index{Get\-Value@{Get\-Value}!ghost::SetVariables< TypeVariable >@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}}
+\subsubsection[{Get\-Value}]{\setlength{\rightskip}{0pt plus 5cm}virtual int ghost.\-Set\-Variables$<$ Type\-Variable $>$.Get\-Value (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classghost_1_1SetVariables_3_01TypeVariable_01_4_a4a5330430dfd94a46a718e28a0355d91}
+Returns the value of a given variable. 
+\begin{DoxyParams}{Parameters}
+{\em index} & is the index of the considered variable. If the index is out of range, an Index\-Out\-Of\-Range\-Exception is raised. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4_a3554ef33a14c339391af02d0a04723b0}{\index{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}!Is\-In\-Set@{Is\-In\-Set}}
+\index{Is\-In\-Set@{Is\-In\-Set}!ghost::SetVariables< TypeVariable >@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}}
+\subsubsection[{Is\-In\-Set}]{\setlength{\rightskip}{0pt plus 5cm}bool ghost.\-Set\-Variables$<$ Type\-Variable $>$.Is\-In\-Set (
+\begin{DoxyParamCaption}
+\item[{Type\-Variable}]{variable}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classghost_1_1SetVariables_3_01TypeVariable_01_4_a3554ef33a14c339391af02d0a04723b0}
+Tests if the given variable is in the set. \hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4_adea50d515383d6c0252d36a164213d83}{\index{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}!Name@{Name}}
+\index{Name@{Name}!ghost::SetVariables< TypeVariable >@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}}
+\subsubsection[{Name}]{\setlength{\rightskip}{0pt plus 5cm}string ghost.\-Set\-Variables$<$ Type\-Variable $>$.Name (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classghost_1_1SetVariables_3_01TypeVariable_01_4_adea50d515383d6c0252d36a164213d83}
+Returns the name of a given variable. 
+\begin{DoxyParams}{Parameters}
+{\em index} & is the index of the considered variable. If the index is out of range, an Index\-Out\-Of\-Range\-Exception is raised. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{classghost_1_1Variable_a1dba3848c7675d086eecad078178e4d9}{Variable.\-Name()} 
+\end{DoxySeeAlso}
+\hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4_ad382b5c9045b7f5d5bc1baf2b8121bb4}{\index{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}!Possible\-Values@{Possible\-Values}}
+\index{Possible\-Values@{Possible\-Values}!ghost::SetVariables< TypeVariable >@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}}
+\subsubsection[{Possible\-Values}]{\setlength{\rightskip}{0pt plus 5cm}virtual List$<$int$>$ ghost.\-Set\-Variables$<$ Type\-Variable $>$.Possible\-Values (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classghost_1_1SetVariables_3_01TypeVariable_01_4_ad382b5c9045b7f5d5bc1baf2b8121bb4}
+Returns the list of possible values of a given variable. 
+\begin{DoxyParams}{Parameters}
+{\em index} & is the index of the considered variable. If the index is out of range, an Index\-Out\-Of\-Range\-Exception is raised. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{classghost_1_1Variable_a4f3523cf1d3b5a8dc6db9f4661bea285}{Variable.\-Possible\-Values()} 
+\end{DoxySeeAlso}
+\hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4_a1d8990709787aadaf0e5180aa0cf7414}{\index{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}!Random\-Initialization@{Random\-Initialization}}
+\index{Random\-Initialization@{Random\-Initialization}!ghost::SetVariables< TypeVariable >@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}}
+\subsubsection[{Random\-Initialization}]{\setlength{\rightskip}{0pt plus 5cm}void ghost.\-Set\-Variables$<$ Type\-Variable $>$.Random\-Initialization (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classghost_1_1SetVariables_3_01TypeVariable_01_4_a1d8990709787aadaf0e5180aa0cf7414}
+Set each variable of the set to a random value, calling \hyperlink{classghost_1_1Domain_a953d7b49d7822b351e7c6df7e93c5fbc}{Domain.\-Random\-Value()}. \hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4_a2a1663cb1d1728506ed0c28a8701b18e}{\index{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}!Reset\-All\-Domains@{Reset\-All\-Domains}}
+\index{Reset\-All\-Domains@{Reset\-All\-Domains}!ghost::SetVariables< TypeVariable >@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}}
+\subsubsection[{Reset\-All\-Domains}]{\setlength{\rightskip}{0pt plus 5cm}virtual void ghost.\-Set\-Variables$<$ Type\-Variable $>$.Reset\-All\-Domains (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classghost_1_1SetVariables_3_01TypeVariable_01_4_a2a1663cb1d1728506ed0c28a8701b18e}
+Reset the domain of each variable to their initial domain. \hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4_ad4382f298c7b54fb6cb03a673051700f}{\index{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}!Reset\-Domain@{Reset\-Domain}}
+\index{Reset\-Domain@{Reset\-Domain}!ghost::SetVariables< TypeVariable >@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}}
+\subsubsection[{Reset\-Domain}]{\setlength{\rightskip}{0pt plus 5cm}virtual void ghost.\-Set\-Variables$<$ Type\-Variable $>$.Reset\-Domain (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classghost_1_1SetVariables_3_01TypeVariable_01_4_ad4382f298c7b54fb6cb03a673051700f}
+Reset the domain of a variable to its initial domain. 
+\begin{DoxyParams}{Parameters}
+{\em index} & is the index of the considered variable. If the index is out of range, the function does nothing. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4_a6f4f72d36727cf96522ed6e5635b5c27}{\index{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}!Set\-Value@{Set\-Value}}
+\index{Set\-Value@{Set\-Value}!ghost::SetVariables< TypeVariable >@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}}
+\subsubsection[{Set\-Value}]{\setlength{\rightskip}{0pt plus 5cm}virtual void ghost.\-Set\-Variables$<$ Type\-Variable $>$.Set\-Value (
+\begin{DoxyParamCaption}
+\item[{int}]{index, }
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classghost_1_1SetVariables_3_01TypeVariable_01_4_a6f4f72d36727cf96522ed6e5635b5c27}
+Set the value of a given variable. 
+\begin{DoxyParams}{Parameters}
+{\em index} & is the index of the considered variable. If the index is out of range, the function does nothing. \\
+\hline
+{\em value} & is the new value to assign. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{classghost_1_1Variable_a3b1051f1ae8e722e8733a64ee124486d}{Variable.\-Set\-Value()} 
+\end{DoxySeeAlso}
+\hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4_a4e762f134c7e90bf3aeb8f26d976dbe6}{\index{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}!Shift\-Value@{Shift\-Value}}
+\index{Shift\-Value@{Shift\-Value}!ghost::SetVariables< TypeVariable >@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}}
+\subsubsection[{Shift\-Value}]{\setlength{\rightskip}{0pt plus 5cm}virtual void ghost.\-Set\-Variables$<$ Type\-Variable $>$.Shift\-Value (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classghost_1_1SetVariables_3_01TypeVariable_01_4_a4e762f134c7e90bf3aeb8f26d976dbe6}
+Calls \hyperlink{classghost_1_1Variable_a96bc6a1826d8217cbdcbd77c6acd6107}{Variable.\-Shift\-Value()} on a given variable. 
+\begin{DoxyParams}{Parameters}
+{\em index} & is the index of the considered variable. If the index is out of range, the function does nothing. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4_a3b1af09bf19f7d39d57b127da543133a}{\index{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}!Swap@{Swap}}
+\index{Swap@{Swap}!ghost::SetVariables< TypeVariable >@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}}
+\subsubsection[{Swap}]{\setlength{\rightskip}{0pt plus 5cm}void ghost.\-Set\-Variables$<$ Type\-Variable $>$.Swap (
+\begin{DoxyParamCaption}
+\item[{int}]{index1, }
+\item[{int}]{index2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classghost_1_1SetVariables_3_01TypeVariable_01_4_a3b1af09bf19f7d39d57b127da543133a}
+Swap values of two variables. 
+\begin{DoxyParams}{Parameters}
+{\em index1} & is the index of the first variable. \\
+\hline
+{\em index2} & is the index of the second variable. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4_a67a402616d76235dd929099ebbe321a9}{\index{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}!Unshift\-Value@{Unshift\-Value}}
+\index{Unshift\-Value@{Unshift\-Value}!ghost::SetVariables< TypeVariable >@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}}
+\subsubsection[{Unshift\-Value}]{\setlength{\rightskip}{0pt plus 5cm}virtual void ghost.\-Set\-Variables$<$ Type\-Variable $>$.Unshift\-Value (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classghost_1_1SetVariables_3_01TypeVariable_01_4_a67a402616d76235dd929099ebbe321a9}
+Calls \hyperlink{classghost_1_1Variable_a94aabd7fa16ea55c30df67bc9b179300}{Variable.\-Unshift\-Value()} on a given variable. 
+\begin{DoxyParams}{Parameters}
+{\em index} & is the index of the considered variable. If the index is out of range, the function does nothing. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Property Documentation}
+\hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4_a1aa6a24ebcf2782dbd09e186e5c000d8}{\index{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}!Variables@{Variables}}
+\index{Variables@{Variables}!ghost::SetVariables< TypeVariable >@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}}
+\subsubsection[{Variables}]{\setlength{\rightskip}{0pt plus 5cm}List$<$Type\-Variable$>$ ghost.\-Set\-Variables$<$ Type\-Variable $>$.Variables\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}, {\ttfamily [protected]}}}\label{classghost_1_1SetVariables_3_01TypeVariable_01_4_a1aa6a24ebcf2782dbd09e186e5c000d8}
+The set of variables, implemented as a List 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Ghost/src/Set\-Variables.\-cs\end{DoxyCompactItemize}

@@ -1,0 +1,137 @@
+\hypertarget{classghost_1_1Variable}{\section{ghost.\-Variable Class Reference}
+\label{classghost_1_1Variable}\index{ghost.\-Variable@{ghost.\-Variable}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classghost_1_1Variable_abeb22408704798a971c6081a27d02512}{Reset\-Domain} ()
+\item 
+void \hyperlink{classghost_1_1Variable_a96bc6a1826d8217cbdcbd77c6acd6107}{Shift\-Value} ()
+\item 
+void \hyperlink{classghost_1_1Variable_a94aabd7fa16ea55c30df67bc9b179300}{Unshift\-Value} ()
+\item 
+int \hyperlink{classghost_1_1Variable_a13ab07f2257acacecaa3afe9910cd5d8}{Get\-Value} ()
+\item 
+void \hyperlink{classghost_1_1Variable_a3b1051f1ae8e722e8733a64ee124486d}{Set\-Value} (int value)
+\item 
+List$<$ int $>$ \hyperlink{classghost_1_1Variable_a4f3523cf1d3b5a8dc6db9f4661bea285}{Possible\-Values} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classghost_1_1Variable_a6f8316e07669cd8bf41257756bca929f}{Variable} (string name, string full\-Name)
+\item 
+\hyperlink{classghost_1_1Variable_ac314e16271744bd04e8fdfa105b2afde}{Variable} (string name, string full\-Name, \hyperlink{classghost_1_1Domain}{Domain} domain, int value)
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{classghost_1_1Variable_a1dba3848c7675d086eecad078178e4d9}{Name}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+string \hyperlink{classghost_1_1Variable_af20c2f01306cba69f36d32babb703c1d}{Full\-Name}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\hyperlink{classghost_1_1Domain}{Domain} \hyperlink{classghost_1_1Variable_aae96e8a30ff2f44dc115a0b51e136e92}{Domain}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+int \hyperlink{classghost_1_1Variable_a4fa08b5d46a4559d345d4752e7a790d2}{Index\-Domain}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classghost_1_1Variable}{Variable} is the abstract class giving a generic interface of variables. A variable is characterised by a name, a long name (called full name), a \hyperlink{classghost_1_1Domain}{Domain} and its current value (actually, an iterator on its \hyperlink{classghost_1_1Domain}{Domain}). 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classghost_1_1Variable_a6f8316e07669cd8bf41257756bca929f}{\index{ghost\-::\-Variable@{ghost\-::\-Variable}!Variable@{Variable}}
+\index{Variable@{Variable}!ghost::Variable@{ghost\-::\-Variable}}
+\subsubsection[{Variable}]{\setlength{\rightskip}{0pt plus 5cm}ghost.\-Variable.\-Variable (
+\begin{DoxyParamCaption}
+\item[{string}]{name, }
+\item[{string}]{full\-Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}}\label{classghost_1_1Variable_a6f8316e07669cd8bf41257756bca929f}
+Constructor where the domain will be instanciated by default. \hypertarget{classghost_1_1Variable_ac314e16271744bd04e8fdfa105b2afde}{\index{ghost\-::\-Variable@{ghost\-::\-Variable}!Variable@{Variable}}
+\index{Variable@{Variable}!ghost::Variable@{ghost\-::\-Variable}}
+\subsubsection[{Variable}]{\setlength{\rightskip}{0pt plus 5cm}ghost.\-Variable.\-Variable (
+\begin{DoxyParamCaption}
+\item[{string}]{name, }
+\item[{string}]{full\-Name, }
+\item[{{\bf Domain}}]{domain, }
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}}\label{classghost_1_1Variable_ac314e16271744bd04e8fdfa105b2afde}
+Regular constructor. The domain is cloned or instanciated if null. The domain iterator is assigned to the index of value in \hyperlink{classghost_1_1Domain}{Domain}, or to -\/42 if the \hyperlink{classghost_1_1Domain}{Domain} has not been initialized. \begin{DoxySeeAlso}{See Also}
+\hyperlink{classghost_1_1Domain_a19610b0d083f6a47eeb867fbcf8c0522}{Domain.\-Is\-Initialized()} 
+\end{DoxySeeAlso}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classghost_1_1Variable_a13ab07f2257acacecaa3afe9910cd5d8}{\index{ghost\-::\-Variable@{ghost\-::\-Variable}!Get\-Value@{Get\-Value}}
+\index{Get\-Value@{Get\-Value}!ghost::Variable@{ghost\-::\-Variable}}
+\subsubsection[{Get\-Value}]{\setlength{\rightskip}{0pt plus 5cm}int ghost.\-Variable.\-Get\-Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classghost_1_1Variable_a13ab07f2257acacecaa3afe9910cd5d8}
+To knwo the current variable value. \begin{DoxyReturn}{Returns}
+An integer corresponding to the variable's current value. 
+\end{DoxyReturn}
+\hypertarget{classghost_1_1Variable_a4f3523cf1d3b5a8dc6db9f4661bea285}{\index{ghost\-::\-Variable@{ghost\-::\-Variable}!Possible\-Values@{Possible\-Values}}
+\index{Possible\-Values@{Possible\-Values}!ghost::Variable@{ghost\-::\-Variable}}
+\subsubsection[{Possible\-Values}]{\setlength{\rightskip}{0pt plus 5cm}List$<$int$>$ ghost.\-Variable.\-Possible\-Values (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classghost_1_1Variable_a4f3523cf1d3b5a8dc6db9f4661bea285}
+To know what values are in the current domain. \begin{DoxyReturn}{Returns}
+a List$<$int$>$ of values belonging to the variable domain. 
+\end{DoxyReturn}
+\hypertarget{classghost_1_1Variable_abeb22408704798a971c6081a27d02512}{\index{ghost\-::\-Variable@{ghost\-::\-Variable}!Reset\-Domain@{Reset\-Domain}}
+\index{Reset\-Domain@{Reset\-Domain}!ghost::Variable@{ghost\-::\-Variable}}
+\subsubsection[{Reset\-Domain}]{\setlength{\rightskip}{0pt plus 5cm}void ghost.\-Variable.\-Reset\-Domain (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classghost_1_1Variable_abeb22408704798a971c6081a27d02512}
+Reset the variable's domain to its initial values. \begin{DoxySeeAlso}{See Also}
+\hyperlink{classghost_1_1Domain_a732f5cc39dba50b1abbfc37664a3bbb7}{Domain.\-Reset\-To\-Initial()} 
+\end{DoxySeeAlso}
+\hypertarget{classghost_1_1Variable_a3b1051f1ae8e722e8733a64ee124486d}{\index{ghost\-::\-Variable@{ghost\-::\-Variable}!Set\-Value@{Set\-Value}}
+\index{Set\-Value@{Set\-Value}!ghost::Variable@{ghost\-::\-Variable}}
+\subsubsection[{Set\-Value}]{\setlength{\rightskip}{0pt plus 5cm}void ghost.\-Variable.\-Set\-Value (
+\begin{DoxyParamCaption}
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classghost_1_1Variable_a3b1051f1ae8e722e8733a64ee124486d}
+Set the current value. \hypertarget{classghost_1_1Variable_a96bc6a1826d8217cbdcbd77c6acd6107}{\index{ghost\-::\-Variable@{ghost\-::\-Variable}!Shift\-Value@{Shift\-Value}}
+\index{Shift\-Value@{Shift\-Value}!ghost::Variable@{ghost\-::\-Variable}}
+\subsubsection[{Shift\-Value}]{\setlength{\rightskip}{0pt plus 5cm}void ghost.\-Variable.\-Shift\-Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classghost_1_1Variable_a96bc6a1826d8217cbdcbd77c6acd6107}
+Set the current value to the next value in the domain, or to the first one if we reach the domain upper bound. \hypertarget{classghost_1_1Variable_a94aabd7fa16ea55c30df67bc9b179300}{\index{ghost\-::\-Variable@{ghost\-::\-Variable}!Unshift\-Value@{Unshift\-Value}}
+\index{Unshift\-Value@{Unshift\-Value}!ghost::Variable@{ghost\-::\-Variable}}
+\subsubsection[{Unshift\-Value}]{\setlength{\rightskip}{0pt plus 5cm}void ghost.\-Variable.\-Unshift\-Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classghost_1_1Variable_a94aabd7fa16ea55c30df67bc9b179300}
+Set the current value to the previous value in the domain, or to the last one if we reach the domain lower bound. 
+
+\subsection{Property Documentation}
+\hypertarget{classghost_1_1Variable_aae96e8a30ff2f44dc115a0b51e136e92}{\index{ghost\-::\-Variable@{ghost\-::\-Variable}!Domain@{Domain}}
+\index{Domain@{Domain}!ghost::Variable@{ghost\-::\-Variable}}
+\subsubsection[{Domain}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Domain} ghost.\-Variable.\-Domain\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{classghost_1_1Variable_aae96e8a30ff2f44dc115a0b51e136e92}
+The \hyperlink{classghost_1_1Domain}{Domain}, ie, the list of possible variable values \hypertarget{classghost_1_1Variable_af20c2f01306cba69f36d32babb703c1d}{\index{ghost\-::\-Variable@{ghost\-::\-Variable}!Full\-Name@{Full\-Name}}
+\index{Full\-Name@{Full\-Name}!ghost::Variable@{ghost\-::\-Variable}}
+\subsubsection[{Full\-Name}]{\setlength{\rightskip}{0pt plus 5cm}string ghost.\-Variable.\-Full\-Name\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{classghost_1_1Variable_af20c2f01306cba69f36d32babb703c1d}
+Full\-Name is the long name of the variable. For instance, 'building'. \hypertarget{classghost_1_1Variable_a4fa08b5d46a4559d345d4752e7a790d2}{\index{ghost\-::\-Variable@{ghost\-::\-Variable}!Index\-Domain@{Index\-Domain}}
+\index{Index\-Domain@{Index\-Domain}!ghost::Variable@{ghost\-::\-Variable}}
+\subsubsection[{Index\-Domain}]{\setlength{\rightskip}{0pt plus 5cm}int ghost.\-Variable.\-Index\-Domain\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}, {\ttfamily [protected]}}}\label{classghost_1_1Variable_a4fa08b5d46a4559d345d4752e7a790d2}
+A variable does not contain its current value directly, but the domain index of its current value. This acts like on iterator on the domain \hypertarget{classghost_1_1Variable_a1dba3848c7675d086eecad078178e4d9}{\index{ghost\-::\-Variable@{ghost\-::\-Variable}!Name@{Name}}
+\index{Name@{Name}!ghost::Variable@{ghost\-::\-Variable}}
+\subsubsection[{Name}]{\setlength{\rightskip}{0pt plus 5cm}string ghost.\-Variable.\-Name\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{classghost_1_1Variable_a1dba3848c7675d086eecad078178e4d9}
+Name is the short name of the variable. For instance, 'b'. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Ghost/src/Variable.\-cs\end{DoxyCompactItemize}
