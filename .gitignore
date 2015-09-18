@@ -1,4 +1,4 @@
 *.exe
 *.mdb
 .fuse*
-html/
+doc/
