@@ -1,10 +1,12 @@
 ﻿<Properties StartupItem="GhostTest/GhostTest.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CannonPlacement/src/SetVariables.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ResourceAllocation/src/Constraint.cs">
     <Files>
-      <File FileName="CannonPlacement/src/Variable.cs" Line="14" Column="17" />
-      <File FileName="CannonPlacement/src/SetVariables.cs" Line="12" Column="5" />
-      <File FileName="Ghost/src/SetVariables.cs" Line="1" Column="1" />
+      <File FileName="ResourceAllocation/src/Variable.cs" Line="9" Column="65" />
+      <File FileName="ResourceAllocation/src/SetVariables.cs" Line="12" Column="1" />
+      <File FileName="ResourceAllocation/src/Data.cs" Line="57" Column="32" />
+      <File FileName="ResourceAllocation/src/Constraint.cs" Line="26" Column="22" />
+      <File FileName="ResourceAllocation/src/ResourceAllocation.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
