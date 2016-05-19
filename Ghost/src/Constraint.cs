@@ -45,13 +45,22 @@ namespace ghost
       Variables = variables;
     }
 
+    public abstract double Cost();
+    public double CostAndUpdateVarCost()
+    {
+      var cost = Cost();
+      foreach( TypeVariable v in Variables )
+        v.ProjectedCost += cost;
+      return cost;
+    }
+
     /**
      * An abstract function computing the cost of the constraint, regarding the current assignment of each variable.
      * @param variableCost is an array of doubles. Values contained in this array when this function is called are not used. 
      * The purpose of this array is to save the cost of each variable, while computing the constraint cost. 
      * @return A double, the cost of the constraint.
      */ 
-    public abstract double Cost( double[] variableCost );
+    //public abstract double Cost( double[] variableCost );
 
     /**
      * This function is called by the solver when it looks for a new value for a selected variable 

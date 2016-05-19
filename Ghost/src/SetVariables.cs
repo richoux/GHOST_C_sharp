@@ -235,6 +235,37 @@ namespace ghost
         throw new IndexOutOfRangeException("Bad index for Domain property");
     }
 
+    /**
+     * Returns the projected cost of a given variable.
+     * @param index is the index of the considered variable. If the index is 
+     * out of range, an IndexOutOfRangeException is raised.
+     */ 
+    public double GetProjectedCost( int index )
+    {
+      if( index >= 0 && index < Variables.Count )
+        return Variables[ index ].ProjectedCost;
+      else
+        throw new IndexOutOfRangeException("Bad index for GetProjectedCost method");
+    }
+
+    /**
+     * Set the projected cost of a given variable.
+     * @param index is the index of the considered variable. If the index is 
+     * out of range, the function does nothing.
+     * @param cost is the new projected cost to assign.
+     */ 
+    public void SetProjectedCost( int index, double cost )
+    {
+      if( index >= 0 && index < Variables.Count )
+        Variables[ index ].ProjectedCost = cost;
+    }
+
+    public void WipeProjectedCost()
+    {
+      foreach( TypeVariable v in Variables )
+        v.ProjectedCost = 0.0;
+    }
+
 //#if DEBUG
     public virtual void Print() { }
 //#endif

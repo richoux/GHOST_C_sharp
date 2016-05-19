@@ -40,7 +40,7 @@ namespace RA
       {
         double surplus = total - Resource;
         for( int i = 0 ; i < Variables.GetNumberVariables() ; ++i )
-          variableCost[ i ] = costs[ i ] >= surplus ? costs[ i ] : 0;
+          variableCost[ i ] += costs[ i ] >= surplus ? costs[ i ] : 0;
       }
 
       return total;
