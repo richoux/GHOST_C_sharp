@@ -97,7 +97,7 @@ namespace ghost
       
       var	constraintsCost = new Dictionary<int, double>[ _constraints.Count ];
       var	globalCostForEachValue = new Dictionary<int, double>();
-      var	allVariablesCostForEachValue = new Dictionary<int, double[] >();
+      //var	allVariablesCostForEachValue = new Dictionary<int, double[] >();
 
       _bestCost = double.MaxValue;
       double beforePostProc = double.MaxValue;
@@ -154,7 +154,7 @@ namespace ghost
             }
           }
 
-          // make sure there is at least one untabu variable
+          // check if there is at least one untabu variable
 	        bool freeVariables = false;
 
 	        // Update tabu list
@@ -189,7 +189,7 @@ namespace ghost
 //	          }
 //	        }
 
-          for( int i = 0; i < _variables.Count(); ++i )
+          for( int i = 0; i < _numberVariables; ++i )
           {
             if( !freeVariables || _tabuList[i] == 0 )
             {
@@ -211,12 +211,12 @@ namespace ghost
           //for( var i = 0 ; i < bestVariablesCostList.Count() ; ++i )
           //  bestVariablesCostList[i] = 0.0;
 
-          allVariablesCostForEachValue.Clear();
-          foreach( var i in _variables.PossibleValues( worstVariableIndex ) )
-            allVariablesCostForEachValue[ i ] = new double[ _numberVariables ];
+//          allVariablesCostForEachValue.Clear();
+//          foreach( var i in _variables.PossibleValues( worstVariableIndex ) )
+//            allVariablesCostForEachValue[ i ] = new double[ _numberVariables ];
 
 	        for( int i = 0 ; i < _constraints.Count ; ++i )
-            constraintsCost[i] = _constraints[i].SimulateCost( worstVariableIndex, allVariablesCostForEachValue );
+            constraintsCost[i] = _constraints[i].SimulateCost( worstVariableIndex );
 
           bestSimulatedGlobalCostsForValueSelection.Clear();
           bestSimulatedGlobalCost = double.MaxValue;

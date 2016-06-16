@@ -49,9 +49,13 @@ namespace ghost
     public double CostAndUpdateVarCost()
     {
       var cost = Cost();
-      foreach( TypeVariable v in Variables )
-        v.ProjectedCost += cost;
+      UpdateProjectedCost( cost );
       return cost;
+    }
+
+    public virtual void UpdateProjectedCost( double cost )
+    {
+      Variables.AddProjectedCostToAll( cost );
     }
 
     /**
@@ -68,13 +72,26 @@ namespace ghost
      * must try all values in the variable domain, computes the new constraint cost and saves 
      * the couple (value, cost) into a Dictionary.
      * @param currentVariableIndex is the index of variable to change the value.
-     * @param variableSimCost is a Dictionary<int, double[]>. Its purpose is to save the cost of each variable 
-     * in the set, and this for each value in the domain of the variable at the index currentVariableIndex.
      * @return A Dictionary<int, double> containing the cost for each value in the domain of the variable at 
      * the index currentVariableIndex.
      */ 
-    public abstract Dictionary<int, double> SimulateCost( int currentVariableIndex,
-                                                          Dictionary< int, double[] > variableSimCost );
+    public virtual Dictionary<int, double> SimulateCost( int currentVariableIndex )
+    {
+      // for each value in currentVariableIndex's domain, save the constraint cost value.
+      var simCosts = new Dictionary<int, double>();
+
+      int backup = Variables.GetValue( currentVariableIndex );
+
+      foreach( var pos in Variables.PossibleValues( currentVariableIndex ) )
+      {
+        Variables.SetValue( currentVariableIndex, pos );
+        simCosts[ pos ] = Cost();
+      }
+
+      Variables.SetValue( currentVariableIndex, backup );
+      return simCosts;
+    }
+
 
 #if DEBUG
     public virtual void Print() { }

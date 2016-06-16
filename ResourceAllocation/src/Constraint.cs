@@ -13,21 +13,22 @@ namespace RA
       Data = new Data();
     }
 
-    protected double Cost( double[] variableCost, string resourceType )
+    protected double Cost( string resourceType )
     {
       var costs = new double[ Variables.GetNumberVariables() ];
       for( int i = 0 ; i < Variables.GetNumberVariables() ; ++i )
       {
+        // optimizable with reflexion to call the switch just once and fix the resource we are interested by?
         switch( resourceType )
         { 
           case "mineral":
-            costs[ i ] += Variables.GetValue( i ) * Data.Dataset[ Variables.Name( i ) ].CostMineral;
+            costs[ i ] = Variables.GetValue( i ) * Data.Dataset[ Variables.Name( i ) ].CostMineral;
             break;
           case "gas":
-            costs[ i ] += Variables.GetValue( i ) * Data.Dataset[ Variables.Name( i ) ].CostGas;
+            costs[ i ] = Variables.GetValue( i ) * Data.Dataset[ Variables.Name( i ) ].CostGas;
             break;
           case "supply":
-            costs[ i ] += Variables.GetValue( i ) * Data.Dataset[ Variables.Name( i ) ].CostSupply;
+            costs[ i ] = Variables.GetValue( i ) * Data.Dataset[ Variables.Name( i ) ].CostSupply;
             break;
         }
       }
@@ -38,16 +39,40 @@ namespace RA
         return 0;
       else
       {
-        double surplus = total - Resource;
-        for( int i = 0 ; i < Variables.GetNumberVariables() ; ++i )
-          variableCost[ i ] += costs[ i ] >= surplus ? costs[ i ] : 0;
+//        double surplus = total - Resource;
+//        for( int i = 0 ; i < Variables.GetNumberVariables() ; ++i )
+//          variableCost[ i ] += costs[ i ] >= surplus ? costs[ i ] : 0;
       }
 
       return total;
     }
 
-    protected Dictionary<int, double> SimulateCost( int currentVariableIndex,
-                                                    Dictionary< int, double[] > variableSimCost,
+    public void UpdateProjectedCost( double cost, string resourceType )
+    {
+      double surplus = cost - Resource;
+      double resourceCost = 0.0;
+
+      for( int i = 0 ; i < Variables.GetNumberVariables() ; ++i )
+      {
+        // optimizable with reflexion to call the switch just once and fix the resource we are interested by?
+        switch( resourceType )
+        { 
+        case "mineral":
+          resourceCost = Variables.GetValue( i ) * Data.Dataset[ Variables.Name( i ) ].CostMineral;
+          break;
+        case "gas":
+          resourceCost = Variables.GetValue( i ) * Data.Dataset[ Variables.Name( i ) ].CostGas;
+          break;
+        case "supply":
+          resourceCost = Variables.GetValue( i ) * Data.Dataset[ Variables.Name( i ) ].CostSupply;
+          break;
+        }
+        if( resourceCost >= surplus ) 
+          Variables.AddProjectedCost( i, resourceCost );
+      }                                   
+    }
+
+    protected Dictionary<int, double> SimulateCost( int currentVariableIndex,                                                    
                                                     string resourceType )
     {
       // for each value in currentVariableIndex's domain, save the constraint cost value.
@@ -58,7 +83,7 @@ namespace RA
       foreach( var pos in Variables.PossibleValues( currentVariableIndex ) )
       {
         Variables.SetValue( currentVariableIndex, pos );
-        simCosts[ pos ] = Cost( variableSimCost[ pos ], resourceType );
+        simCosts[ pos ] = Cost( resourceType );
       }
 
       Variables.SetValue( currentVariableIndex, backup );
@@ -78,15 +103,19 @@ namespace RA
   {
     public MineralConstraint( SetVariables variables, double resource ) : base( variables, resource ) {}
 
-    override public double Cost( double[] variableCost )
+    override public double Cost()
     {
-      return Cost( variableCost, "mineral" );
+      return Cost( "mineral" );
     }
 
-    override public Dictionary<int, double> SimulateCost( int currentVariableIndex,
-                                                 Dictionary< int, double[] > variableSimCost )
+    override public Dictionary<int, double> SimulateCost( int currentVariableIndex )
     {
-      return SimulateCost( currentVariableIndex, variableSimCost, "mineral" );
+      return SimulateCost( currentVariableIndex, "mineral" );
+    }
+
+    override public void UpdateProjectedCost( double cost )
+    {
+      UpdateProjectedCost( cost, "mineral" );
     }
   }
 
@@ -98,15 +127,19 @@ namespace RA
   {
     public GasConstraint( SetVariables variables, double resource ) : base( variables, resource ) {}
 
-    override public double Cost( double[] variableCost )
+    override public double Cost()
     {
-      return Cost( variableCost, "gas" );
+      return Cost( "gas" );
     }
 
-    override public Dictionary<int, double> SimulateCost( int currentVariableIndex,
-                                                Dictionary< int, double[] > variableSimCost )
+    override public Dictionary<int, double> SimulateCost( int currentVariableIndex )
     {
-      return SimulateCost( currentVariableIndex, variableSimCost, "gas" );
+      return SimulateCost( currentVariableIndex, "gas" );
+    }
+
+    override public void UpdateProjectedCost( double cost )
+    {
+      UpdateProjectedCost( cost, "gas" );
     }
   }
 
@@ -118,15 +151,19 @@ namespace RA
   {
     public SupplyConstraint( SetVariables variables, double resource ) : base( variables, resource ) {}
 
-    override public double Cost( double[] variableCost )
+    override public double Cost()
     {
-      return Cost( variableCost, "supply" );
+      return Cost( "supply" );
     }
 
-    override public Dictionary<int, double> SimulateCost( int currentVariableIndex,
-                                                Dictionary< int, double[] > variableSimCost )
+    override public Dictionary<int, double> SimulateCost( int currentVariableIndex )
     {
-      return SimulateCost( currentVariableIndex, variableSimCost, "supply" );
+      return SimulateCost( currentVariableIndex, "supply" );
+    }
+
+    override public void UpdateProjectedCost( double cost )
+    {
+      UpdateProjectedCost( cost, "supply" );
     }
   }
 
