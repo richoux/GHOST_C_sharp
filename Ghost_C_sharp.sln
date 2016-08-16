@@ -8,17 +8,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Performance1.psess = Performance1.psess
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GhostTest", "GhostTest\GhostTest.csproj", "{4EA61454-2716-4795-8F75-AA4751091A05}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wallin", "Wallin\Wallin.csproj", "{D1B120FC-B027-4B14-A386-5AB6B210087E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WallinTest", "WallinTest\WallinTest.csproj", "{7B6B9A5E-B75C-44C5-B6BF-B1F36077280E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ghost", "Ghost\Ghost.csproj", "{11B7D2E1-48AC-4722-81F9-2A59AC674344}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Problems", "Problems", "{F5EF3C93-F2C0-40DB-BF6E-C8A680F5A912}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CannonPlacement", "CannonPlacement\CannonPlacement.csproj", "{016A79D1-5485-4513-AD8B-A3DF845892AF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceAllocation", "ResourceAllocation\ResourceAllocation.csproj", "{8A5C7C62-5D78-4606-9084-948B62FE684F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CannonPlacement", "CannonPlacement\CannonPlacement.csproj", "{016A79D1-5485-4513-AD8B-A3DF845892AF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wallin", "Wallin\Wallin.csproj", "{D1B120FC-B027-4B14-A386-5AB6B210087E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4E5810DF-20DD-4D86-9656-AF49A8F89CAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GhostTest", "GhostTest\GhostTest.csproj", "{4EA61454-2716-4795-8F75-AA4751091A05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WallinTest", "WallinTest\WallinTest.csproj", "{7B6B9A5E-B75C-44C5-B6BF-B1F36077280E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -78,6 +82,11 @@ Global
 		{D1B120FC-B027-4B14-A386-5AB6B210087E}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{016A79D1-5485-4513-AD8B-A3DF845892AF} = {F5EF3C93-F2C0-40DB-BF6E-C8A680F5A912}
+		{8A5C7C62-5D78-4606-9084-948B62FE684F} = {F5EF3C93-F2C0-40DB-BF6E-C8A680F5A912}
+		{D1B120FC-B027-4B14-A386-5AB6B210087E} = {F5EF3C93-F2C0-40DB-BF6E-C8A680F5A912}
+		{4EA61454-2716-4795-8F75-AA4751091A05} = {4E5810DF-20DD-4D86-9656-AF49A8F89CAA}
+		{7B6B9A5E-B75C-44C5-B6BF-B1F36077280E} = {4E5810DF-20DD-4D86-9656-AF49A8F89CAA}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		BaseDirectory = .

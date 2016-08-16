@@ -3,6 +3,5 @@
 /share/GitHub/GHOST_C_sharp/GhostTest/bin/Release/GhostTest.dll
 /share/GitHub/GHOST_C_sharp/GhostTest/obj/Release/GhostTest.dll
 /share/GitHub/GHOST_C_sharp/GhostTest/obj/Release/GhostTest.dll.mdb
-/share/GitHub/GHOST_C_sharp/GhostTest/bin/Release/nunit.framework.dll
 /share/GitHub/GHOST_C_sharp/GhostTest/bin/Release/Ghost.dll
 /share/GitHub/GHOST_C_sharp/GhostTest/bin/Release/Ghost.dll.mdb
