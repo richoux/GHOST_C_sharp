@@ -1,4 +1,5 @@
 *.exe
 *.mdb
 .fuse*
+Ghost_C_sharp.userprefs
 doc/
