@@ -45,7 +45,16 @@ namespace ghost
       Variables = variables;
     }
 
+    /**
+     * Abstract function computing the cost of the constraint.
+     * @return A double, the cost of the constraint, ie, the value indicating how much the constraint is violated. The smaller the better. Zero means the constraint is satisfied.
+     */ 
     public abstract double Cost();
+
+    /**
+     * CostAndUpdateVarCost is a function calling Cost() then UpdateProjectedCost().
+     * @return The value returned by Cost(), ie, a double representing the cost of the constraint.
+     */ 
     public double CostAndUpdateVarCost()
     {
       var cost = Cost();
@@ -53,6 +62,10 @@ namespace ghost
       return cost;
     }
 
+    /**
+     * Virtual function calling AddProjectedCostToAll on the set of variables.
+     * @param A double representing the current cost of the constraint.
+     */
     public virtual void UpdateProjectedCost( double cost )
     {
       Variables.AddProjectedCostToAll( cost );

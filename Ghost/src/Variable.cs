@@ -136,7 +136,8 @@ namespace ghost
       }
     }
 
-    public double ProjectedCost { get; set; }
+    public double ProjectedCost { get; set; } /**< ProjectedCost is the local cost of the variable, ie, the value indicating how much 
+                                                   the variable participate to constraints violation. The smaller the better.*/
 
 #if DEBUG
     public virtual void Print() { }
