@@ -51,31 +51,31 @@ namespace GhostTest
       var v1 = new VariableWrapper( "a", "bb" );
       var v2 = new VariableWrapper( "a", "bb" );
       var v3 = new VariableWrapper( "a", "bb" );
-      Assert.AreEqual( "a", v1.Name );
-      Assert.AreEqual( "bb", v1.FullName );
-      Assert.AreEqual( -1, v1.GetValue() );
+      Assert.That( v1.Name, Is.EqualTo( "a" ) );
+      Assert.That( v1.FullName, Is.EqualTo( "bb" ) );
+      Assert.That( v1.GetValue(), Is.EqualTo( -1 ) );
 
       v1 = new VariableWrapper( "a", "bb", new Domain( 5, 0 ), 4 );
       v2 = new VariableWrapper( "a", "bb", new Domain( 20, -4 ), -5 );
       v3 = new VariableWrapper( "a", "bb", new Domain( 10, 1 ), -2 );
-      Assert.AreEqual( 4, v1.GetValue() );
-      Assert.AreEqual( -5, v2.GetValue() );
-      Assert.AreEqual( 0, v3.GetValue() );
+      Assert.That( v1.GetValue(), Is.EqualTo( 4 ) );
+      Assert.That( v2.GetValue(), Is.EqualTo( -5 ) );
+      Assert.That( v3.GetValue(), Is.EqualTo( 0 ) );
     }
 
     [Test]
     public void SetGetValueTest()
     {
       // default index should be -1
-      Assert.AreEqual( variable.Domain.OutsideScope, variable.GetValue() );
+      Assert.That( variable.GetValue(), Is.EqualTo( variable.Domain.OutsideScope ) );
       variable.SetValue( 0 );
-      Assert.AreEqual( 0, variable.GetValue() );
+      Assert.That( variable.GetValue(), Is.EqualTo( 0 ) );
       variable.SetValue( 1 );
-      Assert.AreEqual( 1, variable.GetValue() );
+      Assert.That( variable.GetValue(), Is.EqualTo( 1 ) );
       variable.SetValue( 2 );
-      Assert.AreEqual( 2, variable.GetValue() );
+      Assert.That( variable.GetValue(), Is.EqualTo( 2 ) );
       variable.SetValue( -1 );
-      Assert.AreEqual( variable.Domain.OutsideScope, variable.GetValue() );
+      Assert.That( variable.GetValue(), Is.EqualTo( variable.Domain.OutsideScope ) );
     }
 
     [Test]
@@ -83,17 +83,17 @@ namespace GhostTest
     {
       variable.SetValue( -1 );
 
-      Assert.AreEqual( variable.Domain.OutsideScope, variable.GetValue() );
+      Assert.That( variable.GetValue(), Is.EqualTo( variable.Domain.OutsideScope ) );
       variable.ShiftValue();
-      Assert.AreEqual( variable.Domain.OutsideScope, variable.GetValue() );
+      Assert.That( variable.GetValue(), Is.EqualTo( variable.Domain.OutsideScope ) );
       variable.SetValue( 1 );
-      Assert.AreEqual( 1, variable.GetValue() );
+      Assert.That( variable.GetValue(), Is.EqualTo( 1 ) );
       variable.ShiftValue();
-      Assert.AreEqual( 2, variable.GetValue() );
+      Assert.That( variable.GetValue(), Is.EqualTo( 2 ) );
       variable.ShiftValue();
-      Assert.AreEqual( 0, variable.GetValue() );
+      Assert.That( variable.GetValue(), Is.EqualTo( 0 ) );
       variable.ShiftValue();
-      Assert.AreEqual( 1, variable.GetValue() );
+      Assert.That( variable.GetValue(), Is.EqualTo( 1 ) );
     }
 
     [Test]
@@ -101,26 +101,26 @@ namespace GhostTest
     {
       variable.SetValue( -1 );
 
-      Assert.AreEqual( variable.Domain.OutsideScope, variable.GetValue() );
+      Assert.That( variable.GetValue(), Is.EqualTo( variable.Domain.OutsideScope ) );
       variable.UnshiftValue();
-      Assert.AreEqual( variable.Domain.OutsideScope, variable.GetValue() );
+      Assert.That( variable.GetValue(), Is.EqualTo( variable.Domain.OutsideScope ) );
       variable.SetValue( 1 );
-      Assert.AreEqual( 1, variable.GetValue() );
+      Assert.That( variable.GetValue(), Is.EqualTo( 1 ) );
       variable.UnshiftValue();
-      Assert.AreEqual( 0, variable.GetValue() );
+      Assert.That( variable.GetValue(), Is.EqualTo( 0 ) );
       variable.UnshiftValue();
-      Assert.AreEqual( 2, variable.GetValue() );
+      Assert.That( variable.GetValue(), Is.EqualTo( 2 ) );
       variable.UnshiftValue();
-      Assert.AreEqual( 1, variable.GetValue() );
+      Assert.That( variable.GetValue(), Is.EqualTo( 1 ) );
     }
 
     [Test]
     public void DomainTest()
     {
       var v = new VariableWrapper( "x", "XX" );
-      Assert.AreEqual( -42, v.GetIndexDomain() );
+      Assert.That( v.GetIndexDomain(), Is.EqualTo( -42 ) );
       v.Domain = new Domain( -5 );
-      Assert.AreEqual( -5, v.GetIndexDomain() );
+      Assert.That( v.GetIndexDomain(), Is.EqualTo( -5 ) );
     }
 
     [Test]
