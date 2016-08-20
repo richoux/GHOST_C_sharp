@@ -99,7 +99,7 @@ namespace WallinTest
       }
 
       var noHoles = new WallShape( setBuildings );
-      var vecCosts = noHoles.SimulateCost( 1, varSimCost );
+      var vecCosts = noHoles.SimulateCost( 1 );
 
       foreach( var tuple in vecCosts )
         if( tuple.Key == 0 || tuple.Key == 7 || tuple.Key == 8 || tuple.Key == 12 || tuple.Key == 13 )

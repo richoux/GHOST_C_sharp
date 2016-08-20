@@ -36,8 +36,7 @@ namespace Wallin
   {
     protected Constraint( SetVariables variables ) : base( variables ) { }
 
-    public override Dictionary<int, double> SimulateCost( int currentVariableIndex,
-                                                          Dictionary<int,  double[] > variableSimCost )
+    public override Dictionary<int, double> SimulateCost( int currentVariableIndex )
     {
       // for each value in currentVariableIndex's domain, save the constraint cost value.
       var simCosts = new Dictionary<int, double>();
@@ -52,7 +51,7 @@ namespace Wallin
         else
           Variables.SetValue( currentVariableIndex, pos );
 
-        simCosts[ pos ] = Cost( variableSimCost[ pos ] );
+        simCosts[ pos ] = Cost();
 
         previousPos = pos;
       }
@@ -155,7 +154,7 @@ namespace Wallin
   {
     public OverLap( SetVariables variables ) : base( variables ) { }
 
-    public override double Cost( double[] variableCost )
+    public override double Cost()
     {
       double conflicts = 0.0;
 
@@ -167,17 +166,13 @@ namespace Wallin
           conflicts += nbConflict;
           var words = failures.Key.Split(',');
           var point = new SetVariables.Point( Int32.Parse(words[0]), Int32.Parse(words[1]) );
-          var setBuildings = Variables.BuildingsAt( point );
-          foreach( var index in setBuildings )
-            variableCost[ index ] += nbConflict;
         }
       }
 
       return conflicts;    
     }
 
-    public override Dictionary<int, double> SimulateCost( int currentVariableIndex,
-                                                         Dictionary<int,  double[] > variableSimCost )
+    public override Dictionary<int, double> SimulateCost( int currentVariableIndex )
     {
       var simCosts = new Dictionary<int, double>();
 
@@ -189,22 +184,13 @@ namespace Wallin
       {
         if( pos >= 1 && pos == previousPos + 1 )
         {
-          variableSimCost[ pos ] = variableSimCost[ pos - 1 ];
-
           Variables.Shift( currentVariableIndex, out diff, out dummy );
-          if( diff != 0 )
-          {
-            var setBuildings = Variables.BuildingsAt( pos );
-            foreach( var index in setBuildings )
-              variableSimCost[ pos ][ index ] += diff;
-          }
-
           simCosts[ pos ] = simCosts[ pos - 1 ] + diff;
         }
         else
         { 
           Variables.SetValue( currentVariableIndex, pos );
-          simCosts[ pos ] = Cost( variableSimCost[ pos ] );
+          simCosts[ pos ] = Cost();
         }
 
         previousPos = pos;
@@ -223,7 +209,7 @@ namespace Wallin
   {
     public Buildable( SetVariables variables ) : base( variables ) { }
 
-    public override double Cost( double[] variableCost )
+    public override double Cost()
     {
       // count number of buildings misplaced on unbuildable tiles (denoted by ###)
       double conflicts = 0.0;
@@ -238,16 +224,13 @@ namespace Wallin
           var words = failures.Key.Split(',');
           var point = new SetVariables.Point( Int32.Parse(words[0]), Int32.Parse(words[1]) );
           var setBuildings = Variables.BuildingsAt( point );
-          foreach( var index in setBuildings )
-            variableCost[ index ] += nbConflict;
         }
       }
 
       return conflicts;    
     }
 
-    public override Dictionary<int, double> SimulateCost( int currentVariableIndex,
-                                                          Dictionary<int,  double[] > variableSimCost )
+    public override Dictionary<int, double> SimulateCost( int currentVariableIndex )
     {
       var simCosts = new Dictionary<int, double>();
 
@@ -259,22 +242,13 @@ namespace Wallin
       {
        if( pos >= 1 && pos == previousPos + 1 )
         {
-          variableSimCost[ pos ] = variableSimCost[ pos - 1 ];
           Variables.Shift( currentVariableIndex, out dummy, out diff );
-
-          if( diff != 0 )
-          {
-            var setBuildings = Variables.BuildingsAt( pos );
-            foreach( var index in setBuildings )
-              variableSimCost[ pos ][ index ] += diff;
-          }
-
           simCosts[ pos ] = simCosts[ pos - 1 ] + diff;
         }
         else
         { 
           Variables.SetValue( currentVariableIndex, pos );
-          simCosts[ pos ] = Cost( variableSimCost[ pos ] );
+          simCosts[ pos ] = Cost();
         }
 
         previousPos = pos;
@@ -293,7 +267,7 @@ namespace Wallin
   {
     public WallShape( SetVariables variables ) : base( variables ) { }
 
-    public override double Cost( double[] variableCost )
+    public override double Cost()
     {
       // cost = |buildings with one neighbor| - 1 + |buildings with no neighbors|
       double conflicts = 0.0;
@@ -322,16 +296,11 @@ namespace Wallin
               // if we don't have a wall, penalise all buildings on the domain
               // except those on starting and target tile
               ++conflicts;
-              ++variableCost[ i ];
 
               nberNeighbors = Variables.CountAround( i );
 
               if( nberNeighbors == 0 || nberNeighbors > 2 ) // to change with Protoss and pylons
-              {
                 ++conflicts;
-                ++variableCost[ i ];
-
-              }
               else
               {
                 if( nberNeighbors == 1 )
@@ -340,39 +309,31 @@ namespace Wallin
             }
           }
           else
-          {
             notSelected.Add( i );
-          }
         }
           
         //penalise unselected buildings if we need them
         if( width < widthNeeded || height < heightNeeded )
           foreach( var i in notSelected )
-          {
             conflicts += 2;
-            variableCost[ i ] += 2;
-          }
 
         if( oneNeighborBuildings.Count > 2 ) // for latter: pylons can be alone, or have 1 neighbor only
         {
           foreach( var index in oneNeighborBuildings )
             if( !Variables.IsOnStartingOrTargetTile( index ) )
-            {
               ++conflicts;
-              ++variableCost[ index ];
-            }
         }
       }
 
       return conflicts;    
     }
 
-    public double PostprocessSimulateCost( int currentVariableIndex, int newPosition, double[] variableSimCost )
+    public double PostprocessSimulateCost( int currentVariableIndex, int newPosition )
     {
       int backup = Variables.GetValue( currentVariableIndex );
       Variables.SetValue( currentVariableIndex, newPosition );
 
-      double simCost = Cost( variableSimCost );
+      double simCost = Cost();
 
       Variables.SetValue( currentVariableIndex, backup );
 
@@ -387,7 +348,7 @@ namespace Wallin
   {
     public StartingTargetTiles( SetVariables variables ) : base( variables ) { }
 
-    public override double Cost( double[] variableCost )
+    public override double Cost()
     {
       // no building on one of these two tiles: cost of the tile = 6
       // a building with no or with 2 or more neighbors: cost of the tile = 3
@@ -408,10 +369,7 @@ namespace Wallin
         // penalize buildings not placed on the domain
         for( int i = 0 ; i < Variables.GetNumberVariables() ; ++i )
           if( !Variables.IsSelected( i ) )
-          {
-            variableCost[ i ] += 2;
             conflicts += 2;
-          }
       }
       else
       {
@@ -420,10 +378,7 @@ namespace Wallin
           neighbors = Variables.CountAround( index );
 
           if( neighbors != 1 )
-          {
             conflicts += 2;
-            variableCost[ index ] += 2;
-          }
         }
       }
 
@@ -432,10 +387,7 @@ namespace Wallin
         // penalize buildings not placed on the domain
         for( int i = 0 ; i < Variables.GetNumberVariables() ; ++i )
           if( !Variables.IsSelected( i ) )
-          {
-            variableCost[ i ] += 2;
             conflicts += 2;
-          }
       }
       else
       {
@@ -444,10 +396,7 @@ namespace Wallin
           neighbors = Variables.CountAround( index );
 
           if( neighbors != 1 )
-          {
             conflicts += 2;
-            variableCost[ index ] += 2;
-          }
         }
       }
 
