@@ -74,7 +74,7 @@ namespace GhostTest
       var obj3 = new VarInt( "c", "cc", domain, 4 );
       var svw = new SetVariablesWrapper( new List<VarInt> { obj1, obj2 } );
 
-      Assert.That( svw.GetIndex( obj1 ), Is.EqualTo( 0 ) );
+      Assert.That( svw.GetIndex( obj1 ), Is.Zero );
       Assert.That( svw.GetIndex( obj2 ), Is.EqualTo( 1 ) );
       Assert.That( svw.GetIndex( obj3 ), Is.EqualTo( -1 ) );
     }
@@ -144,8 +144,8 @@ namespace GhostTest
       Assert.That( svw.GetValue( 1 ), Is.EqualTo( -1 ) );
     }
 
-    [TestCase( 0, Result=5 )]
-    [TestCase( 1, Result=-1 )]
+    [TestCase( 0, ExpectedResult=5 )]
+    [TestCase( 1, ExpectedResult=-1 )]
     public int GetValueTest( int index )
     {
       return svw.GetValue( index );
@@ -153,14 +153,13 @@ namespace GhostTest
 
     [TestCase( -1 )]
     [TestCase( 2 )]
-    [ExpectedException(typeof(IndexOutOfRangeException))]
     public void GetValueFailTest( int index )
     {
-      svw.GetValue( index );
+      Assert.Throws<IndexOutOfRangeException>(()=>svw.GetValue( index ));
     }
 
-    [TestCase( 0, Result="aa" )]
-    [TestCase( 1, Result="bb" )]
+    [TestCase( 0, ExpectedResult="aa" )]
+    [TestCase( 1, ExpectedResult="bb" )]
     public string FullNameTest( int index )
     {
       return svw.FullName( index );

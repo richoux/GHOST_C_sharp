@@ -88,7 +88,7 @@ namespace GhostTest
 
       var list = new List<int> { 1, 2, 3 };
       d = new DomainWrapper( list, 0 );
-      Assert.That( d.OutsideScope, Is.EqualTo( 0 ) );
+      Assert.That( d.OutsideScope, Is.Zero );
       Assert.That( d.GetRandomObject(), Is.Not.Null );
       Assert.That( d.GetSize(), Is.EqualTo( 3 ) );
       Assert.That( d.GetInitialDomain().Count, Is.EqualTo( 3 ) );
@@ -110,19 +110,18 @@ namespace GhostTest
     }
 
     [Test]
-    [ExpectedException(typeof(ArgumentException))]
     public void ConstructorFailTest()
     {
       var list = new List<int> { 1, 2, 3 };
-      new DomainWrapper( list, 3 );
+      Assert.Throws<ArgumentException>(()=>new DomainWrapper( list, 3 ));
     }
 
     // 1 is domain's OutsideValue 
-    [TestCase(-1, Result=1)]
-    [TestCase(0, Result=2)]
-    [TestCase(1, Result=3)]
-    [TestCase(2, Result=4)]
-    [TestCase(3, Result=1)]
+    [TestCase(-1, ExpectedResult=1)]
+    [TestCase(0, ExpectedResult=2)]
+    [TestCase(1, ExpectedResult=3)]
+    [TestCase(2, ExpectedResult=4)]
+    [TestCase(3, ExpectedResult=1)]
     public int GetValueTest( int index )
     {
       return domain.GetValue( index );
@@ -155,9 +154,9 @@ namespace GhostTest
       Assert.That( domain.GetValue( 1 ), Is.EqualTo( 3 ) );
     }
 
-    [TestCase(2, Result=0)]
-    [TestCase(10, Result=4)]
-    [TestCase(123, Result=-1)]
+    [TestCase(2, ExpectedResult=0)]
+    [TestCase(10, ExpectedResult=4)]
+    [TestCase(123, ExpectedResult=-1)]
     public int IndexOfTest( int value )
     {
       domain.SetCurrentDomain( new List<int>{ 2, 4, 5, 6, 10, 42 } );

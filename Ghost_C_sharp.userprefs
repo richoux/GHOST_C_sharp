@@ -2,7 +2,11 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.Workbench ActiveDocument="WallinTest/src/SetVariablesTest.cs">
     <Files>
-      <File FileName="WallinTest/src/SetVariablesTest.cs" Line="199" Column="26" />
+      <File FileName="WallinTest/src/SetVariablesTest.cs" Line="86" Column="27" />
+      <File FileName="GhostTest/src/DomainTest.cs" Line="89" Column="44" />
+      <File FileName="GhostTest/src/SetVariablesTest.cs" Line="158" Column="74" />
+      <File FileName="GhostTest/src/VariableTest.cs" Line="112" Column="49" />
+      <File FileName="WallinTest/src/ConstraintTest.cs" Line="103" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

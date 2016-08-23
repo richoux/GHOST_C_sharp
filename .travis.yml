@@ -4,8 +4,9 @@ solution: Ghost_C_sharp.sln
 
 install:
   - nuget restore Ghost_C_sharp.sln
-  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+  - nuget install NUnit.Runners -Version 3.4.1 -OutputDirectory testrunner
 
 script:
   - xbuild /p:Configuration=Release Ghost_C_sharp.sln
-  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./GhostTest/bin/Release/GhostTest.dll
+  - mono ./testrunner/NUnit.Runners.3.4.1/tools/nunit-console.exe ./GhostTest/bin/Release/GhostTest.dll
+  - mono ./testrunner/NUnit.Runners.3.4.1/tools/nunit-console.exe ./WallinTest/bin/Release/WallinTest.dll

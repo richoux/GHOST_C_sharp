@@ -108,7 +108,7 @@ namespace WallinTest
         }
         else if( tuple.Key == 1 || tuple.Key == 6 || tuple.Key == 11 || tuple.Key == 16 || tuple.Key == 17 || tuple.Key == 18 )
         {
-          Assert.That( tuple.Value, Is.EqualTo( 0.0 ) );
+          Assert.That( tuple.Value, Is.Zero );
         }
         else
         {

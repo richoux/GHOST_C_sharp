@@ -60,7 +60,7 @@ namespace GhostTest
       v3 = new VariableWrapper( "a", "bb", new Domain( 10, 1 ), -2 );
       Assert.That( v1.GetValue(), Is.EqualTo( 4 ) );
       Assert.That( v2.GetValue(), Is.EqualTo( -5 ) );
-      Assert.That( v3.GetValue(), Is.EqualTo( 0 ) );
+      Assert.That( v3.GetValue(), Is.Zero );
     }
 
     [Test]
@@ -69,7 +69,7 @@ namespace GhostTest
       // default index should be -1
       Assert.That( variable.GetValue(), Is.EqualTo( variable.Domain.OutsideScope ) );
       variable.SetValue( 0 );
-      Assert.That( variable.GetValue(), Is.EqualTo( 0 ) );
+      Assert.That( variable.GetValue(), Is.Zero );
       variable.SetValue( 1 );
       Assert.That( variable.GetValue(), Is.EqualTo( 1 ) );
       variable.SetValue( 2 );
@@ -91,7 +91,7 @@ namespace GhostTest
       variable.ShiftValue();
       Assert.That( variable.GetValue(), Is.EqualTo( 2 ) );
       variable.ShiftValue();
-      Assert.That( variable.GetValue(), Is.EqualTo( 0 ) );
+      Assert.That( variable.GetValue(), Is.Zero );
       variable.ShiftValue();
       Assert.That( variable.GetValue(), Is.EqualTo( 1 ) );
     }
@@ -107,7 +107,7 @@ namespace GhostTest
       variable.SetValue( 1 );
       Assert.That( variable.GetValue(), Is.EqualTo( 1 ) );
       variable.UnshiftValue();
-      Assert.That( variable.GetValue(), Is.EqualTo( 0 ) );
+      Assert.That( variable.GetValue(), Is.Zero );
       variable.UnshiftValue();
       Assert.That( variable.GetValue(), Is.EqualTo( 2 ) );
       variable.UnshiftValue();
@@ -124,11 +124,10 @@ namespace GhostTest
     }
 
     [Test]
-    [ExpectedException(typeof(ArgumentException))]
     public void DomainFailTest()
     {
       var v = new VariableWrapper( "x", "XX" );
-      v.Domain = null;
+      Assert.Throws<ArgumentException>(()=>v.Domain = null);
     }
 
   }

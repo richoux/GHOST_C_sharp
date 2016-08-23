@@ -58,10 +58,9 @@ namespace WallinTest
 
     [TestCase( -1 )]
     [TestCase( 1024 )]
-    [ExpectedException(typeof(IndexOutOfRangeException))]
     public void IsSelectedFailTest( int index )
     {
-      setBuildings.IsSelected( index );
+      Assert.Throws<IndexOutOfRangeException>(()=>setBuildings.IsSelected( index ));
     }
 
     [TestCase( 0, 0, 0 )]
@@ -102,10 +101,9 @@ namespace WallinTest
 
     [TestCase( -1, 0 )]
     [TestCase( 0, -1 )]
-    [ExpectedException(typeof(ArgumentException))]
     public void DistanceToFailTest( int source, int target )
     {
-      setBuildings.DistanceTo( source, target );
+      Assert.Throws<ArgumentException>(()=>setBuildings.DistanceTo( source, target ));
     }
       
     [Test]
@@ -196,7 +194,7 @@ namespace WallinTest
           else
           {
             var l = set.BuildingsAt( i, j );
-            Assert.That( l.Count, Is.EqualTo( 0 ) );
+            Assert.That( l.Count, Is.Zero );
           }
 
       set.ShiftValue( 1 );
@@ -222,7 +220,7 @@ namespace WallinTest
           else
           {
             var l = set.BuildingsAt( i, j );
-            Assert.That( l.Count, Is.EqualTo( 0 ) );
+            Assert.That( l.Count, Is.Zero );
           }
 
       set.UnshiftValue( 1 );
@@ -248,7 +246,7 @@ namespace WallinTest
           else
           {
             var l = set.BuildingsAt( i, j );
-            Assert.That( l.Count, Is.EqualTo( 0 ) );
+            Assert.That( l.Count, Is.Zero );
           }
 
       set.SetValue( 1, 27 );
@@ -274,7 +272,7 @@ namespace WallinTest
           else
           {
             var l = set.BuildingsAt( i, j );
-            Assert.That( l.Count, Is.EqualTo( 0 ) );
+            Assert.That( l.Count, Is.Zero );
           }
 
       set.ShiftValue( 1 );
@@ -300,7 +298,7 @@ namespace WallinTest
           else
           {
             var l = set.BuildingsAt( i, j );
-            Assert.That( l.Count, Is.EqualTo( 0 ) );
+            Assert.That( l.Count, Is.Zero );
           }
 
       set.UnshiftValue( 1 );
@@ -326,7 +324,7 @@ namespace WallinTest
           else
           {
             var l = set.BuildingsAt( i, j );
-            Assert.That( l.Count, Is.EqualTo( 0 ) );
+            Assert.That( l.Count, Is.Zero );
           }
 
       set.ShiftValue( 1 );
@@ -338,7 +336,7 @@ namespace WallinTest
 
       set.Shift( 2, out overlaps, out unbuild );
       Assert.That( overlaps, Is.EqualTo( -2 ) );
-      Assert.That( unbuild, Is.EqualTo( 0 ) );
+      Assert.That( unbuild, Is.Zero );
 
       Assert.That( set.GetBuildingsAround( 2 ).Contains( 1 ), Is.True );
       Assert.That( set.GetBuildingsAround( 2 ).Contains( 3 ), Is.True );
@@ -350,7 +348,7 @@ namespace WallinTest
 
       set.Shift( 2, out overlaps, out unbuild );
       Assert.That( overlaps, Is.EqualTo( 2 ) );
-      Assert.That( unbuild, Is.EqualTo( 0 ) );
+      Assert.That( unbuild, Is.Zero );
 
       var listSmallBuildings = new List<Variable> { new Variable( "X", "xxx", 1, 1, 0, 0, 0, 0, Race.Unknown, 0, 0 ), 
         new Variable( "X", "xxx", 1, 1, 0, 0, 0, 0, Race.Unknown, 0, 0 ),
@@ -378,17 +376,17 @@ namespace WallinTest
       Assert.That( set.GetBuildingsOnLeft( 1 ).Contains( 0 ), Is.True );
       Assert.That( set.GetBuildingsOnLeft( 1 ).Contains( 2 ), Is.True );
       Assert.That( set.GetBuildingsOnLeft( 1 ).Contains( 4 ), Is.True );
-      Assert.That( set.GetBuildingsOnRight( 1 ).Count, Is.EqualTo( 0 ) );
-      Assert.That( set.GetBuildingsBelow( 1 ).Count, Is.EqualTo( 0 ) );
+      Assert.That( set.GetBuildingsOnRight( 1 ).Count, Is.Zero );
+      Assert.That( set.GetBuildingsBelow( 1 ).Count, Is.Zero );
       Assert.That( set.GetBuildingsOnLeft( 1 ).Count, Is.EqualTo( 3 ) );
-      Assert.That( set.GetBuildingsAbove( 1 ).Count, Is.EqualTo( 0 ) );
+      Assert.That( set.GetBuildingsAbove( 1 ).Count, Is.Zero );
       Assert.That( set.CountAround( 1 ), Is.EqualTo( 3 ) );
 
       Assert.That( set.GetBuildingsOnRight( 2 ).Contains( 1 ), Is.True );
       Assert.That( set.GetBuildingsOnLeft( 2 ).Contains( 3 ), Is.True );
       Assert.That( set.GetBuildingsAbove( 2 ).Contains( 0 ), Is.True );
       Assert.That( set.GetBuildingsOnRight( 2 ).Count, Is.EqualTo( 1 ) );
-      Assert.That( set.GetBuildingsBelow( 2 ).Count, Is.EqualTo( 0 ) );
+      Assert.That( set.GetBuildingsBelow( 2 ).Count, Is.Zero );
       Assert.That( set.GetBuildingsOnLeft( 2 ).Count, Is.EqualTo( 1 ) );
       Assert.That( set.GetBuildingsAbove( 2 ).Count, Is.EqualTo( 1 ) );
       Assert.That( set.CountAround( 2 ), Is.EqualTo( 3 ) );
@@ -397,9 +395,9 @@ namespace WallinTest
       Assert.That( set.GetBuildingsOnRight( 3 ).Contains( 2 ), Is.True );
       Assert.That( set.GetBuildingsOnRight( 3 ).Contains( 4 ), Is.True );
       Assert.That( set.GetBuildingsOnRight( 3 ).Count, Is.EqualTo( 3 ) );
-      Assert.That( set.GetBuildingsBelow( 3 ).Count, Is.EqualTo( 0 ) );
-      Assert.That( set.GetBuildingsOnLeft( 3 ).Count, Is.EqualTo( 0 ) );
-      Assert.That( set.GetBuildingsAbove( 3 ).Count, Is.EqualTo( 0 ) );
+      Assert.That( set.GetBuildingsBelow( 3 ).Count, Is.Zero );
+      Assert.That( set.GetBuildingsOnLeft( 3 ).Count, Is.Zero );
+      Assert.That( set.GetBuildingsAbove( 3 ).Count, Is.Zero );
       Assert.That( set.CountAround( 3 ), Is.EqualTo( 3 ) );
 
       Assert.That( set.GetBuildingsOnRight( 4 ).Contains( 1 ), Is.True );
@@ -408,7 +406,7 @@ namespace WallinTest
       Assert.That( set.GetBuildingsOnRight( 4 ).Count, Is.EqualTo( 1 ) );
       Assert.That( set.GetBuildingsBelow( 4 ).Count, Is.EqualTo( 1 ) );
       Assert.That( set.GetBuildingsOnLeft( 4 ).Count, Is.EqualTo( 1 ) );
-      Assert.That( set.GetBuildingsAbove( 4 ).Count, Is.EqualTo( 0 ) );
+      Assert.That( set.GetBuildingsAbove( 4 ).Count, Is.Zero );
       Assert.That( set.CountAround( 4 ), Is.EqualTo( 3 ) );
 
       Assert.That( set.IsOnStartingOrTargetTile( 0 ), Is.False );

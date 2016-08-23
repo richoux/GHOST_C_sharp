@@ -16,3 +16,4 @@
 /mnt/share/Developpement/Github/GHOST_C_sharp/WallinTest/bin/Release/Wallin.exe.mdb
 /mnt/share/Developpement/Github/GHOST_C_sharp/WallinTest/bin/Release/Ghost.dll
 /mnt/share/Developpement/Github/GHOST_C_sharp/WallinTest/bin/Release/Ghost.dll.mdb
+/mnt/share/Developpement/Github/GHOST_C_sharp/WallinTest/bin/Release/nunit.framework.dll
