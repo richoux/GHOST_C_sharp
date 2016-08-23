@@ -1,6 +1,6 @@
 ﻿<Properties StartupItem="GhostTest/GhostTest.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="WallinTest/src/SetVariablesTest.cs">
     <Files>
       <File FileName="WallinTest/src/SetVariablesTest.cs" Line="199" Column="26" />
     </Files>
