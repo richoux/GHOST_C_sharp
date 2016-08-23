@@ -8,5 +8,5 @@ install:
 
 script:
   - xbuild /p:Configuration=Release Ghost_C_sharp.sln
-  - mono ./testrunner/NUnit.Runners.3.4.1/tools/nunit3-console.exe ./GhostTest/bin/Release/GhostTest.dll
-  - mono ./testrunner/NUnit.Runners.3.4.1/tools/nunit3-console.exe ./WallinTest/bin/Release/WallinTest.dll
+  - mono ./testrunner/NUnit.ConsoleRunner.3.4.1/tools/nunit3-console.exe ./GhostTest/bin/Release/GhostTest.dll
+  - mono ./testrunner/NUnit.ConsoleRunner.3.4.1/tools/nunit3-console.exe ./WallinTest/bin/Release/WallinTest.dll
