@@ -55,6 +55,7 @@ namespace ghost
       FullName = fullName;
       Domain = domain == null ? new Domain() : (Domain)domain.Clone();
       // if value is not in domain, domain.IndexOf( value ) returns -1
+      ProjectedCost = 0.0;
       IndexDomain = Domain.IsInitialized() ? Domain.IndexOf( value ) : -42;
     }
             
@@ -134,6 +135,9 @@ namespace ghost
         _domain = value; 
       }
     }
+
+    public double ProjectedCost { get; set; } /**< ProjectedCost is the local cost of the variable, ie, the value indicating how much 
+                                                   the variable participate to constraints violation. The smaller the better.*/
 
 #if DEBUG
     public virtual void Print() { }

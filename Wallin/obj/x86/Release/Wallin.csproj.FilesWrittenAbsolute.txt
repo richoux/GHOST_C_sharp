@@ -1,7 +1,7 @@
-/share/GitHub/GHOST_C_sharp/Wallin/obj/x86/Release/.NETFramework,Version=v4.5.AssemblyAttribute.cs
-/share/GitHub/GHOST_C_sharp/Wallin/bin/Release/Wallin.exe.mdb
-/share/GitHub/GHOST_C_sharp/Wallin/bin/Release/Wallin.exe
-/share/GitHub/GHOST_C_sharp/Wallin/obj/x86/Release/Wallin.exe
-/share/GitHub/GHOST_C_sharp/Wallin/obj/x86/Release/Wallin.exe.mdb
-/share/GitHub/GHOST_C_sharp/Wallin/bin/Release/Ghost.dll
-/share/GitHub/GHOST_C_sharp/Wallin/bin/Release/Ghost.dll.mdb
+/mnt/share/Developpement/Github/GHOST_C_sharp/Wallin/obj/x86/Release/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/mnt/share/Developpement/Github/GHOST_C_sharp/Wallin/bin/Release/Wallin.exe.mdb
+/mnt/share/Developpement/Github/GHOST_C_sharp/Wallin/bin/Release/Wallin.exe
+/mnt/share/Developpement/Github/GHOST_C_sharp/Wallin/obj/x86/Release/Wallin.exe
+/mnt/share/Developpement/Github/GHOST_C_sharp/Wallin/obj/x86/Release/Wallin.exe.mdb
+/mnt/share/Developpement/Github/GHOST_C_sharp/Wallin/bin/Release/Ghost.dll
+/mnt/share/Developpement/Github/GHOST_C_sharp/Wallin/bin/Release/Ghost.dll.mdb

@@ -1,4 +1,4 @@
+.fuse*
 *.exe
 *.mdb
-.fuse*
-doc/
+doc/**

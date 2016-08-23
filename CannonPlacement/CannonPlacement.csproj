@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7B6B9A5E-B75C-44C5-B6BF-B1F36077280E}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>WallinTest</RootNamespace>
-    <AssemblyName>WallinTest</AssemblyName>
+    <ProjectGuid>{016A79D1-5485-4513-AD8B-A3DF845892AF}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>CannonPlacement</RootNamespace>
+    <AssemblyName>CannonPlacement</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -17,7 +17,7 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
+    <Externalconsole>true</Externalconsole>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -25,37 +25,27 @@
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
+    <Externalconsole>true</Externalconsole>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="nunit.framework, Version=2.6.4.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
-      <Package>nunit</Package>
-    </Reference>
-    <Reference Include="nunit.core, Version=2.6.4.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
-      <Package>nunit</Package>
-    </Reference>
-    <Reference Include="nunit.mocks, Version=2.6.4.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
-      <Package>nunit</Package>
-    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\CannonPlacement.cs" />
+    <Compile Include="src\Constraint.cs" />
+    <Compile Include="src\Objective.cs" />
+    <Compile Include="src\SetVariables.cs" />
+    <Compile Include="src\Variable.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="src\ConstraintTest.cs" />
-    <Compile Include="src\SetVariablesTest.cs" />
-    <Compile Include="src\VariableTest.cs" />
+    <Folder Include="src\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Wallin\Wallin.csproj">
-      <Project>{D1B120FC-B027-4B14-A386-5AB6B210087E}</Project>
-      <Name>Wallin</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Ghost\Ghost.csproj">
       <Project>{11B7D2E1-48AC-4722-81F9-2A59AC674344}</Project>
       <Name>Ghost</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="src\" />
   </ItemGroup>
 </Project>

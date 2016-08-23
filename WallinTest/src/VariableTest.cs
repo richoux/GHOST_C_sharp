@@ -50,27 +50,27 @@ namespace WallinTest
     [Test]
     public void SurfaceTest()
     {
-      Assert.AreEqual( 6, building.Surface() );
+      Assert.That( building.Surface(), Is.EqualTo( 6 ) );
     }
 
     [Test]
     public void IsSelectedTest()
     {
       building.SetValue( -1 );
-      Assert.IsFalse( building.IsSelected() );
+      Assert.That( building.IsSelected(), Is.False );
       building.SetValue( 0 );
-      Assert.IsTrue( building.IsSelected() );
+      Assert.That( building.IsSelected(), Is.True );
       building.SetValue( 42 );
-      Assert.IsTrue( building.IsSelected() );
+      Assert.That( building.IsSelected(), Is.True );
       // value outside the scope of the domain 16*12
       building.SetValue( 1024 );
-      Assert.IsFalse( building.IsSelected() );
+      Assert.That( building.IsSelected(), Is.False );
     }
 
     [Test]
     public void RaceStringTest()
     {
-      Assert.AreEqual( "Terran", building.RaceString() );
+      Assert.That( building.RaceString(), Is.EqualTo( "Terran" ) );
     }
   }
 }

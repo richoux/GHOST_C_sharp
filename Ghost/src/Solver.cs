@@ -53,7 +53,7 @@ namespace ghost
       _variables = vecVariables;
       _constraints = vecConstraints;
       _numberVariables = _variables.GetNumberVariables();
-      _variablesCost = new double[ _numberVariables ];
+      //_variablesCost = new double[ _numberVariables ];
       _loops = loops;
       _tabuList = new List<int>( _numberVariables );
       _bestSolution = new List<int>( _numberVariables );
@@ -75,7 +75,7 @@ namespace ghost
     private int                  _numberVariables;
     private List<TypeConstraint> _constraints;
     private Objective<TypeSetVariables, TypeVariable> _objective;
-    private double[]             _variablesCost;	
+    //private double[]             _variablesCost;	
     private int                  _loops;		
     private List<int>            _tabuList;	
     private double               _bestCost;	
@@ -97,7 +97,7 @@ namespace ghost
       
       var	constraintsCost = new Dictionary<int, double>[ _constraints.Count ];
       var	globalCostForEachValue = new Dictionary<int, double>();
-      var	allVariablesCostForEachValue = new Dictionary<int, double[] >();
+      //var	allVariablesCostForEachValue = new Dictionary<int, double[] >();
 
       _bestCost = double.MaxValue;
       double beforePostProc = double.MaxValue;
@@ -112,7 +112,7 @@ namespace ghost
       double bestSimulatedGlobalCost;
       int bestSimulatedGlobalCostIndex;
 
-      var bestVariablesCostList = new double[ _numberVariables ];
+      //var bestVariablesCostList = new double[ _numberVariables ];
 
       int tour = 0;
       int iterations = 0;
@@ -123,8 +123,9 @@ namespace ghost
         startTour.Start();
 	      ++tour;
       	globalCost = double.MaxValue;
-        for( var i = 0 ; i < _variablesCost.Count() ; ++i )
-          _variablesCost[ i ] = 0.0;
+        //for( var i = 0 ; i < _variablesCost.Count() ; ++i )
+        //  _variablesCost[ i ] = 0.0;
+        _variables.WipeProjectedCost();
         _tabuList.AddRange( Enumerable.Repeat( 0, _numberVariables ) );
         
 	      do // solving loop 
@@ -141,7 +142,8 @@ namespace ghost
             double cost = 0.0;
 
             foreach( var c in _constraints )
-      	      cost += c.Cost( _variablesCost );
+      	      //cost += c.Cost( _variablesCost );
+              cost += c.CostAndUpdateVarCost();
             
             if( !cost.Equals( double.MaxValue ) )
       	      globalCost = cost;
@@ -152,7 +154,7 @@ namespace ghost
             }
           }
 
-          // make sure there is at least one untabu variable
+          // check if there is at least one untabu variable
 	        bool freeVariables = false;
 
 	        // Update tabu list
@@ -172,34 +174,49 @@ namespace ghost
 	        worstVariables.Clear();
 	        worstVariableCost = 0;
 
-          for( int i = 0; i < _variablesCost.Count(); ++i )
-	        {
-	          if( !freeVariables || _tabuList[i] == 0 )
-	          {
-	            if( worstVariableCost < _variablesCost[i] )
-	            {
-		            worstVariableCost = _variablesCost[i];
-		            worstVariables.Clear();
-		            worstVariables.Add( i );
-	            }
-              else if( worstVariableCost.Equals( _variablesCost[i] ) )
-                worstVariables.Add( i );	  
-	          }
-	        }
+//          for( int i = 0; i < _variablesCost.Count(); ++i )
+//	        {
+//	          if( !freeVariables || _tabuList[i] == 0 )
+//	          {
+//	            if( worstVariableCost < _variablesCost[i] )
+//	            {
+//		            worstVariableCost = _variablesCost[i];
+//		            worstVariables.Clear();
+//		            worstVariables.Add( i );
+//	            }
+//              else if( worstVariableCost.Equals( _variablesCost[i] ) )
+//                worstVariables.Add( i );	  
+//	          }
+//	        }
+
+          for( int i = 0; i < _numberVariables; ++i )
+          {
+            if( !freeVariables || _tabuList[i] == 0 )
+            {
+              if( worstVariableCost < _variables.GetProjectedCost( i ) )
+              {
+                worstVariableCost = _variables.GetProjectedCost( i );
+                worstVariables.Clear();
+                worstVariables.Add( i );
+              }
+              else if( worstVariableCost.Equals( _variables.GetProjectedCost( i ) ) )
+                worstVariables.Add( i );    
+            }
+          } 
 
 	        // can apply some heuristics here, according to the objective function
           worstVariableIndex = _objective.HeuristicVariable( worstVariables, _variables );
       
 	        // variable simulated costs
-          for( var i = 0 ; i < bestVariablesCostList.Count() ; ++i )
-            bestVariablesCostList[i] = 0.0;
+          //for( var i = 0 ; i < bestVariablesCostList.Count() ; ++i )
+          //  bestVariablesCostList[i] = 0.0;
 
-          allVariablesCostForEachValue.Clear();
-          foreach( var i in _variables.PossibleValues( worstVariableIndex ) )
-            allVariablesCostForEachValue[ i ] = new double[ _numberVariables ];
+//          allVariablesCostForEachValue.Clear();
+//          foreach( var i in _variables.PossibleValues( worstVariableIndex ) )
+//            allVariablesCostForEachValue[ i ] = new double[ _numberVariables ];
 
 	        for( int i = 0 ; i < _constraints.Count ; ++i )
-            constraintsCost[i] = _constraints[i].SimulateCost( worstVariableIndex, allVariablesCostForEachValue );
+            constraintsCost[i] = _constraints[i].SimulateCost( worstVariableIndex );
 
           bestSimulatedGlobalCostsForValueSelection.Clear();
           bestSimulatedGlobalCost = double.MaxValue;
@@ -229,7 +246,7 @@ namespace ghost
 
 	        // look for the first smallest cost, according to objective heuristic
           bestSimulatedGlobalCostIndex = _objective.HeuristicValue( bestSimulatedGlobalCostsForValueSelection, worstVariableIndex, _variables );
-          bestVariablesCostList = allVariablesCostForEachValue[ _variables.PossibleValues( worstVariableIndex )[ bestSimulatedGlobalCostIndex ] ];
+          //bestVariablesCostList = allVariablesCostForEachValue[ _variables.PossibleValues( worstVariableIndex )[ bestSimulatedGlobalCostIndex ] ];
 
           if( bestSimulatedGlobalCost < globalCost )
 	        {
@@ -261,7 +278,10 @@ namespace ghost
                 _bestSolution.Add( _variables.GetValue( i ) );
             }
 	    
-	          _variablesCost = bestVariablesCostList;
+	          //_variablesCost = bestVariablesCostList;
+            _variables.WipeProjectedCost();
+            foreach( var c in _constraints )
+              c.CostAndUpdateVarCost();
 	        }
 	        else // local minima
 	          _tabuList[ worstVariableIndex ] = tabuLength;

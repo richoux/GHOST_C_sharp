@@ -92,7 +92,7 @@ namespace Wallin
               for( var j = 0 ; j < varSimCost.Count() ; ++j )
                 varSimCost[ i ] = 0.0;
 
-              cost = wallShape.PostprocessSimulateCost( i, -1, varSimCost );
+              cost = wallShape.PostprocessSimulateCost( i, -1 );
 
               if( cost == 0.0 )
               {

@@ -75,38 +75,38 @@ namespace GhostTest
     public void ConstructorsTest()
     {
       var d = new DomainWrapper();
-      Assert.AreEqual( -1, d.OutsideScope );
-      Assert.IsNotNull( d.GetRandomObject() );
-      Assert.IsNull( d.GetCurrentDomain() );
-      Assert.IsNull( d.GetInitialDomain() );
+      Assert.That( d.OutsideScope, Is.EqualTo( -1 ) );
+      Assert.That( d.GetRandomObject(), Is.Not.Null );
+      Assert.That( d.GetCurrentDomain(), Is.Null );
+      Assert.That( d.GetInitialDomain(), Is.Null );
 
       d = new DomainWrapper( 51 );
-      Assert.AreEqual( 51, d.OutsideScope );
-      Assert.IsNotNull( d.GetRandomObject() );
-      Assert.IsNull( d.GetCurrentDomain() );
-      Assert.IsNull( d.GetInitialDomain() );
+      Assert.That( d.OutsideScope, Is.EqualTo( 51 ) );
+      Assert.That( d.GetRandomObject(), Is.Not.Null );
+      Assert.That( d.GetCurrentDomain(), Is.Null );
+      Assert.That( d.GetInitialDomain(), Is.Null );
 
       var list = new List<int> { 1, 2, 3 };
       d = new DomainWrapper( list, 0 );
-      Assert.AreEqual( 0, d.OutsideScope );
-      Assert.IsNotNull( d.GetRandomObject() );
-      Assert.AreEqual( 3, d.GetSize() );
-      Assert.AreEqual( 3, d.GetInitialDomain().Count );
+      Assert.That( d.OutsideScope, Is.EqualTo( 0 ) );
+      Assert.That( d.GetRandomObject(), Is.Not.Null );
+      Assert.That( d.GetSize(), Is.EqualTo( 3 ) );
+      Assert.That( d.GetInitialDomain().Count, Is.EqualTo( 3 ) );
 
       list.Remove( 2 );
 
-      Assert.AreEqual( 3, d.GetSize() );
-      Assert.AreEqual( 3, d.GetInitialDomain().Count );
+      Assert.That( d.GetSize(), Is.EqualTo( 3 ) );
+      Assert.That( d.GetInitialDomain().Count, Is.EqualTo( 3 ) );
       for( int i = 0 ; i < d.GetSize() ; ++i )
-        Assert.AreEqual( d.GetValue( i ), d.GetInitialDomain()[ i ] );
+        Assert.That( d.GetInitialDomain()[ i ], Is.EqualTo( d.GetValue( i ) ) );
 
       d = new DomainWrapper( 10, -9 );
       for( int i = 0 ; i < 10 ; ++i )
       {
-        Assert.AreEqual( i - 9, d.GetValue( i ) );
-        Assert.AreEqual( i - 9, d.GetInitialDomain()[ i ] );
+        Assert.That( d.GetValue( i ), Is.EqualTo( i - 9 ) );
+        Assert.That( d.GetInitialDomain()[ i ], Is.EqualTo( i - 9 ) );
       }
-      Assert.AreEqual( -10, d.OutsideScope );
+      Assert.That( d.OutsideScope, Is.EqualTo( -10 ) );
     }
 
     [Test]
@@ -118,14 +118,14 @@ namespace GhostTest
     }
 
     // 1 is domain's OutsideValue 
-    [TestCase(1, -1)]
-    [TestCase(2, 0)]
-    [TestCase(3, 1)]
-    [TestCase(4, 2)]
-    [TestCase(1, 3)]
-    public void GetValueTest( int expected, int index )
+    [TestCase(-1, Result=1)]
+    [TestCase(0, Result=2)]
+    [TestCase(1, Result=3)]
+    [TestCase(2, Result=4)]
+    [TestCase(3, Result=1)]
+    public int GetValueTest( int index )
     {
-      Assert.AreEqual( expected, domain.GetValue( index ) );
+      return domain.GetValue( index );
     }
 
     [Test]
@@ -133,13 +133,13 @@ namespace GhostTest
     {
       domain.SetCurrentDomain( new List<int>{ 1, 2, 3 } );
       domain.SetInitialDomain( new List<int>{ 4, 5 } );
-      Assert.AreNotEqual( domain.GetSize(), domain.GetInitialSize() );
+      Assert.That( domain.GetSize(), Is.Not.EqualTo( domain.GetInitialSize() ) );
 
       domain.ResetToInitial();
 
-      Assert.AreEqual( domain.GetSize(), domain.GetInitialSize() );
+      Assert.That( domain.GetSize(), Is.EqualTo( domain.GetInitialSize() ) );
       for( int i = 0 ; i < domain.GetSize() ; ++i )
-        Assert.AreEqual( domain.GetValue( i ), domain.GetInitialDomain()[ i ] );
+        Assert.That( domain.GetValue( i ), Is.EqualTo( domain.GetInitialDomain()[ i ] ) );
     }
 
     [Test]
@@ -147,21 +147,21 @@ namespace GhostTest
     {
       domain.SetCurrentDomain( new List<int>{ 1, 2, 3 } );
       for( int i = 0 ; i < domain.GetSize() ; ++i )
-        Assert.AreEqual( i + 1, domain.GetValue( i ) );
+        Assert.That( domain.GetValue( i ), Is.EqualTo( i + 1 ) );
 
       domain.RemoveValue( 2 );
-      Assert.AreEqual( 2, domain.GetSize() );
-      Assert.AreEqual( 1, domain.GetValue( 0 ) );
-      Assert.AreEqual( 3, domain.GetValue( 1 ) );
+      Assert.That( domain.GetSize(), Is.EqualTo( 2 ) );
+      Assert.That( domain.GetValue( 0 ), Is.EqualTo( 1 ) );
+      Assert.That( domain.GetValue( 1 ), Is.EqualTo( 3 ) );
     }
 
-    [TestCase(0, 2)]
-    [TestCase(4, 10)]
-    [TestCase(-1, 123)]
-    public void IndexOfTest( int result, int value )
+    [TestCase(2, Result=0)]
+    [TestCase(10, Result=4)]
+    [TestCase(123, Result=-1)]
+    public int IndexOfTest( int value )
     {
       domain.SetCurrentDomain( new List<int>{ 2, 4, 5, 6, 10, 42 } );
-      Assert.AreEqual( result, domain.IndexOf( value ) );
+      return domain.IndexOf( value );
     }
 
     [Test]
@@ -170,19 +170,19 @@ namespace GhostTest
       var d1 = new DomainWrapper();
       var d2 = (Domain)d1.Clone();
 
-      Assert.IsFalse( d1.IsInitialized() );
-      Assert.IsFalse( d2.IsInitialized() );
+      Assert.That( d1.IsInitialized(), Is.False );
+      Assert.That( d2.IsInitialized(), Is.False );
 
       d1.SetCurrentDomain( new List<int>{ 1, 2, 3 } );
       d1.SetInitialDomain( new List<int>{ 1, 2, 3, 4 } );
 
-      Assert.IsTrue( d1.IsInitialized() );
-      Assert.IsFalse( d2.IsInitialized() );
+      Assert.That( d1.IsInitialized(), Is.True );
+      Assert.That( d2.IsInitialized(), Is.False );
 
       d2 = (Domain)d1.Clone();
 
-      Assert.IsTrue( d2.IsInitialized() );
-      Assert.AreEqual( 3, d2.GetSize() );
+      Assert.That( d2.IsInitialized(), Is.True );
+      Assert.That( d2.GetSize(), Is.EqualTo( 3 ) );
     }
   }
 }

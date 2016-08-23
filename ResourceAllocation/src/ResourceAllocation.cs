@@ -30,9 +30,9 @@ namespace RA
       {
         System.Console.WriteLine( "Usage: ResourceAllocation #mineral #gas #supply" );
         //return;
-        mineral = 1000;
-        gas = 700;
-        supply = 19;
+        mineral = 20000;
+        gas = 14000;
+        supply = 380;
       }
       else
       {
@@ -57,7 +57,7 @@ namespace RA
       var solver = new ghost.Solver< Variable, SetVariables, Constraint >( setUnits, constraints, objective );
 
       Console.WriteLine( "Start solving trivial test" );
-      solver.solve( 20, 150 );
+      solver.solve( 100, 2000 );
 
       int mineralUsed = 0;
       int gasUsed = 0;

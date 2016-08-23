@@ -62,7 +62,7 @@ namespace GhostTest
         list.Add( new VarInt( "", "" ) );
 
       var svwLocal = new SetVariablesWrapper( list );
-      Assert.AreEqual( size, svwLocal.GetNumberVariables() );
+      Assert.That( svwLocal.GetNumberVariables(), Is.EqualTo( size ) );
     }
 
     [Test]
@@ -74,81 +74,81 @@ namespace GhostTest
       var obj3 = new VarInt( "c", "cc", domain, 4 );
       var svw = new SetVariablesWrapper( new List<VarInt> { obj1, obj2 } );
 
-      Assert.AreEqual( 0, svw.GetIndex( obj1 ) );
-      Assert.AreEqual( 1, svw.GetIndex( obj2 ) );
-      Assert.AreEqual( -1, svw.GetIndex( obj3 ) );
+      Assert.That( svw.GetIndex( obj1 ), Is.EqualTo( 0 ) );
+      Assert.That( svw.GetIndex( obj2 ), Is.EqualTo( 1 ) );
+      Assert.That( svw.GetIndex( obj3 ), Is.EqualTo( -1 ) );
     }
 
     [Test]
     public void SwapTest()
     {
       svw.Swap( 1, 0 );
-      Assert.AreEqual( -1, svw.GetValue( 0 ) );
-      Assert.AreEqual( 5, svw.GetValue( 1 ) );
+      Assert.That( svw.GetValue( 0 ), Is.EqualTo( -1 ) );
+      Assert.That( svw.GetValue( 1 ), Is.EqualTo( 5 ) );
       svw.Swap( 0, 1 );
-      Assert.AreEqual( 5, svw.GetValue( 0 ) );
-      Assert.AreEqual( -1, svw.GetValue( 1 ) );
+      Assert.That( svw.GetValue( 0 ), Is.EqualTo( 5 ) );
+      Assert.That( svw.GetValue( 1 ), Is.EqualTo( -1 ) );
     }
 
     [Test]
     public void ResetDomainTest()
     {
-      Assert.AreEqual( 10, svw.Domain( 1 ).GetSize() );
+      Assert.That( svw.Domain( 1 ).GetSize(), Is.EqualTo( 10 ) );
 
       svw.Domain( 1 ).RemoveValue( 7 );
       svw.Domain( 1 ).RemoveValue( 2 );
       svw.Domain( 1 ).RemoveValue( 4 );
 
-      Assert.AreEqual( 7, svw.Domain( 1 ).GetSize() );
+      Assert.That( svw.Domain( 1 ).GetSize(), Is.EqualTo( 7 ) );
 
       svw.ResetDomain( 1 );
 
-      Assert.AreEqual( 10, svw.Domain( 1 ).GetSize() );
+      Assert.That( svw.Domain( 1 ).GetSize(), Is.EqualTo( 10 ) );
     }
 
     [Test]
     public void ResetAllDomainsTest()
     {
-      Assert.AreEqual( 10, svw.Domain( 0 ).GetSize() );
-      Assert.AreEqual( 10, svw.Domain( 1 ).GetSize() );
+      Assert.That( svw.Domain( 0 ).GetSize(), Is.EqualTo( 10 ) );
+      Assert.That( svw.Domain( 1 ).GetSize(), Is.EqualTo( 10 ) );
 
       svw.Domain( 0 ).RemoveValue( 7 );
       svw.Domain( 1 ).RemoveValue( 3 );
       svw.Domain( 1 ).RemoveValue( 2 );
 
-      Assert.AreEqual( 9, svw.Domain( 0 ).GetSize() );
-      Assert.AreEqual( 8, svw.Domain( 1 ).GetSize() );
+      Assert.That( svw.Domain( 0 ).GetSize(), Is.EqualTo( 9 ) );
+      Assert.That( svw.Domain( 1 ).GetSize(), Is.EqualTo( 8 ) );
 
       svw.ResetAllDomains();
 
-      Assert.AreEqual( 10, svw.Domain( 0 ).GetSize() );
-      Assert.AreEqual( 10, svw.Domain( 1 ).GetSize() );
+      Assert.That( svw.Domain( 0 ).GetSize(), Is.EqualTo( 10 ) );
+      Assert.That( svw.Domain( 1 ).GetSize(), Is.EqualTo( 10 ) );
     }
 
     [Test]
     public void ShiftUnshiftValueTest()
     {
-      Assert.AreEqual( 5, svw.GetValue( 0 ) );
-      Assert.AreEqual( -1, svw.GetValue( 1 ) );
+      Assert.That( svw.GetValue( 0 ), Is.EqualTo( 5 ) );
+      Assert.That( svw.GetValue( 1 ), Is.EqualTo( -1 ) );
 
       svw.ShiftValue( 0 );
-      Assert.AreEqual( 6, svw.GetValue( 0 ) );
+      Assert.That( svw.GetValue( 0 ), Is.EqualTo( 6 ) );
 
       svw.ShiftValue( 1 );
-      Assert.AreEqual( -1, svw.GetValue( 1 ) );
+      Assert.That( svw.GetValue( 1 ), Is.EqualTo( -1 ) );
 
       svw.UnshiftValue( 0 );
-      Assert.AreEqual( 5, svw.GetValue( 0 ) );
+      Assert.That( svw.GetValue( 0 ), Is.EqualTo( 5 ) );
 
       svw.UnshiftValue( 1 );
-      Assert.AreEqual( -1, svw.GetValue( 1 ) );
+      Assert.That( svw.GetValue( 1 ), Is.EqualTo( -1 ) );
     }
 
-    [TestCase( 5, 0 )]
-    [TestCase( -1, 1 )]
-    public void GetValueTest( int value, int index )
+    [TestCase( 0, Result=5 )]
+    [TestCase( 1, Result=-1 )]
+    public int GetValueTest( int index )
     {
-      Assert.AreEqual( value, svw.GetValue( index ) );
+      return svw.GetValue( index );
     }
 
     [TestCase( -1 )]
@@ -159,11 +159,11 @@ namespace GhostTest
       svw.GetValue( index );
     }
 
-    [TestCase( "aa", 0 )]
-    [TestCase( "bb", 1 )]
-    public void FullNameTest( string fullName, int index )
+    [TestCase( 0, Result="aa" )]
+    [TestCase( 1, Result="bb" )]
+    public string FullNameTest( int index )
     {
-      Assert.AreEqual( fullName, svw.FullName( index ) );
+      return svw.FullName( index );
     }
   }
 }
