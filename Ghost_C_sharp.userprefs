@@ -1,12 +1,8 @@
 ﻿<Properties StartupItem="GhostTest/GhostTest.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Ghost/src/Objective.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Ghost/src/Constraint.cs" Line="1" Column="1" />
-      <File FileName="Ghost/src/Solver.cs" Line="1" Column="1" />
-      <File FileName="Ghost/src/Variable.cs" Line="1" Column="1" />
-      <File FileName="Ghost/src/SetVariables.cs" Line="1" Column="1" />
-      <File FileName="Ghost/src/Objective.cs" Line="1" Column="1" />
+      <File FileName="WallinTest/src/SetVariablesTest.cs" Line="199" Column="26" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

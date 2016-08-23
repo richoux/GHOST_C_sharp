@@ -5,3 +5,10 @@
 /share/GitHub/GHOST_C_sharp/GhostTest/bin/Release/GhostTest.dll
 /share/GitHub/GHOST_C_sharp/GhostTest/obj/Release/GhostTest.dll
 /share/GitHub/GHOST_C_sharp/GhostTest/obj/Release/GhostTest.dll.mdb
+/mnt/share/Developpement/Github/GHOST_C_sharp/GhostTest/obj/Release/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/mnt/share/Developpement/Github/GHOST_C_sharp/GhostTest/bin/Release/GhostTest.dll.mdb
+/mnt/share/Developpement/Github/GHOST_C_sharp/GhostTest/bin/Release/GhostTest.dll
+/mnt/share/Developpement/Github/GHOST_C_sharp/GhostTest/obj/Release/GhostTest.dll
+/mnt/share/Developpement/Github/GHOST_C_sharp/GhostTest/obj/Release/GhostTest.dll.mdb
+/mnt/share/Developpement/Github/GHOST_C_sharp/GhostTest/bin/Release/Ghost.dll
+/mnt/share/Developpement/Github/GHOST_C_sharp/GhostTest/bin/Release/Ghost.dll.mdb

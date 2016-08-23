@@ -7,3 +7,12 @@
 /share/GitHub/GHOST_C_sharp/WallinTest/bin/Release/WallinTest.dll
 /share/GitHub/GHOST_C_sharp/WallinTest/obj/Release/WallinTest.dll
 /share/GitHub/GHOST_C_sharp/WallinTest/obj/Release/WallinTest.dll.mdb
+/mnt/share/Developpement/Github/GHOST_C_sharp/WallinTest/obj/Release/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/mnt/share/Developpement/Github/GHOST_C_sharp/WallinTest/bin/Release/WallinTest.dll.mdb
+/mnt/share/Developpement/Github/GHOST_C_sharp/WallinTest/bin/Release/WallinTest.dll
+/mnt/share/Developpement/Github/GHOST_C_sharp/WallinTest/obj/Release/WallinTest.dll
+/mnt/share/Developpement/Github/GHOST_C_sharp/WallinTest/obj/Release/WallinTest.dll.mdb
+/mnt/share/Developpement/Github/GHOST_C_sharp/WallinTest/bin/Release/Wallin.exe
+/mnt/share/Developpement/Github/GHOST_C_sharp/WallinTest/bin/Release/Wallin.exe.mdb
+/mnt/share/Developpement/Github/GHOST_C_sharp/WallinTest/bin/Release/Ghost.dll
+/mnt/share/Developpement/Github/GHOST_C_sharp/WallinTest/bin/Release/Ghost.dll.mdb

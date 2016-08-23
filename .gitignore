@@ -1,5 +1,4 @@
-**/.fuse*
-**/bin/**
-**/obj/**
-Ghost_C_sharp.userprefs
+.fuse*
+*.exe
+*.mdb
 doc/**
