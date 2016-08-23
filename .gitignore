@@ -1,8 +1,5 @@
-*.exe
-*.mdb
-.fuse*
-Ghost/bin/Release/Ghost.dll
-Ghost/obj/Release/Ghost.dll
-Ghost/obj/Release/Ghost.csproj.FilesWrittenAbsolute.txt
+**/.fuse*
+**/bin/**
+**/obj/**
 Ghost_C_sharp.userprefs
-doc/
+doc/**
