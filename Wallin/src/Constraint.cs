@@ -36,6 +36,7 @@ namespace Wallin
   {
     protected Constraint( SetVariables variables ) : base( variables ) { }
 
+    // Used by WallShape and StartingTargetTiles constraints
     public override Dictionary<int, double> SimulateCost( int currentVariableIndex )
     {
       // for each value in currentVariableIndex's domain, save the constraint cost value.
@@ -162,11 +163,7 @@ namespace Wallin
       {
         int nbConflict = failures.Value.Length - 1;
         if( nbConflict > 0 && !failures.Value.Contains( "###" ) )
-        {
           conflicts += nbConflict;
-          var words = failures.Key.Split(',');
-          var point = new SetVariables.Point( Int32.Parse(words[0]), Int32.Parse(words[1]) );
-        }
       }
 
       return conflicts;    
@@ -213,18 +210,11 @@ namespace Wallin
     {
       // count number of buildings misplaced on unbuildable tiles (denoted by ###)
       double conflicts = 0.0;
-      int nbConflict;
 
       foreach( var failures in Variables.Failures )
       {
         if( failures.Value.Contains( "###" ) )
-        {
-          nbConflict = failures.Value.Length - 3;
-          conflicts += nbConflict;
-          var words = failures.Key.Split(',');
-          var point = new SetVariables.Point( Int32.Parse(words[0]), Int32.Parse(words[1]) );
-          var setBuildings = Variables.BuildingsAt( point );
-        }
+          conflicts += failures.Value.Length - 3;
       }
 
       return conflicts;    
