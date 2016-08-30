@@ -1,0 +1,4 @@
+D:\Developpement\Github\GHOST_C_sharp\Ghost\bin\Release\Ghost.dll
+D:\Developpement\Github\GHOST_C_sharp\Ghost\bin\Release\Ghost.pdb
+D:\Developpement\Github\GHOST_C_sharp\Ghost\obj\Release\Ghost.dll
+D:\Developpement\Github\GHOST_C_sharp\Ghost\obj\Release\Ghost.pdb

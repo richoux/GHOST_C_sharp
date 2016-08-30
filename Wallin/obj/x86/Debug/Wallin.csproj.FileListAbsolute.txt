@@ -1,0 +1,9 @@
+D:\Developpement\Github\GHOST_C_sharp\Wallin\obj\x86\Debug\Wallin.csprojResolveAssemblyReference.cache
+D:\Developpement\Github\GHOST_C_sharp\Wallin\bin\Debug\Wallin.exe
+D:\Developpement\Github\GHOST_C_sharp\Wallin\bin\Debug\Wallin.pdb
+D:\Developpement\Github\GHOST_C_sharp\Wallin\bin\Debug\Ghost.dll
+D:\Developpement\Github\GHOST_C_sharp\Wallin\bin\Debug\Ghost.pdb
+D:\Developpement\Github\GHOST_C_sharp\Wallin\obj\x86\Debug\Wallin.exe
+D:\Developpement\Github\GHOST_C_sharp\Wallin\obj\x86\Debug\Wallin.pdb
+D:\Developpement\Github\GHOST_C_sharp\Wallin\bin\Debug\Wallin.exe.CodeAnalysisLog.xml
+D:\Developpement\Github\GHOST_C_sharp\Wallin\bin\Debug\Wallin.exe.lastcodeanalysissucceeded

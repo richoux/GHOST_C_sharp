@@ -1,0 +1,7 @@
+D:\Developpement\Github\GHOST_C_sharp\Wallin\bin\Release\Wallin.exe
+D:\Developpement\Github\GHOST_C_sharp\Wallin\bin\Release\Wallin.pdb
+D:\Developpement\Github\GHOST_C_sharp\Wallin\bin\Release\Ghost.dll
+D:\Developpement\Github\GHOST_C_sharp\Wallin\bin\Release\Ghost.pdb
+D:\Developpement\Github\GHOST_C_sharp\Wallin\obj\x86\Release\Wallin.csprojResolveAssemblyReference.cache
+D:\Developpement\Github\GHOST_C_sharp\Wallin\obj\x86\Release\Wallin.exe
+D:\Developpement\Github\GHOST_C_sharp\Wallin\obj\x86\Release\Wallin.pdb
