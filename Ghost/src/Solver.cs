@@ -259,9 +259,8 @@ namespace ghost
 
 #if DEBUG
             Console.WriteLine("#######");
-            var dummy = new double[_variables.GetNumberVariables()];
             for(var i = 0 ; i < _constraints.Count ; ++i )
-              Console.WriteLine("_constraints[{0}]:{1}", i, _constraints[ i ].Cost( dummy ) );          
+              Console.WriteLine("_constraints[{0}]:{1}", i, _constraints[ i ].Cost() );          
             
             Console.WriteLine("tour:{2}, iter:{3}, globalCost:{0}, bestGlobalCost:{1}, var:{4}, bestPosIndex:{5}, bestPos:{6}",
                               globalCost,bestGlobalCost,tour,iterations,worstVariableIndex,bestSimulatedGlobalCostIndex,_variables.PossibleValues( worstVariableIndex )[ bestSimulatedGlobalCostIndex ]);
