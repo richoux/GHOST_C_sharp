@@ -4,9 +4,13 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-abstract double \hyperlink{classghost_1_1Constraint_3_01TypeSetVariables_00_01TypeVariable_01_4_ac4aba3edfc75f14a974cf45c9a4fbe0d}{Cost} (double\mbox{[}$\,$\mbox{]} variable\-Cost)
+abstract double \hyperlink{classghost_1_1Constraint_3_01TypeSetVariables_00_01TypeVariable_01_4_a372fdc84eedb800db45371a85e5861f2}{Cost} ()
 \item 
-abstract Dictionary$<$ int, double $>$ \hyperlink{classghost_1_1Constraint_3_01TypeSetVariables_00_01TypeVariable_01_4_a5ac6b63a92e54e8812bcdd414763d852}{Simulate\-Cost} (int current\-Variable\-Index, Dictionary$<$ int, double\mbox{[}$\,$\mbox{]} $>$ variable\-Sim\-Cost)
+double \hyperlink{classghost_1_1Constraint_3_01TypeSetVariables_00_01TypeVariable_01_4_a0196ae3cd8cd41e32b045c8651c79038}{Cost\-And\-Update\-Var\-Cost} ()
+\item 
+virtual void \hyperlink{classghost_1_1Constraint_3_01TypeSetVariables_00_01TypeVariable_01_4_a31f197e25cb1314cebba3dcde04bde82}{Update\-Projected\-Cost} (double cost)
+\item 
+virtual Dictionary$<$ int, double $>$ \hyperlink{classghost_1_1Constraint_3_01TypeSetVariables_00_01TypeVariable_01_4_a1be83ccf89d4f028dd49e3f26a79a255}{Simulate\-Cost} (int current\-Variable\-Index)
 \end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
@@ -38,39 +42,61 @@ Constraint is the abstract class giving a generic interface of constraints. This
 The unique constructor, taking a Set\-Variables in input. 
 
 \subsection{Member Function Documentation}
-\hypertarget{classghost_1_1Constraint_3_01TypeSetVariables_00_01TypeVariable_01_4_ac4aba3edfc75f14a974cf45c9a4fbe0d}{\index{ghost\-::\-Constraint$<$ Type\-Set\-Variables, Type\-Variable $>$@{ghost\-::\-Constraint$<$ Type\-Set\-Variables, Type\-Variable $>$}!Cost@{Cost}}
+\hypertarget{classghost_1_1Constraint_3_01TypeSetVariables_00_01TypeVariable_01_4_a372fdc84eedb800db45371a85e5861f2}{\index{ghost\-::\-Constraint$<$ Type\-Set\-Variables, Type\-Variable $>$@{ghost\-::\-Constraint$<$ Type\-Set\-Variables, Type\-Variable $>$}!Cost@{Cost}}
 \index{Cost@{Cost}!ghost::Constraint< TypeSetVariables, TypeVariable >@{ghost\-::\-Constraint$<$ Type\-Set\-Variables, Type\-Variable $>$}}
 \subsubsection[{Cost}]{\setlength{\rightskip}{0pt plus 5cm}abstract double ghost.\-Constraint$<$ Type\-Set\-Variables, Type\-Variable $>$.Cost (
 \begin{DoxyParamCaption}
-\item[{double\mbox{[}$\,$\mbox{]}}]{variable\-Cost}
+{}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classghost_1_1Constraint_3_01TypeSetVariables_00_01TypeVariable_01_4_ac4aba3edfc75f14a974cf45c9a4fbe0d}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classghost_1_1Constraint_3_01TypeSetVariables_00_01TypeVariable_01_4_a372fdc84eedb800db45371a85e5861f2}
+Abstract function computing the cost of the constraint. \begin{DoxyReturn}{Returns}
+A double, the cost of the constraint, ie, the value indicating how much the constraint is violated. The smaller the better. Zero means the constraint is satisfied. 
+\end{DoxyReturn}
+\hypertarget{classghost_1_1Constraint_3_01TypeSetVariables_00_01TypeVariable_01_4_a0196ae3cd8cd41e32b045c8651c79038}{\index{ghost\-::\-Constraint$<$ Type\-Set\-Variables, Type\-Variable $>$@{ghost\-::\-Constraint$<$ Type\-Set\-Variables, Type\-Variable $>$}!Cost\-And\-Update\-Var\-Cost@{Cost\-And\-Update\-Var\-Cost}}
+\index{Cost\-And\-Update\-Var\-Cost@{Cost\-And\-Update\-Var\-Cost}!ghost::Constraint< TypeSetVariables, TypeVariable >@{ghost\-::\-Constraint$<$ Type\-Set\-Variables, Type\-Variable $>$}}
+\subsubsection[{Cost\-And\-Update\-Var\-Cost}]{\setlength{\rightskip}{0pt plus 5cm}double ghost.\-Constraint$<$ Type\-Set\-Variables, Type\-Variable $>$.Cost\-And\-Update\-Var\-Cost (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classghost_1_1Constraint_3_01TypeSetVariables_00_01TypeVariable_01_4_a0196ae3cd8cd41e32b045c8651c79038}
+Cost\-And\-Update\-Var\-Cost is a function calling \hyperlink{classghost_1_1Constraint_3_01TypeSetVariables_00_01TypeVariable_01_4_a372fdc84eedb800db45371a85e5861f2}{Cost()} then \hyperlink{classghost_1_1Constraint_3_01TypeSetVariables_00_01TypeVariable_01_4_a31f197e25cb1314cebba3dcde04bde82}{Update\-Projected\-Cost()}. \begin{DoxyReturn}{Returns}
+The value returned by \hyperlink{classghost_1_1Constraint_3_01TypeSetVariables_00_01TypeVariable_01_4_a372fdc84eedb800db45371a85e5861f2}{Cost()}, ie, a double representing the cost of the constraint. 
+\end{DoxyReturn}
+\hypertarget{classghost_1_1Constraint_3_01TypeSetVariables_00_01TypeVariable_01_4_a1be83ccf89d4f028dd49e3f26a79a255}{\index{ghost\-::\-Constraint$<$ Type\-Set\-Variables, Type\-Variable $>$@{ghost\-::\-Constraint$<$ Type\-Set\-Variables, Type\-Variable $>$}!Simulate\-Cost@{Simulate\-Cost}}
+\index{Simulate\-Cost@{Simulate\-Cost}!ghost::Constraint< TypeSetVariables, TypeVariable >@{ghost\-::\-Constraint$<$ Type\-Set\-Variables, Type\-Variable $>$}}
+\subsubsection[{Simulate\-Cost}]{\setlength{\rightskip}{0pt plus 5cm}virtual Dictionary$<$int, double$>$ ghost.\-Constraint$<$ Type\-Set\-Variables, Type\-Variable $>$.Simulate\-Cost (
+\begin{DoxyParamCaption}
+\item[{int}]{current\-Variable\-Index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classghost_1_1Constraint_3_01TypeSetVariables_00_01TypeVariable_01_4_a1be83ccf89d4f028dd49e3f26a79a255}
 An abstract function computing the cost of the constraint, regarding the current assignment of each variable. 
 \begin{DoxyParams}{Parameters}
 {\em variable\-Cost} & is an array of doubles. Values contained in this array when this function is called are not used. The purpose of this array is to save the cost of each variable, while computing the constraint cost. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-A double, the cost of the constraint. 
+A double, the cost of the constraint. This function is called by the solver when it looks for a new value for a selected variable (a variable the solver heuristics choose to modify in priority). Given this variable, Simulate\-Cost must try all values in the variable domain, computes the new constraint cost and saves the couple (value, cost) into a Dictionary. 
 \end{DoxyReturn}
-\hypertarget{classghost_1_1Constraint_3_01TypeSetVariables_00_01TypeVariable_01_4_a5ac6b63a92e54e8812bcdd414763d852}{\index{ghost\-::\-Constraint$<$ Type\-Set\-Variables, Type\-Variable $>$@{ghost\-::\-Constraint$<$ Type\-Set\-Variables, Type\-Variable $>$}!Simulate\-Cost@{Simulate\-Cost}}
-\index{Simulate\-Cost@{Simulate\-Cost}!ghost::Constraint< TypeSetVariables, TypeVariable >@{ghost\-::\-Constraint$<$ Type\-Set\-Variables, Type\-Variable $>$}}
-\subsubsection[{Simulate\-Cost}]{\setlength{\rightskip}{0pt plus 5cm}abstract Dictionary$<$int, double$>$ ghost.\-Constraint$<$ Type\-Set\-Variables, Type\-Variable $>$.Simulate\-Cost (
-\begin{DoxyParamCaption}
-\item[{int}]{current\-Variable\-Index, }
-\item[{Dictionary$<$ int, double\mbox{[}$\,$\mbox{]} $>$}]{variable\-Sim\-Cost}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classghost_1_1Constraint_3_01TypeSetVariables_00_01TypeVariable_01_4_a5ac6b63a92e54e8812bcdd414763d852}
-This function is called by the solver when it looks for a new value for a selected variable (a variable the solver heuristics choose to modify in priority). Given this variable, Simulate\-Cost must try all values in the variable domain, computes the new constraint cost and saves the couple (value, cost) into a Dictionary. 
+
 \begin{DoxyParams}{Parameters}
 {\em current\-Variable\-Index} & is the index of variable to change the value. \\
-\hline
-{\em variable\-Sim\-Cost} & is a Dictionary$<$int, double\mbox{[}$\,$\mbox{]}$>$. Its purpose is to save the cost of each variable in the set, and this for each value in the domain of the variable at the index current\-Variable\-Index. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 A Dictionary$<$int, double$>$ containing the cost for each value in the domain of the variable at the index current\-Variable\-Index. 
 \end{DoxyReturn}
+\hypertarget{classghost_1_1Constraint_3_01TypeSetVariables_00_01TypeVariable_01_4_a31f197e25cb1314cebba3dcde04bde82}{\index{ghost\-::\-Constraint$<$ Type\-Set\-Variables, Type\-Variable $>$@{ghost\-::\-Constraint$<$ Type\-Set\-Variables, Type\-Variable $>$}!Update\-Projected\-Cost@{Update\-Projected\-Cost}}
+\index{Update\-Projected\-Cost@{Update\-Projected\-Cost}!ghost::Constraint< TypeSetVariables, TypeVariable >@{ghost\-::\-Constraint$<$ Type\-Set\-Variables, Type\-Variable $>$}}
+\subsubsection[{Update\-Projected\-Cost}]{\setlength{\rightskip}{0pt plus 5cm}virtual void ghost.\-Constraint$<$ Type\-Set\-Variables, Type\-Variable $>$.Update\-Projected\-Cost (
+\begin{DoxyParamCaption}
+\item[{double}]{cost}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classghost_1_1Constraint_3_01TypeSetVariables_00_01TypeVariable_01_4_a31f197e25cb1314cebba3dcde04bde82}
+Virtual function calling Add\-Projected\-Cost\-To\-All on the set of variables. 
+\begin{DoxyParams}{Parameters}
+{\em A} & double representing the current cost of the constraint. \\
+\hline
+\end{DoxyParams}
 
 
 \subsection{Property Documentation}

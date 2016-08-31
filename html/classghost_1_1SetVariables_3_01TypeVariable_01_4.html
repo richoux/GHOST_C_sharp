@@ -130,6 +130,16 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7f32c243dd4c5b434c2b3d51c8b37e5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9627fb96652fc476da1a0d04ebdc815"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classghost_1_1Domain.html">Domain</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classghost_1_1SetVariables_3_01TypeVariable_01_4.html#ab9627fb96652fc476da1a0d04ebdc815">Domain</a> (int index)</td></tr>
 <tr class="separator:ab9627fb96652fc476da1a0d04ebdc815"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c2845e80b182788c323d5f55448a3a1"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classghost_1_1SetVariables_3_01TypeVariable_01_4.html#a1c2845e80b182788c323d5f55448a3a1">GetProjectedCost</a> (int index)</td></tr>
+<tr class="separator:a1c2845e80b182788c323d5f55448a3a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabb6b1627b9646c6ff2f597fb76d616d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classghost_1_1SetVariables_3_01TypeVariable_01_4.html#aabb6b1627b9646c6ff2f597fb76d616d">SetProjectedCost</a> (int index, double cost)</td></tr>
+<tr class="separator:aabb6b1627b9646c6ff2f597fb76d616d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1da3f2f04ad8bfd5f18b28a5da210ae3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classghost_1_1SetVariables_3_01TypeVariable_01_4.html#a1da3f2f04ad8bfd5f18b28a5da210ae3">AddProjectedCost</a> (int index, double cost)</td></tr>
+<tr class="separator:a1da3f2f04ad8bfd5f18b28a5da210ae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c3a9c333c17c16651a112a74740fae7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classghost_1_1SetVariables_3_01TypeVariable_01_4.html#a6c3a9c333c17c16651a112a74740fae7">AddProjectedCostToAll</a> (double cost)</td></tr>
+<tr class="separator:a6c3a9c333c17c16651a112a74740fae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac546924f8bab416aa499a427c81cf6c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classghost_1_1SetVariables_3_01TypeVariable_01_4.html#ac546924f8bab416aa499a427c81cf6c1">WipeProjectedCost</a> ()</td></tr>
+<tr class="separator:ac546924f8bab416aa499a427c81cf6c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac254fd0d11c3effcaff7689d9954062b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac254fd0d11c3effcaff7689d9954062b"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Print</b> ()</td></tr>
 <tr class="separator:ac254fd0d11c3effcaff7689d9954062b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -176,6 +186,79 @@ Properties</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a1da3f2f04ad8bfd5f18b28a5da210ae3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ghost.SetVariables&lt; TypeVariable &gt;.AddProjectedCost </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>cost</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Add a projected cost of a given variable. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>is the index of the considered variable. If the index is out of range, the function does nothing. </td></tr>
+    <tr><td class="paramname">cost</td><td>is the projected cost to sum with the current variable projected cost. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a6c3a9c333c17c16651a112a74740fae7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ghost.SetVariables&lt; TypeVariable &gt;.AddProjectedCostToAll </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>cost</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Add a projected cost to all variables. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cost</td><td>is the projected cost to sum with the current projected cost of each variable. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="ab9627fb96652fc476da1a0d04ebdc815"></a>
 <div class="memitem">
 <div class="memproto">
@@ -287,6 +370,37 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Returns the number of variables in the set. </p>
+
+</div>
+</div>
+<a class="anchor" id="a1c2845e80b182788c323d5f55448a3a1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double ghost.SetVariables&lt; TypeVariable &gt;.GetProjectedCost </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the projected cost of a given variable. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>is the index of the considered variable. If the index is out of range, an IndexOutOfRangeException is raised. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -513,6 +627,48 @@ Properties</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aabb6b1627b9646c6ff2f597fb76d616d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ghost.SetVariables&lt; TypeVariable &gt;.SetProjectedCost </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>cost</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Set the projected cost of a given variable. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>is the index of the considered variable. If the index is out of range, the function does nothing. </td></tr>
+    <tr><td class="paramname">cost</td><td>is the new projected cost to assign. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a6f4f72d36727cf96522ed6e5635b5c27"></a>
 <div class="memitem">
 <div class="memproto">
@@ -660,6 +816,30 @@ Properties</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ac546924f8bab416aa499a427c81cf6c1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ghost.SetVariables&lt; TypeVariable &gt;.WipeProjectedCost </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Set the projected cost of each variable to zero. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Property Documentation</h2>
 <a class="anchor" id="a1aa6a24ebcf2782dbd09e186e5c000d8"></a>
 <div class="memitem">
@@ -688,7 +868,7 @@ Properties</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 18 2015 11:49:11 for GHOST C# by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 31 2016 09:56:45 for GHOST C# by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

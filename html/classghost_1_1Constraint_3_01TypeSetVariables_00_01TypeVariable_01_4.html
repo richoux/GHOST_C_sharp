@@ -97,10 +97,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac4aba3edfc75f14a974cf45c9a4fbe0d"><td class="memItemLeft" align="right" valign="top">abstract double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classghost_1_1Constraint_3_01TypeSetVariables_00_01TypeVariable_01_4.html#ac4aba3edfc75f14a974cf45c9a4fbe0d">Cost</a> (double[] variableCost)</td></tr>
-<tr class="separator:ac4aba3edfc75f14a974cf45c9a4fbe0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ac6b63a92e54e8812bcdd414763d852"><td class="memItemLeft" align="right" valign="top">abstract Dictionary&lt; int, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classghost_1_1Constraint_3_01TypeSetVariables_00_01TypeVariable_01_4.html#a5ac6b63a92e54e8812bcdd414763d852">SimulateCost</a> (int currentVariableIndex, Dictionary&lt; int, double[] &gt; variableSimCost)</td></tr>
-<tr class="separator:a5ac6b63a92e54e8812bcdd414763d852"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a372fdc84eedb800db45371a85e5861f2"><td class="memItemLeft" align="right" valign="top">abstract double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classghost_1_1Constraint_3_01TypeSetVariables_00_01TypeVariable_01_4.html#a372fdc84eedb800db45371a85e5861f2">Cost</a> ()</td></tr>
+<tr class="separator:a372fdc84eedb800db45371a85e5861f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0196ae3cd8cd41e32b045c8651c79038"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classghost_1_1Constraint_3_01TypeSetVariables_00_01TypeVariable_01_4.html#a0196ae3cd8cd41e32b045c8651c79038">CostAndUpdateVarCost</a> ()</td></tr>
+<tr class="separator:a0196ae3cd8cd41e32b045c8651c79038"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31f197e25cb1314cebba3dcde04bde82"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classghost_1_1Constraint_3_01TypeSetVariables_00_01TypeVariable_01_4.html#a31f197e25cb1314cebba3dcde04bde82">UpdateProjectedCost</a> (double cost)</td></tr>
+<tr class="separator:a31f197e25cb1314cebba3dcde04bde82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1be83ccf89d4f028dd49e3f26a79a255"><td class="memItemLeft" align="right" valign="top">virtual Dictionary&lt; int, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classghost_1_1Constraint_3_01TypeSetVariables_00_01TypeVariable_01_4.html#a1be83ccf89d4f028dd49e3f26a79a255">SimulateCost</a> (int currentVariableIndex)</td></tr>
+<tr class="separator:a1be83ccf89d4f028dd49e3f26a79a255"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -149,7 +153,7 @@ Properties</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ac4aba3edfc75f14a974cf45c9a4fbe0d"></a>
+<a class="anchor" id="a372fdc84eedb800db45371a85e5861f2"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -159,14 +163,64 @@ Properties</h2></td></tr>
         <tr>
           <td class="memname">abstract double ghost.Constraint&lt; TypeSetVariables, TypeVariable &gt;.Cost </td>
           <td>(</td>
-          <td class="paramtype">double[]&#160;</td>
-          <td class="paramname"><em>variableCost</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Abstract function computing the cost of the constraint. </p>
+<dl class="section return"><dt>Returns</dt><dd>A double, the cost of the constraint, ie, the value indicating how much the constraint is violated. The smaller the better. Zero means the constraint is satisfied. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0196ae3cd8cd41e32b045c8651c79038"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double ghost.Constraint&lt; TypeSetVariables, TypeVariable &gt;.CostAndUpdateVarCost </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>CostAndUpdateVarCost is a function calling <a class="el" href="classghost_1_1Constraint_3_01TypeSetVariables_00_01TypeVariable_01_4.html#a372fdc84eedb800db45371a85e5861f2">Cost()</a> then <a class="el" href="classghost_1_1Constraint_3_01TypeSetVariables_00_01TypeVariable_01_4.html#a31f197e25cb1314cebba3dcde04bde82">UpdateProjectedCost()</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The value returned by <a class="el" href="classghost_1_1Constraint_3_01TypeSetVariables_00_01TypeVariable_01_4.html#a372fdc84eedb800db45371a85e5861f2">Cost()</a>, ie, a double representing the cost of the constraint. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1be83ccf89d4f028dd49e3f26a79a255"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Dictionary&lt;int, double&gt; ghost.Constraint&lt; TypeSetVariables, TypeVariable &gt;.SimulateCost </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>currentVariableIndex</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -177,11 +231,18 @@ Properties</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A double, the cost of the constraint. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A double, the cost of the constraint. This function is called by the solver when it looks for a new value for a selected variable (a variable the solver heuristics choose to modify in priority). Given this variable, SimulateCost must try all values in the variable domain, computes the new constraint cost and saves the couple (value, cost) into a Dictionary. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">currentVariableIndex</td><td>is the index of variable to change the value. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A Dictionary&lt;int, double&gt; containing the cost for each value in the domain of the variable at the index currentVariableIndex. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a5ac6b63a92e54e8812bcdd414763d852"></a>
+<a class="anchor" id="a31f197e25cb1314cebba3dcde04bde82"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -189,38 +250,26 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">abstract Dictionary&lt;int, double&gt; ghost.Constraint&lt; TypeSetVariables, TypeVariable &gt;.SimulateCost </td>
+          <td class="memname">virtual void ghost.Constraint&lt; TypeSetVariables, TypeVariable &gt;.UpdateProjectedCost </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>currentVariableIndex</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>cost</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">Dictionary&lt; int, double[] &gt;&#160;</td>
-          <td class="paramname"><em>variableSimCost</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>This function is called by the solver when it looks for a new value for a selected variable (a variable the solver heuristics choose to modify in priority). Given this variable, SimulateCost must try all values in the variable domain, computes the new constraint cost and saves the couple (value, cost) into a Dictionary. </p>
+<p>Virtual function calling AddProjectedCostToAll on the set of variables. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">currentVariableIndex</td><td>is the index of variable to change the value. </td></tr>
-    <tr><td class="paramname">variableSimCost</td><td>is a Dictionary&lt;int, double[]&gt;. Its purpose is to save the cost of each variable in the set, and this for each value in the domain of the variable at the index currentVariableIndex. </td></tr>
+    <tr><td class="paramname">A</td><td>double representing the current cost of the constraint. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A Dictionary&lt;int, double&gt; containing the cost for each value in the domain of the variable at the index currentVariableIndex. </dd></dl>
 
 </div>
 </div>
@@ -252,7 +301,7 @@ Properties</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 18 2015 11:49:11 for GHOST C# by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 31 2016 09:56:42 for GHOST C# by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['maxinitialvalue',['MaxInitialValue',['../classghost_1_1Domain.html#a5cdcd82474cf092c917cff1bf4b9d526',1,'ghost::Domain']]],
-  ['maxvalue',['MaxValue',['../classghost_1_1Domain.html#a55aa4daa7f62b582d7f845946bc4dcd5',1,'ghost::Domain']]],
-  ['mininitialvalue',['MinInitialValue',['../classghost_1_1Domain.html#a8151d78526668ea28df7b7a4f368cce3',1,'ghost::Domain']]],
-  ['minvalue',['MinValue',['../classghost_1_1Domain.html#adaa1c7960de249e4e0e4441e2de5b89b',1,'ghost::Domain']]]
+  ['indexof',['IndexOf',['../classghost_1_1Domain.html#a9fa0bdeca5e9cda748defc7e060ff580',1,'ghost::Domain']]],
+  ['isinitialized',['IsInitialized',['../classghost_1_1Domain.html#a19610b0d083f6a47eeb867fbcf8c0522',1,'ghost::Domain']]],
+  ['isinset',['IsInSet',['../classghost_1_1SetVariables_3_01TypeVariable_01_4.html#a3554ef33a14c339391af02d0a04723b0',1,'ghost::SetVariables&lt; TypeVariable &gt;']]]
 ];

@@ -32,6 +32,8 @@ string \hyperlink{classghost_1_1Variable_af20c2f01306cba69f36d32babb703c1d}{Full
 \item 
 \hyperlink{classghost_1_1Domain}{Domain} \hyperlink{classghost_1_1Variable_aae96e8a30ff2f44dc115a0b51e136e92}{Domain}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
 \item 
+double \hyperlink{classghost_1_1Variable_a7c5bc50b854d25917ef641a2e965ea2a}{Projected\-Cost}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
 int \hyperlink{classghost_1_1Variable_a4fa08b5d46a4559d345d4752e7a790d2}{Index\-Domain}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
 \end{DoxyCompactItemize}
 
@@ -130,7 +132,10 @@ Full\-Name is the long name of the variable. For instance, 'building'. \hypertar
 A variable does not contain its current value directly, but the domain index of its current value. This acts like on iterator on the domain \hypertarget{classghost_1_1Variable_a1dba3848c7675d086eecad078178e4d9}{\index{ghost\-::\-Variable@{ghost\-::\-Variable}!Name@{Name}}
 \index{Name@{Name}!ghost::Variable@{ghost\-::\-Variable}}
 \subsubsection[{Name}]{\setlength{\rightskip}{0pt plus 5cm}string ghost.\-Variable.\-Name\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{classghost_1_1Variable_a1dba3848c7675d086eecad078178e4d9}
-Name is the short name of the variable. For instance, 'b'. 
+Name is the short name of the variable. For instance, 'b'. \hypertarget{classghost_1_1Variable_a7c5bc50b854d25917ef641a2e965ea2a}{\index{ghost\-::\-Variable@{ghost\-::\-Variable}!Projected\-Cost@{Projected\-Cost}}
+\index{Projected\-Cost@{Projected\-Cost}!ghost::Variable@{ghost\-::\-Variable}}
+\subsubsection[{Projected\-Cost}]{\setlength{\rightskip}{0pt plus 5cm}double ghost.\-Variable.\-Projected\-Cost\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{classghost_1_1Variable_a7c5bc50b854d25917ef641a2e965ea2a}
+Projected\-Cost is the local cost of the variable, ie, the value indicating how much the variable participate to constraints violation. The smaller the better. 
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 

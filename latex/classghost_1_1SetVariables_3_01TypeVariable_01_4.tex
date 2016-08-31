@@ -38,6 +38,16 @@ string \hyperlink{classghost_1_1SetVariables_3_01TypeVariable_01_4_a7f32c243dd4c
 \item 
 \hyperlink{classghost_1_1Domain}{Domain} \hyperlink{classghost_1_1SetVariables_3_01TypeVariable_01_4_ab9627fb96652fc476da1a0d04ebdc815}{Domain} (int index)
 \item 
+double \hyperlink{classghost_1_1SetVariables_3_01TypeVariable_01_4_a1c2845e80b182788c323d5f55448a3a1}{Get\-Projected\-Cost} (int index)
+\item 
+void \hyperlink{classghost_1_1SetVariables_3_01TypeVariable_01_4_aabb6b1627b9646c6ff2f597fb76d616d}{Set\-Projected\-Cost} (int index, double cost)
+\item 
+void \hyperlink{classghost_1_1SetVariables_3_01TypeVariable_01_4_a1da3f2f04ad8bfd5f18b28a5da210ae3}{Add\-Projected\-Cost} (int index, double cost)
+\item 
+void \hyperlink{classghost_1_1SetVariables_3_01TypeVariable_01_4_a6c3a9c333c17c16651a112a74740fae7}{Add\-Projected\-Cost\-To\-All} (double cost)
+\item 
+void \hyperlink{classghost_1_1SetVariables_3_01TypeVariable_01_4_ac546924f8bab416aa499a427c81cf6c1}{Wipe\-Projected\-Cost} ()
+\item 
 \hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4_ac254fd0d11c3effcaff7689d9954062b}{virtual void {\bfseries Print} ()}\label{classghost_1_1SetVariables_3_01TypeVariable_01_4_ac254fd0d11c3effcaff7689d9954062b}
 
 \end{DoxyCompactItemize}
@@ -68,6 +78,33 @@ Sometimes, it can be convenient to share information among variables. This is th
 The unique constructor taking a list of variables in input. 
 
 \subsection{Member Function Documentation}
+\hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4_a1da3f2f04ad8bfd5f18b28a5da210ae3}{\index{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}!Add\-Projected\-Cost@{Add\-Projected\-Cost}}
+\index{Add\-Projected\-Cost@{Add\-Projected\-Cost}!ghost::SetVariables< TypeVariable >@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}}
+\subsubsection[{Add\-Projected\-Cost}]{\setlength{\rightskip}{0pt plus 5cm}void ghost.\-Set\-Variables$<$ Type\-Variable $>$.Add\-Projected\-Cost (
+\begin{DoxyParamCaption}
+\item[{int}]{index, }
+\item[{double}]{cost}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classghost_1_1SetVariables_3_01TypeVariable_01_4_a1da3f2f04ad8bfd5f18b28a5da210ae3}
+Add a projected cost of a given variable. 
+\begin{DoxyParams}{Parameters}
+{\em index} & is the index of the considered variable. If the index is out of range, the function does nothing. \\
+\hline
+{\em cost} & is the projected cost to sum with the current variable projected cost. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4_a6c3a9c333c17c16651a112a74740fae7}{\index{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}!Add\-Projected\-Cost\-To\-All@{Add\-Projected\-Cost\-To\-All}}
+\index{Add\-Projected\-Cost\-To\-All@{Add\-Projected\-Cost\-To\-All}!ghost::SetVariables< TypeVariable >@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}}
+\subsubsection[{Add\-Projected\-Cost\-To\-All}]{\setlength{\rightskip}{0pt plus 5cm}void ghost.\-Set\-Variables$<$ Type\-Variable $>$.Add\-Projected\-Cost\-To\-All (
+\begin{DoxyParamCaption}
+\item[{double}]{cost}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classghost_1_1SetVariables_3_01TypeVariable_01_4_a6c3a9c333c17c16651a112a74740fae7}
+Add a projected cost to all variables. 
+\begin{DoxyParams}{Parameters}
+{\em cost} & is the projected cost to sum with the current projected cost of each variable. \\
+\hline
+\end{DoxyParams}
 \hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4_ab9627fb96652fc476da1a0d04ebdc815}{\index{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}!Domain@{Domain}}
 \index{Domain@{Domain}!ghost::SetVariables< TypeVariable >@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}}
 \subsubsection[{Domain}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Domain} ghost.\-Set\-Variables$<$ Type\-Variable $>$.{\bf Domain} (
@@ -115,7 +152,19 @@ The index of the searched variable, or -\/1 if the given variable is not in the 
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}}}\label{classghost_1_1SetVariables_3_01TypeVariable_01_4_ab56b789dea78a2a6b831b567efc3b3d0}
-Returns the number of variables in the set. \hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4_a2473f5c049d319412e81b440493d67e8}{\index{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}!Get\-Size\-All\-Domains@{Get\-Size\-All\-Domains}}
+Returns the number of variables in the set. \hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4_a1c2845e80b182788c323d5f55448a3a1}{\index{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}!Get\-Projected\-Cost@{Get\-Projected\-Cost}}
+\index{Get\-Projected\-Cost@{Get\-Projected\-Cost}!ghost::SetVariables< TypeVariable >@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}}
+\subsubsection[{Get\-Projected\-Cost}]{\setlength{\rightskip}{0pt plus 5cm}double ghost.\-Set\-Variables$<$ Type\-Variable $>$.Get\-Projected\-Cost (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classghost_1_1SetVariables_3_01TypeVariable_01_4_a1c2845e80b182788c323d5f55448a3a1}
+Returns the projected cost of a given variable. 
+\begin{DoxyParams}{Parameters}
+{\em index} & is the index of the considered variable. If the index is out of range, an Index\-Out\-Of\-Range\-Exception is raised. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4_a2473f5c049d319412e81b440493d67e8}{\index{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}!Get\-Size\-All\-Domains@{Get\-Size\-All\-Domains}}
 \index{Get\-Size\-All\-Domains@{Get\-Size\-All\-Domains}!ghost::SetVariables< TypeVariable >@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}}
 \subsubsection[{Get\-Size\-All\-Domains}]{\setlength{\rightskip}{0pt plus 5cm}int ghost.\-Set\-Variables$<$ Type\-Variable $>$.Get\-Size\-All\-Domains (
 \begin{DoxyParamCaption}
@@ -197,6 +246,21 @@ Reset the domain of a variable to its initial domain.
 {\em index} & is the index of the considered variable. If the index is out of range, the function does nothing. \\
 \hline
 \end{DoxyParams}
+\hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4_aabb6b1627b9646c6ff2f597fb76d616d}{\index{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}!Set\-Projected\-Cost@{Set\-Projected\-Cost}}
+\index{Set\-Projected\-Cost@{Set\-Projected\-Cost}!ghost::SetVariables< TypeVariable >@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}}
+\subsubsection[{Set\-Projected\-Cost}]{\setlength{\rightskip}{0pt plus 5cm}void ghost.\-Set\-Variables$<$ Type\-Variable $>$.Set\-Projected\-Cost (
+\begin{DoxyParamCaption}
+\item[{int}]{index, }
+\item[{double}]{cost}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classghost_1_1SetVariables_3_01TypeVariable_01_4_aabb6b1627b9646c6ff2f597fb76d616d}
+Set the projected cost of a given variable. 
+\begin{DoxyParams}{Parameters}
+{\em index} & is the index of the considered variable. If the index is out of range, the function does nothing. \\
+\hline
+{\em cost} & is the new projected cost to assign. \\
+\hline
+\end{DoxyParams}
 \hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4_a6f4f72d36727cf96522ed6e5635b5c27}{\index{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}!Set\-Value@{Set\-Value}}
 \index{Set\-Value@{Set\-Value}!ghost::SetVariables< TypeVariable >@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}}
 \subsubsection[{Set\-Value}]{\setlength{\rightskip}{0pt plus 5cm}virtual void ghost.\-Set\-Variables$<$ Type\-Variable $>$.Set\-Value (
@@ -254,7 +318,14 @@ Calls \hyperlink{classghost_1_1Variable_a94aabd7fa16ea55c30df67bc9b179300}{Varia
 {\em index} & is the index of the considered variable. If the index is out of range, the function does nothing. \\
 \hline
 \end{DoxyParams}
-
+\hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4_ac546924f8bab416aa499a427c81cf6c1}{\index{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}!Wipe\-Projected\-Cost@{Wipe\-Projected\-Cost}}
+\index{Wipe\-Projected\-Cost@{Wipe\-Projected\-Cost}!ghost::SetVariables< TypeVariable >@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}}
+\subsubsection[{Wipe\-Projected\-Cost}]{\setlength{\rightskip}{0pt plus 5cm}void ghost.\-Set\-Variables$<$ Type\-Variable $>$.Wipe\-Projected\-Cost (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classghost_1_1SetVariables_3_01TypeVariable_01_4_ac546924f8bab416aa499a427c81cf6c1}
+Set the projected cost of each variable to zero. 
 
 \subsection{Property Documentation}
 \hypertarget{classghost_1_1SetVariables_3_01TypeVariable_01_4_a1aa6a24ebcf2782dbd09e186e5c000d8}{\index{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$@{ghost\-::\-Set\-Variables$<$ Type\-Variable $>$}!Variables@{Variables}}

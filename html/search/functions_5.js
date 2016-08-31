@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['indexof',['IndexOf',['../classghost_1_1Domain.html#a9fa0bdeca5e9cda748defc7e060ff580',1,'ghost::Domain']]],
-  ['isinitialized',['IsInitialized',['../classghost_1_1Domain.html#a19610b0d083f6a47eeb867fbcf8c0522',1,'ghost::Domain']]],
-  ['isinset',['IsInSet',['../classghost_1_1SetVariables_3_01TypeVariable_01_4.html#a3554ef33a14c339391af02d0a04723b0',1,'ghost::SetVariables&lt; TypeVariable &gt;']]]
+  ['heuristicvalue',['HeuristicValue',['../classghost_1_1Objective_3_01TypeSetVariables_00_01TypeVariable_01_4.html#ababf3021752413ec655afb785d140627',1,'ghost::Objective&lt; TypeSetVariables, TypeVariable &gt;']]],
+  ['heuristicvariable',['HeuristicVariable',['../classghost_1_1Objective_3_01TypeSetVariables_00_01TypeVariable_01_4.html#a64c523482c82c5fcbffa31a0a57aeb48',1,'ghost::Objective&lt; TypeSetVariables, TypeVariable &gt;']]]
 ];
