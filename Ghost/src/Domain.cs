@@ -206,7 +206,7 @@ namespace ghost
 
     protected List< int > CurrentDomain { get; set; } /**< List of integers containing the current values of the domain */
     protected List< int > InitialDomain { get; set; } /**< List of integers containing the initial values of the domain */
-    public int OutsideScope { get; protected set; } /**< Value representing all values the domain */
+    public int OutsideScope { get; protected set; } /**< Value representing all values outside the domain */
     protected Random Random { get; set; } /**< A random generator only used in RandomValue() */
   }
 }
