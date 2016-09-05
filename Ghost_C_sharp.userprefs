@@ -4,7 +4,7 @@
     <Files>
       <File FileName="Ghost/src/Variable.cs" Line="1" Column="1" />
       <File FileName="Ghost/src/SetVariables.cs" Line="1" Column="1" />
-      <File FileName="Ghost/src/Domain.cs" Line="100" Column="6" />
+      <File FileName="Ghost/src/Domain.cs" Line="42" Column="75" />
       <File FileName="Ghost/src/Constraint.cs" Line="1" Column="1" />
       <File FileName="Ghost/src/Objective.cs" Line="1" Column="1" />
     </Files>
