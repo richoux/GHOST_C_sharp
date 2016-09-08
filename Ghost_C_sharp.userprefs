@@ -1,12 +1,12 @@
 ﻿<Properties StartupItem="GhostTest/GhostTest.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Ghost/src/Domain.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Ghost/src/Variable.cs">
     <Files>
-      <File FileName="Ghost/src/Variable.cs" Line="1" Column="1" />
-      <File FileName="Ghost/src/SetVariables.cs" Line="1" Column="1" />
-      <File FileName="Ghost/src/Domain.cs" Line="42" Column="75" />
+      <File FileName="Ghost/src/Variable.cs" Line="132" Column="25" />
+      <File FileName="Ghost/src/SetVariables.cs" Line="280" Column="5" />
+      <File FileName="Ghost/src/Domain.cs" Line="33" Column="1" />
       <File FileName="Ghost/src/Constraint.cs" Line="1" Column="1" />
-      <File FileName="Ghost/src/Objective.cs" Line="1" Column="1" />
+      <File FileName="Ghost/src/Objective.cs" Line="18" Column="72" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

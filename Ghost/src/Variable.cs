@@ -131,7 +131,7 @@ namespace ghost
         if( value == null )
           throw new ArgumentException("Variable cannot take a null domain", "value");
   
-        IndexDomain = value.OutsideScope;
+        IndexDomain = -1;
         _domain = value; 
       }
     }
